@@ -93,10 +93,12 @@ class LatexCommand(Command):
             swfk_tex.close()
         
             tex = 'swfk.tex'
-            spawn([latex, '--output-directory=%s' % target_dir, tex])
-
-            spawn([makeindex, '%s/swfk.idx' % target_dir])
-            spawn([latex, '--output-directory=%s' % target_dir, tex])
+            try:
+              spawn([latex, '--output-directory=%s' % target_dir, tex])
+              spawn([makeindex, '%s/swfk.idx' % target_dir])
+              spawn([latex, '--output-directory=%s' % target_dir, tex])
+            except: 
+              pass
 
             pdf = '%s/swfk-%s-%s%s.pdf' % (target_dir, platform, version, fname_suffix)
             spawn([dvipdf, '%s/swfk.dvi' % target_dir, pdf])
