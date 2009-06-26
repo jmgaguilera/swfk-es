@@ -431,7 +431,7 @@ Tengo 12 años
 \end{verbatim}
 \end{listing}
 
-En la primera línea, creamos la variable mitexto con una cadena que contiene algunas palabras y un marcador (\%s). El \%s es una especie de señal que le dice ``sustitúyeme con algo'' a la consola de Python. Así que en la siguiente línea, cuando ejecutamos \code{print(mytext)}, usamos el símbolo \%, para decirle a Python que reemplace el marcador con el número 12. Podemos reutilizar esa cadena y pasarle diferentes valores:
+En la primera línea, creamos la variable mitexto con una cadena que contiene algunas palabras y un marcador (\%s). El \%s es una especie de señal que le dice ``sustitúyeme con algo'' a la consola de Python. Así que en la siguiente línea, cuando ejecutamos \code{print(mitexto)}, usamos el símbolo \%, para decirle a Python que reemplace el marcador con el número 12. Podemos reutilizar esa cadena y pasarle diferentes valores:
 
 \begin{listing}
 \begin{verbatim}
@@ -459,177 +459,176 @@ Cuando utilizas más de un marcador, necesitas que los valores que se usan para 
 
 \section{No es la lista de la compra}\index{lists}
 
-Eggs, milk, cheese, celery, peanut butter, and baking soda.  Which is not quite a full shopping list, but good enough for our purposes. If you wanted to store this in a variable you could create a string:
+Huevos, leche, queso, apio, manteca de cahauetes, y levadura. Esto no es una lista de la compra completa, pero nos sirve para nuestros propósitos. Si quisieras almacenar esto en una variable podrías pensar en crear una cadena:
 
 \begin{listing}
 \begin{verbatim}
->>> shopping_list = 'eggs, milk, cheese, celery, peanut butter, baking soda'
->>> print(shopping_list)
-eggs, milk, cheese, celery, peanut butter, baking soda
+>>> lista_de_la_compra = 'huevos, leche, queso, apio, manteca de cacahuetes, levadura'
+>>> print(lista_de_la_compra)
+huevos, leche, queso, apio, manteca de cacahuetes, levadura
 \end{verbatim}
 \end{listing}
 
-Another way would be to create a `list', which is a special kind of object in Python:
+Otro modo de hacerlo sería crear una `lista', que es una clase especial de objetos de Python:
 
 \begin{listing}
 \begin{verbatim}
->>> shopping_list = [ 'eggs', 'milk', 'cheese', 'celery', 'peanut butter', 
-... 'baking soda' ]
->>> print(shopping_list)
-['eggs', 'milk', 'cheese', 'celery', 'peanut butter', 'baking soda']
+>>> lista_de_la_compra = [ 'huevos', 'leche', 'queso', 'apio', 'manteca de cacahuetes',
+...'levadura' ]
+>>> print(lista_de_la_compra)
+['huevos', 'leche', 'queso', 'apio', 'manteca de cacahuetes', 'levadura']
 \end{verbatim}
 \end{listing}
 
-This is more typing, but it's also more useful.  We could print the 3rd item in the list by using its position (called its index position), inside square brackets []:
+Aunque supone teclear más, también es más útil. Podríamos imprimir el tercer elemento en la lista utilizando su posición (al número que refleja la posición de un elemento se le denomina índice), dentro de unos corchetes []: 
 
 \begin{listing}
 \begin{verbatim}
->>> print(shopping_list[2])
-cheese
+>>> print(lista_de_la_compra[2])
+queso
 \end{verbatim}
 \end{listing}
 
-Lists start at index position 0---so the first item in a list is 0, the second is 1, the third is 2.  That doesn't make a lot of sense to most people, but it does to programmers.  Pretty soon, when you walk up some stairs you'll start counting with zero rather than one.  That will really confuse your little brother or sister.
+Las listas comienzan a contarse en la posición con número de índice 0---es decir, el primer elemento de una lista es el 0, el segundo es el 1, el tercero es el 2. Esto no tiene mucho sentido para la mayoría de la gente, pero lo tiene para los programadores. Muy pronto te acostumbrarás y cuando estés subiendo unas escaleras, comenzarás a contar los escalones desde cero en lugar que comenzando desde uno. Lo que despistará a tu hermano o hermana pequeña.
 \par
-We can show all the items from the 3rd item up to the 5th in the list, by using a colon inside the square brackets:
+También podemos seleciconar todos los elementos que van desde el tercero al quinto de la lista, para elo utilizamos el símbolo de los dos puntos dentro de los corchetes:
 
 \begin{listing}
 \begin{verbatim}
->>> print(shopping_list[2:5])
-['cheese', 'celery', 'peanut butter']
+>>> print(lista_de_la_compra[2:5])
+['queso', 'apio', 'manteca de cacahuetes']
 \end{verbatim}
 \end{listing}
 
-[2:5] is the same as saying that we are interested in items from index position 2 up to (but not including) index position 5.  And, of course, because we start counting with 0, the 3rd item in the list is actually number 2, and the 5th item is actually number 4. Lists can be used to store all sorts of items.  They can store numbers:
+[2:5] es lo mismo que decir que estamos interesados en los elementos que van desde la posición de índice 2 hasta (pero sin incluirla) la posición de índice 5. Y desde luego, como comenzamos a contar con el cero, el tercer elemento en la lista es el número 2, y el quinto es el número 4. Las listas se pueden utilizar para almacenar toda clase de objetos.  Pueden almacenar números:
 
 \begin{listing}
 \begin{verbatim}
->>> mylist = [ 1, 2, 5, 10, 20 ]
-\end{verbatim}
-\end{listing}
-
-\noindent
-And strings:
-
-\begin{listing}
-\begin{verbatim}
->>> mylist = [ 'a', 'bbb', 'ccccccc', 'ddddddddd' ]
+>>> milista = [ 1, 2, 5, 10, 20 ]
 \end{verbatim}
 \end{listing}
 
 \noindent
-And mixtures of numbers and strings:
+Y cadenas:
 
 \begin{listing}
 \begin{verbatim}
->>> mylist = [1, 2, 'a', 'bbb']
->>> print(mylist)
+>>> milista = [ 'a', 'bbb', 'ccccccc', 'ddddddddd' ]
+\end{verbatim}
+\end{listing}
+
+\noindent
+Y mezcla de números y cadenas:
+
+\begin{listing}
+\begin{verbatim}
+>>> milista = [1, 2, 'a', 'bbb']
+>>> print(milista)
 [1, 2, 'a', 'bbb']
 \end{verbatim}
 \end{listing}
 
 \noindent
-And even lists of lists:
+E incluso listas de listas:
 
 \begin{listing}
 \begin{verbatim}
->>> list1 = [ 'a', 'b', 'c' ]
->>> list2 = [ 1, 2, 3 ]
->>> mylist = [ list1, list2 ]
->>> print(mylist)
+>>> lista1 = [ 'a', 'b', 'c' ]
+>>> lista2 = [ 1, 2, 3 ]
+>>> milista = [ lista1, lista2 ]
+>>> print(milista)
 [['a', 'b', 'c'], [1, 2, 3]]
 \end{verbatim}
 \end{listing}
 
-In the above example, a variable called `list1' is created with 3 letters, `list2' is created with a 3 numbers, and `mylist' is created using list1 and list2. Things can get rather confusing, rather quickly, if you start creating lists of lists of lists of lists$\ldots$ but luckily there's not usually much need for making things that complicated in Python. Still it is handy to know that you can store all sorts of items in a Python list.
+En el ejemplo anterior se crea la variable `lista1' para contener 3 letras, la lista `lista2' se crea con 3 números, y `milista' se crea utilizando a las variables lista1 y lista2. Como ves, las cosas se complican rápidamente cuando empiezas a crear listas de listas de listas de listas$\dots$ pero afortunadamente normalmente no hay ninguna necesidad de complicarlo tanto en Python. De todos modos sigue siendo útil conocer que puedes almacenar toda clase de elementos en una lista de Python. 
 
 \noindent
-\emph{And not just your shopping.}
+\emph{Y no únicamente para hacer la compra.}
 
-\subsection*{\color{BrickRed}Replacing items}\index{lists!replacing}
+\subsection*{\color{BrickRed}Sustituyendo elementos}\index{lists!replacing}
 
-We can replace an item in the list, by setting its value in a similar way to setting the value of a normal variable. For example, we could change celery to lettuce by setting the value in index position 3:
+Podemos reemplazar un elemento en la lista asignándole un valor de la misma forma en que se hace con una variable corriente. Por ejemplo, podríamos cambiar el apio por lechuga asignando el valor nuevo a la posición de índice 3:
 
 \begin{listing}
 \begin{verbatim}
->>> shopping_list[3] = 'lettuce'
->>> print(shopping_list)
-['eggs', 'milk', 'cheese', 'lettuce', 'peanut butter', 'baking soda']
+>>> lista_de_la_compra[3] = 'lechuga'
+>>> print(lista_de_la_compra)
+['huevos', 'leche', 'queso', 'lechuga', 'manteca de cacahuetes', 'levadura']
 \end{verbatim}
 \end{listing}
 
-\subsection*{\color{BrickRed}Adding more items...}\index{lists!appending}
+\subsection*{\color{BrickRed}Añadiendo más elementos...}\index{lists!appending}
 
-We can add items to a list by using a method called `append'.  A method is an action or command that tells Python that we want to do something.  We'll talk more about methods later, but for the moment, to add an item to our shopping list, we can do the following:
+Podemos añadir elementos a una lista utilizando el método denominado `append' (que en inglés significa `añadir'). Un método es una acción u orden que le dice a Python que queremos que haga algo. Más tarde hablaremos más de ellos, por el momento, recuerda que para añadir un elemento a nuestra lista de la compra, podemos hacer lo siguiente: 
 
 \begin{listing}
 \begin{verbatim}
->>> shopping_list.append('chocolate bar')
->>> print(shopping_list)
-['eggs', 'milk', 'cheese', 'lettuce', 'peanut butter', 'baking soda', 
-'chocolate bar']
+>>> lista_de_la_compra.append('chocolate')
+>>> print(lista_de_la_compra)
+['huevos', 'leche', 'queso', 'lechuga', 'manteca de cacahuetes', 'levadura', 'chocolate']
 \end{verbatim}
 \end{listing}
 
-Which, if nothing else, is certainly an improved shopping list.
+Al menos ahora sí que hemos mejorado la lista de la compra.
 
-\subsection*{\color{BrickRed}$\ldots$and removing items}\index{lists!removing}
+\subsection*{\color{BrickRed}$\ldots$ y suprimiendo elementos}\index{lists!removing}
 
-We can remove items from a list by using the command `del' (short for delete).  For example, to remove the 6th item in the list (baking soda):
+Podemos quitar elementos de una lista mediante el uso de la orden `del' (que es una forma corta de escribir delete, que en inglés significa `borrar').  Por ejemplo, para eliminar el sexto elemento de la lista (levadura) podemos escribir:
 
 \begin{listing}
 \begin{verbatim}
->>> del shopping_list[5]
->>> print(shopping_list)
-['eggs', 'milk', 'cheese', 'lettuce', 'peanut butter', 'chocolate bar']
+>>> del lista_de_la_compra[5]
+>>> print(lista_de_la_compra)
+['huevos', 'leche', 'queso', 'lechuga', 'manteca de cacahuetes', 'chocolate']
 \end{verbatim}
 \end{listing}
 
-Remember that positions start at zero, so shopping\_list[5] actually refers to the 6th item.
+Recuerda que las posiciones comienzan a contar desde cero, por lo que lista\_de\_la\_compra[5] se refiere en realidad al sexto elemento.
 
-\subsection*{\color{BrickRed}2 lists are better than 1}\index{lists!joining}
+\subsection*{\color{BrickRed}2 listas mejor que 1}\index{lists!joining}
 
-We can join lists together by adding them, as if we were adding two numbers:
+Podemos unir listas mediante el operador de suma, como si estuvieramos sumando dos números:
 
 \begin{listing}
 \begin{verbatim}
->>> list1 = [ 1, 2, 3 ]
->>> list2 = [ 4, 5, 6 ]
->>> print(list1 + list2)
+>>> lista1 = [ 1, 2, 3 ]
+>>> lista2 = [ 4, 5, 6 ]
+>>> print(lista1 + lista2)
 [1, 2, 3, 4, 5, 6]
 \end{verbatim}
 \end{listing}
 
 \noindent
-We can also add the two lists and set the result to another variable:
+También podemos juntar las dos listas y asignar la lista resultante a otra variable:
 
 \begin{listing}
 \begin{verbatim}
->>> list1 = [ 1, 2, 3 ]
->>> list2 = [ 4, 5, 6 ]
->>> list3 = list1 + list2
->>> print(list3)
+>>> lista1 = [ 1, 2, 3 ]
+>>> lista2 = [ 4, 5, 6 ]
+>>> lista3 = lista1 + lista2
+>>> print(lista3)
 [1, 2, 3, 4, 5, 6]
 \end{verbatim}
 \end{listing}
 
 \noindent
-And you can multiply a list in the same way we multiplied a string:
+Y puedes multiplicar una lista de la misma forma que multiplicamos una cadena (recuerda que la multiplicación de una cadena por un número lo que hace es crear una cadena que repite tantas veces la original como el número por el que multiplicas):
 
 \begin{listing}
 \begin{verbatim}
->>> list1 = [ 1, 2 ]
->>> print(list1 * 5)
+>>> lista1 = [ 1, 2 ]
+>>> print(lista1 * 5)
 [1, 2, 1, 2, 1, 2, 1, 2, 1, 2]
 \end{verbatim}
 \end{listing}
 
 \noindent
-In the above example, multiplying list1 by five is another way of saying ``repeat list1 five times''. However, division (/) and subtraction (-) don't make sense when working with lists, so you'll get errors when trying the following examples:
+En el ejemplo anterior multiplicar lista1 por cinco lo que significa es ``repite la lista1 cinco veces''. Sin embargo, no tiene sentido utilizar la división (/) ni la resta (-) cuando estamos trabajando con listas, por eso Python mostrará errores cuando intentas ejecutar los siguientes ejemplos:
 
 \begin{listing}
 \begin{verbatim}
->>> list1 / 20
+>>> lista1 / 20
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: unsupported operand type(s) for /: 'list' and 'int'
@@ -637,11 +636,11 @@ TypeError: unsupported operand type(s) for /: 'list' and 'int'
 \end{listing}
 
 \noindent
-or:
+o:
 
 \begin{listing}
 \begin{verbatim}
->>> list1 - 20
+>>> lista1 - 20
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 TypeError: unsupported operand type(s) for -: 'type' and 'int'
@@ -649,11 +648,11 @@ TypeError: unsupported operand type(s) for -: 'type' and 'int'
 \end{listing}
 
 \noindent
-You'll get a rather nasty error message.
+El resultado será un mensaje de error bastante feo.
 
-\section{Tuples and Lists}\label{tuplesandlists}\index{tuples}
+\section{Tuplas and Listas}\label{tuplesandlists}\index{tuples}
 
-A tuple (mentioned earlier) is a little bit like a list, but rather than using square brackets, you use round brackets---e.g. `(' and `)'.  You can use tuples in a similar way to a list:
+Una tupla (mencionada anteriormente) es una cosa parecida a una lista, la diferencia es que en lugar de utilizar corchetes, utilizas paréntes---por ejemplo `(' y `)'. Las tuplas funcionan de forma similar a las listas:
 
 \begin{listing}
 \begin{verbatim}
@@ -663,7 +662,7 @@ A tuple (mentioned earlier) is a little bit like a list, but rather than using s
 \end{verbatim}
 \end{listing}
 
-The main difference is that, unlike lists, tuples can't change, once you've created them.  So if you try to replace a value like we did earlier with the list, you'll get another error message:
+La diferencia principal es que, a diferencia de las listas, las tuplas no se pueden modificar después de haberlas creado. Por eso si intentas reemplazar un valor como hicimos antes en la lista, lo que hace Python es dar un mensaje de error.
 
 \begin{listing}
 \begin{verbatim}
@@ -674,30 +673,30 @@ TypeError: 'tuple' object does not support item assignment
 \end{verbatim}
 \end{listing}
 
-That doesn't mean you can't change the variable containing the tuple to something else.  For example, this code will work fine:
+Eso no significa que no puedas cambiar el contenido de la variable para que en lugar de contener a la tupla, contenga otra cosa. Este código funcionará sin problemas:
 
 \begin{listing}
 \begin{verbatim}
->>> myvar = (1, 2, 3)
->>> myvar = [ 'a', 'list', 'of', 'strings' ]
+>>> mivar = (1, 2, 3)
+>>> mivar = [ 'una', 'lista', 'de', 'cadenas' ]
 \end{verbatim}
 \end{listing}
 
-First we create the variable \code{myvar} pointing to a tuple of 3 numbers.  Then we change \code{myvar} to point at a list of strings. This might be a bit confusing at first.  But think of it like lockers in a school.  Each locker has a name tag on it. You put something in the locker, close the door, lock it, then throw away the key.  You then peel the name tag off, wander over to another empty locker, and stick something else in that (but this time you keep the key).  A tuple is like the locked locker.  You can't change what's inside it.  But you can take the label off and stick it on an unlocked locker, and then put stuff inside that locker and take stuff out---that's the list.
+En primer lugar hemos creado la variable \code{mivar} que apunta a una tupla compuesta por 3 números. Luego modificamos \code{mivar} para que apunte a una lista de cadenas. Al principio te puede resultar algo confuso. Pero trata de pensar en las taquillas del gimnasio o del colegio, cada taquilla está etiquetada con un nombre. Pones cualquier cosa en la taquilla, cierras la puerta con llave y después la tiras. Entonces le arrancas la etiqueta y te vas a otra taquilla vacía, le pones la etiqueta que te llevaste y metes algo dentro (pero esta vez te quedas con la llave). Una tupla es como una taquilla cerrada. No puedes modificar lo que hay dentro. Pero puedes llevarte la etiqueta (la variable) y y pegarla en otra taquilla abierta, y entonces puedes poner cosas dentro de ella y sacar cosas de ella---así son las listas.
 
-\section{Things to try}
+\section{Cosas que puedes probar}
 
-\emph{In this chapter we saw how to calculate simple mathematical equations using the Python console.  We also saw how brackets can change the result of an equation, by controlling the order that operators are used.  We found out how to tell Python to remember values for later use---using variables---plus how Python uses `strings' for storing text, and lists and tuples, for handling more than one item.}
+\emph{En este capítulo hemos visto cómo hacer cálculos con fórmulas matemáticas simples utilizando la consola de Python. También hemos visto cómo los paréntesis pueden modificar el resultado de una fórmula, al controlar el orden en que se calculan las operaciones. Hemos aprendido cómo decirle a Python que recuerde valores para usarlos más tarde---utilizando variables---además de aprender a usar las `cadenas' de Python para almacenar textos, y cómo usar las listas y las tuplas para almacenar más de un elemento.}
 \par
 
-\subsection*{Exercise 1}
-Make a list of your favourite toys and name it \code{toys}.  Make a list of your favourite foods and name it \code{foods}.  Join these two lists and name the result \code{favourites}.  Finally print the variable \code{favourites}.
+\subsection*{Ejercicio 1}
+Crea una lista de tus juguetes favoritos y llámala \code{juguetes}. Crea una lista de tus comidas favoritas y llámala \code{comidas}. Une las dos listas y llama al resultado \code{favoritos}. Finalmente imprime la variable \code{favoritos}.
 
-\subsection*{Exercise 2}
-If you have 3 boxes containing 25 chocolates, and 10 bags containing 32 sweets, how many sweets and chocolates do you have in total?  (Note: you can do this with one equation with the Python console)
+\subsection*{Ejercicio 2}
+Si tienes 3 cajas que contienen 25 chocolates cada una, y 10 bolsas que contienen 32 caramelos cada una, ¿cuántos dulces y chocolates tienes en total? (Nota: puedes calcularlo con una fórmula en la consola de Python)
 
-\subsection*{Exercise 3}
-Create variables for your first and last name. Now create a string and use placeholders to add your name.
+\subsection*{Ejercicio 3}
+Crea variables para almacenar tu nombre y tus apellidos. Después crea una cadena con un texto que quieras e incluye marcadores para añadir tu nombre y apellidos. Imprime el resultado para verlo en la consola de Python. 
 
 
 \newpage
