@@ -4,9 +4,9 @@
 % or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
 
 
-\chapter{Turtles galore}\index{turtle!advanced}\label{ch:turtlesgalore}
+\chapter{Tortugas en abundancia}\index{turtle!avanzado}\label{ch:turtlesgalore}
 
-Let's get back to the \code{turtle} module we started looking at in Chapter~\ref{ch:turtles}. Remember that to setup the canvas for the turtle to draw on, we need to import the module and the create the `Pen' object:
+Volvamos al módulo \code{turtle} que comenzamos a usar en el Capítulo~\ref{ch:turtles}. Recuerda que para crear el lienzo sobre que el la tortuga dibuja, necesitamos importar el módulo y crear el objeto `Pen' (el rotulador):
 
 \begin{listing}
 \begin{verbatim}
@@ -15,7 +15,7 @@ Let's get back to the \code{turtle} module we started looking at in Chapter~\ref
 \end{verbatim}
 \end{listing}
 
-We can now use basic functions to move the turtle around the canvas and draw simple shapes, but it's more interesting to use some of what we've already covered in the previous chapters.  For example, the code we used to create a square earlier was:
+Ahora podemos usar algunas funciones básicas para mover la tortuga por el lienzo y dibujar formas simples, pero es más interesante utilizar lo que hemos aprendido en los capítulos anteriores.  Por ejemplo, el código que utilizamos para crear un cuadrado era algo así:
 
 \begin{listing}
 \begin{verbatim}
@@ -29,7 +29,7 @@ We can now use basic functions to move the turtle around the canvas and draw sim
 \end{listing} 
 
 \noindent
-We can rewrite this using a for-loop:
+Ahora lo podemos reescribir utilizando un bucle for:
 
 \begin{listing}
 \begin{verbatim}
@@ -41,7 +41,7 @@ We can rewrite this using a for-loop:
 \end{verbatim}
 \end{listing}
 
-This is certainly less typing, but for something a bit more interesting, try the following:
+Así hay que teclear menos, pero aún podemos hacer cosas más interesantes, intenta lo siguiente:
 
 \begin{listing}
 \begin{verbatim}
@@ -53,17 +53,17 @@ This is certainly less typing, but for something a bit more interesting, try the
 \end{verbatim}
 \end{listing}
 
-This code produces the 8-point star shown in figure~\ref{fig20} (the turtle turns 225 degrees, each time it goes forward 100 pixels).
+Este código genera una estrella de 8 puntas como la que se muestra en la figura~\ref{fig20} (Cada una de las ocho veces, la tortuga gira 225 grados y se mueve 100 píxeles).
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=72mm]{figure20.eps}
 \end{center}
-\caption{The turtle drawing an 8-point star.}\label{fig20}
+\caption{La tortuga dibujando una estrella de 8 puntas.}\label{fig20}
 \end{figure}
 
 \noindent
-With a different angle (175 degrees), and a longer loop (37 times), we can make a star with even more points (shown in figure~\ref{fig21}):
+Con un ángulo diferente (175 grados), y un bucle mayor (37 veces), podemos dibujar una estrella con más puntas (se muestra en la figura~\ref{fig21}):
 
 \begin{listing}
 \begin{verbatim}
@@ -79,11 +79,11 @@ With a different angle (175 degrees), and a longer loop (37 times), we can make 
 \begin{center}
 \includegraphics[width=72mm]{figure21.eps}
 \end{center}
-\caption{A star with a lot more points.}\label{fig21}
+\caption{Una estrella con más puntas.}\label{fig21}
 \end{figure}
 
 \noindent
-Or how about the following code, which produces the spiral-like star figure~\ref{fig22}.
+O el código siguiente, que genera una estrella en espiral como la de la figura~\ref{fig22}.
 
 \begin{listing}
 \begin{verbatim}
@@ -98,11 +98,11 @@ Or how about the following code, which produces the spiral-like star figure~\ref
 \begin{center}
 \includegraphics[width=72mm]{figure22.eps}
 \end{center}
-\caption{A star with a lot more points.}\label{fig22}
+\caption{Una estrella con más puntas.}\label{fig22}
 \end{figure}
 
 \noindent
-Here's something a bit more complicated:
+Esto es algo más complicado:
 
 \begin{listing}
 \begin{verbatim}
@@ -117,18 +117,18 @@ Here's something a bit more complicated:
 \end{verbatim}
 \end{listing}
 
-In the above code, we check to see if the variable \code{x} contains an even number.  To do this we use what is called a modulo operator (\%)\index{modulo operator}, in the expression: \code{x \% 2 == 0}.
+En el código anterior, chequeamos la variable \code{x} para ver si contiene un número par.  Para hacerlo utilizamos el operador denominado módulo (\%)\index{operador módulo}, con la expresión \code{x \% 2 == 0}, que pregunta si el resto de la división entre 2 es cero.
 \par
-x \% 2 is equal to zero, if the number in variable \code{x} can be divided by two, with nothing left over (no remainder)---if this doesn't make much sense, don't worry too much about it, just remember you can use `\code{x \% 2 == 0}' to check if a number in a variable is an even number.  The result of running this code is the 9-point star in figure~\ref{fig23}.
+x \% 2 es cero si el número que contenga la variable \code{x} es divisible entre 2, si es divisible entre dos no queda nada del resto de la división, el resto es cero (que es lo que hace el operador módulo, retornar el valor del resto de la división)---si no lo ves muy claro, no te preocupes, simplemente trata de recordar que puedes utilizar `\code{x \% 2 == 0}' para validar si el valor en una variable es un número par.  El resultado de ejecutar este código es una estrella de nueve puntas como la de la figura~\ref{fig23}.
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=84mm]{figure23.eps}
 \end{center}
-\caption{A 9-point star.}\label{fig23}
+\caption{Una estrella de nueve puntas.}\label{fig23}
 \end{figure}
 
-You don't have to just draw stars and simple geometric shapes, using a combination of the functions calls, your turtle can draw many different things.  For example:
+No sólo puedes dibujar estrellas y figuras geométricas simples, utilizando una combinación de llamadas a función, la tortuga puede dibujar muchas cosas diferentes. Por ejemplo:
 
 \begin{listing}
 \begin{verbatim}
@@ -171,24 +171,24 @@ t.end_fill()
 \end{listing}
 
 \noindent
-Which is a long, long, long, drawn-out way to draw the rather ugly and primitive-looking car in figure~\ref{fig24}. But it does demonstrate a couple of other turtle functions:  \code{color}, to change the colour of the pen being used by the turtle; \code{fill}, which fills in an area of the canvas; and \code{circle}, to draw a circle of a particular size.
+Lo que resulta muy largo de dibujar. El resultado es un coche algo feo y primitivo como el de la figura~\ref{fig24}. De todos modos nos sirve para demostrar un par de otras funciones de la tortuga:  \code{color}, para cambiar el color del rotulador que está utilizando la tortuga; \code{begin\_fill} y \code{end\_fill}, para rellenar un área del lienzo; and \code{circle}, para dibujar un círculo del tamaño indicado.
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=80mm]{figure24.eps}
 \end{center}
-\caption{The turtle is terrible at drawing cars!}\label{fig24}
+\caption{¡La tortuga es bastante mala dibujando coches!}\label{fig24}
 \end{figure}
 
-\section{Colouring in}
+\section{Coloreando}
 
-The \code{color}\index{turtle!color} function takes 3 parameters. The first parameter is a value for red, the second is a value for green, and the last is a value for blue.
+La función \code{color}\index{turtle!color} recibe 3 parámetros. El primero es un valor para el color rojo, el segundo es para el color verde y el tercero para el azul.
 \par
-\emph{Why red, green and blue?}
+\emph{¿Por qué rojo, verde y azul?}
 \par
-If you've ever played around with different colours of paint, you'll already know part of the answer to that question.  When you mix two different paint colours, you get another colour\footnote{Actually, the three \textbf{primary} paint colours are red, yellow and blue, and not the red/green/blue (RGB) on a computer.}.  When you mix blue and red together, you get purple$\ldots$ and when you mix too many colours together, you usually get a muddy brown. On a computer you can mix colours together in a similar fashion---put red and green together to get yellow---except with a computer, we are combining colours of light, not colours of paint.
+Si sabes pintar, seguro que conocer parte de la respuesta a esta pregunta.  Cuando mezclas dos pinturas de colores diferentes, el resultado es otro color\footnote{En realidad, los tres \textbf{colores primarios} en pintura son rojo, amarillo y azul,  y no rojo/verde/azul (RGB), que lo son en los ordenadores.}.  Cuando mezclas azul y rojo, obtienes el púrpura$\ldots$ y cuando mezclas demasiados colores juntos sueles obtene un marrón sucio.  En un ordenador puedes mezclar colores de la misma manera---junta rojo y verde y tendrás el amarillo---la diferencia es que en un ordenador estamos mezclando luz de colores, no pintura de colores.
  
-Even though we're not using paint, for a moment, think about 3 large pots of paint.  One red, one green, and one blue.  Each pot is full, so we'll say that a full pot of paint has a value of 1 (or 100\%).  We then pour all of the red paint (100\%) into a vat, followed by all of the green paint (again 100\%).  After a bit of mixing, we get a yellow colour.  Let's draw a yellow circle using turtle:
+Aunque no estemos utilizando pintura, por un momento piensa en tres grandes botes de pintura.  Rojo, verde y azul.  Cada bote está lleno, por lo que diremos que el bote lleno de pintura vale 1 (o 100\%).  En un batidor podemos poner el bote entero de pintura roja (100\%), y después añadimos el bote completo de pintura verde (de nuevo el 100\%).  Despues de mezclarlos el resultado será el color amarillo.  Vamos a dibujar un círculo amarillo con la tortuga:
 
 \begin{listing}
 \begin{verbatim}
@@ -199,12 +199,12 @@ Even though we're not using paint, for a moment, think about 3 large pots of pai
 \end{verbatim}
 \end{listing}
 
-So in the above example, we call the color function with 100\% for red, 100\% for green and 0\% for blue (in other words, 1, 1, and 0).  To make it easier to experiment with different colours, let's turn that into a function:
+Lo que se hace en el ejemplo anterior es ejecutar la función color con los colores rojo y verde al 100\% y 0\% para el color azul (en otras palabras, 1, 1, y 0).  Para hacer más sencillo el experimentar con differentes colores, vamos a convertir el código anterior en una función que dibuje círculos de colores:
 
 \begin{listing}
 \begin{verbatim}
->>> def mycircle(red, green, blue):
-...     t.color(red, green, blue)
+>>> def micirculo(rojo, verde, azul):
+...     t.color(rojo, verde, azul)
 ...     t.begin_fill()
 ...     t.circle(50)
 ...     t.end_fill()
@@ -213,98 +213,98 @@ So in the above example, we call the color function with 100\% for red, 100\% fo
 \end{listing}
 
 \noindent
-We can draw a bright green circle, by using all of the green paint (1 or 100\%):
+Podemos dibujar un círculo verde brillante utilizando todo el bote de pintura verde (1 o 100\%):
 
 \begin{listing}
 \begin{verbatim}
->>> mycircle(0, 1, 0)
+>>> micirculo(0, 1, 0)
 \end{verbatim}
 \end{listing}
 
 \noindent
-And we can draw a darker green circle, by using only half the green paint (0.5 or 50\%):
+Y podemos dibujar un círculo verde más oscuro utilizando solamente la mitad de la pintura verde (0.5 o 50\%)
 
 \begin{listing}
 \begin{verbatim}
->>> mycircle(0, 0.5, 0)
+>>> micirculo(0, 0.5, 0)
 \end{verbatim}
 \end{listing}
 
-Here's where thinking about paint doesn't make much sense any more.  In the real world, if you've got a pot of green paint, it doesn't matter how much you use, it's still going to look the same.  With colours on a computer, because we're playing with light, using less of that colour generally results in a darker shade.  It's the same as if you shine a torch at night, you get a yellowish light---when the batteries start to run out and the light begins to fade, the yellow colour gets darker and darker.  Just to see for yourself, try drawing a circle with full red and half red (1 and 0.5), and full blue and half blue.
+En este momento ya no tiene mucho sentido seguir pensando en pintura. En el mundo real, si tienes un bote de pintura verde, no importa cuanto utilices, siempre será el mismo color.  Con los colores en un ordenador lo que estamos haciendo es jugar con luz, si usamos menos luz de un color lo que sucede es que se ve más oscuro.  Es lo mismo que cuando enciendes una linterna por la noche, la luz es amarillenta---cuando las pilas se empiezan a gastar cada vez hay menos luz y el color amarillo se va haciendo cada vez más oscuro, hasta que se apaga del todo y se queda todo oscuro (o negro).  Para que lo veas por tí mismo, intenta dibujar círculos con el color rojo al máximo y con el color rojo a la mitad (1 y 0.5), y luego prueba lo mismo con el azul.
 
 \begin{listing}
 \begin{verbatim}
->>> mycircle(1, 0, 0)
->>> mycircle(0.5, 0, 0)
+>>> micirculo(1, 0, 0)
+>>> micirculo(0.5, 0, 0)
 
->>> mycircle(0, 0, 1)
->>> mycircle(0, 0, 0.5)
-\end{verbatim}
-\end{listing}
-
-\noindent
-Different combinations of red, green and blue will produce a huge variety of colours.  You can get a gold colour by using 100\% of red, 85\% of green and no blue:
-
-\begin{listing}
-\begin{verbatim}
->>> mycircle(1, 0.85, 0)
+>>> micirculo(0, 0, 1)
+>>> micirculo(0, 0, 0.5)
 \end{verbatim}
 \end{listing}
 
 \noindent
-A light pink colour can be achieved by combining 100\% red, 70\% green and 75\% blue:
+Utilizando diferentes combinaciones de rojo, verde y azul se puede generar una amplia variedad de colores.  Por ejemplo, puedes conseguir el color dorado utilizando el 100\% de rojo, 85\% de verde y nada de azul:
 
 \begin{listing}
 \begin{verbatim}
->>> mycircle(1, 0.70,0.75)
+>>> micirculo(1, 0.85, 0)
 \end{verbatim}
 \end{listing}
 
 \noindent
-And you get orange by combining 100\% red and 65\% green; and brown by combining 60\% red, 30\% green and 15\% blue:
+El color rosa claro se puede conseguir combinando el 100\% de rojo, 70\% de verde y 75\% de azul:
 
 \begin{listing}
 \begin{verbatim}
->>> mycircle(1, 0.65, 0)
->>> mycircle(0.6, 0.3, 0.15)
+>>> micirculo(1, 0.70,0.75)
 \end{verbatim}
 \end{listing}
 
 \noindent
-Don't forget, you can clear the canvas by using \code{t.clear()}.
+El naranja se puede conseguir combinando el 100\% de rojo y el 65\% de verde, y el marrón mezclando 60\% de rojo, 30\% de verde y 15\% de azul:
 
-\section{Darkness}\index{turtle!color!black}
+\begin{listing}
+\begin{verbatim}
+>>> micirculo(1, 0.65, 0)
+>>> micirculo(0.6, 0.3, 0.15)
+\end{verbatim}
+\end{listing}
 
-Here's a question for you:  What happens when you turn all the lights off at night? Everything goes black.
+\noindent
+No olvides que puedes limpiar el lienzo cuando quieras utilizando \code{t.clear()}. O reiniciar la todo el lienzo, incluida la posición de la tortuga con la sentencia \code{t.reset()}.
+
+\section{Oscuridad}\index{turtle!color!negro}
+
+Tengo una pregunta para ti: ¿Qué sucede por la noche cuando apagas las luces? Todo se queda negro.
 \par
-The same thing happens with colours on a computer.  No light equals no colour.  So a circle with 0 for red, 0 for green and 0 for blue:
+En un ordenador sucede lo mismo con los colores.  Si no hay luz no hay colores. Por eso el valor del negro en un ordenador es 0 para el rojo, 0 para el verde y 0 para el azul:
 
 \begin{listing}
 \begin{verbatim}
->>> mycircle(0, 0, 0)
+>>> micirculo(0, 0, 0)
 \end{verbatim}
 \end{listing}
 
-Produces the black spot in figure~\ref{fig25}.
+Genera un circulo negro como el de la figura~\ref{fig25}.
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=85mm]{figure25.eps}
 \end{center}
-\caption{A black hole!}\label{fig25}
+\caption{¡Un agujero negro!}\label{fig25}
 \end{figure}
 
-The opposite is true; if you use 100\% red, 100\% green and 100\% blue, you get white.  Use the following code and the black circle will be wiped out again:
+Lo contrario también es cierto; si utilizas el 100\% en el rojo, verde y azul, el color que sale es el blanco.  Utiliza el código siguiente y desaparecerá el circulo negro:
 
 \begin{listing}
 \begin{verbatim}
->>> mycircle(1,1,1)
+>>> micirculo(1,1,1)
 \end{verbatim}
 \end{listing}
 
-\section{Filling things}\index{turtle!fill}
+\section{Rellenando las cosas}\index{turtle!fill}
 
-You've probably figured out by now that the fill function is switched on by passing the parameter `1', then switched off again with `0'. When you switch it off, the function actually fills in the area you've drawn---assuming you've drawn at least part of a shape. So we can easily draw a filled in square by using code we created earlier. First, let's turn it into a function. To draw a square with turtle we do:
+Probablemente te has dado cuenta ya de que la función begin\_fill activa el relleno de figuras y la función end\_fill finaliza el relleno.  Vamos a hacerlo con un cuadrado a partir del código anterior. En primer lugar lo vamos a convertir en una función. Para dibujar un cuadrado con la tortuga hacemos lo siguiente:
 
 \begin{listing}
 \begin{verbatim}
@@ -319,66 +319,66 @@ You've probably figured out by now that the fill function is switched on by pass
 \end{verbatim}
 \end{listing}
 
-So as a function, we might want to pass the size of the square as a parameter.  This makes the function a little more flexible:
+Al convertirlo en una función podríamos pasarle como parámetro el tamaño que deseamos para el cuadrado. Así, la función será un poco más flexible:
 
 \begin{listing}
 \begin{verbatim}
->>> def mysquare(size):
-...     t.forward(size)
+>>> def micuadrado(lado):
+...     t.forward(lado)
 ...     t.left(90)
-...     t.forward(size)
+...     t.forward(lado)
 ...     t.left(90)
-...     t.forward(size)
+...     t.forward(lado)
 ...     t.left(90)
-...     t.forward(size)
+...     t.forward(lado)
 ...     t.left(90)
 \end{verbatim}
 \end{listing}
 
 \noindent
-We can test our function by calling:
+Para probar nuestra función:
 
 \begin{listing}
 \begin{verbatim}
->>> mysquare(50)
+>>> micuadrado(50)
 \end{verbatim}
 \end{listing}
 
-That's a start, but it's not quite perfect.  If you look at the code above, you'll see a pattern.  We repeat: \code{forward(size)} and \code{left(90)} four times.  That's a waste of typing.  So we can use a for-loop to do it for us (pretty much the same as we did earlier):
+Para comenzar está bien, pero no es perfecto.  Si observas el código del cuadrado verás el patrón (la repetición). Estamos repitiendo: \code{forward(lado)} y \code{left(90)} cuatro veces.  Eso es un desperdicio.  Así que podemos utilizar el bucle for para que haga las repeticiones por nosotros (de igual modo que hicimos antes):
 
 \begin{listing}
 \begin{verbatim}
->>> def mysquare(size):
+>>> def micuadrado(lado):
 ...     for x in range(0,4):
-...         t.forward(size)
+...         t.forward(lado)
 ...         t.left(90)
 \end{verbatim}
 \end{listing}
 
-That's a big improvement on the previous version. You can test the function with different sizes:
+Es una gran mejora sobre la versión anterior. Ahora vamos a probar la función usando varios tamaños:
 
 \begin{listing}
 \begin{verbatim}
 >>> t.reset()
->>> mysquare(25)
->>> mysquare(50)
->>> mysquare(75)
->>> mysquare(100)
->>> mysquare(125)
+>>> micuadrado(25)
+>>> micuadrado(50)
+>>> micuadrado(75)
+>>> micuadrado(100)
+>>> micuadrado(125)
 \end{verbatim}
 \end{listing}
 
-And the turtle should draw something like figure~\ref{fig26}.
+Y la tortuga debería dibujar algo parecido a lo que se ve en la figura~\ref{fig26}.
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=72mm]{figure26.eps}
 \end{center}
-\caption{Lots of squares.}\label{fig26}
+\caption{Muchos cuadrados.}\label{fig26}
 \end{figure}
 
 \noindent
-Now we can try a filled square.  First of all, reset the canvas once again:
+Ahora podríamos probar un cuadrado relleno.  En primer lugar reiniciamos el lienzo de nuevo (no es exactamente lo mismo que limpiarlo, reiniciar también pone de nuevo a la tortuga en su lugar de inicio):
 
 \begin{listing}
 \begin{verbatim}
@@ -387,17 +387,17 @@ Now we can try a filled square.  First of all, reset the canvas once again:
 \end{listing}
 
 \noindent
-Then, turn on filling, and call the square function again:
+Para ello, activamos el relleno y llamamos a la función que crea el cuadrado:
 
 \begin{listing}
 \begin{verbatim}
 >>> t.begin_fill()
->>> mysquare(50)
+>>> micuadrado(50)
 \end{verbatim}
 \end{listing}
 
 \noindent
-You'll still see an empty square until you turn filling off:
+Como verás, el cuadrado no se ve relleno. Para que se rellene es necesario finalizar con:
 
 \begin{listing}
 \begin{verbatim}
@@ -406,59 +406,59 @@ You'll still see an empty square until you turn filling off:
 \end{listing}
 
 \noindent
-Which produces something like the square in figure~\ref{fig27}.
+De este modo se genera un resultado similar al que se ve en la figura~\ref{fig27}.
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=72mm]{figure27.eps}
 \end{center}
-\caption{A black square.}\label{fig27}
+\caption{Un cuadrado negro.}\label{fig27}
 \end{figure}
 
-How about changing the function so that we can either draw a filled or an unfilled square? We need another parameter, and slightly more complicated code, to do this:
+¿Qué te parece modificar la función para que pueda dibujar cuadrados rellenos o sin rellenar según queramos?  Para eso necesitamos otro parámetro, y el código será ligeramente más complejo:
 
 \begin{listing}
 \begin{verbatim}
->>> def mysquare(size, filled):
-...    if filled == True:
+>>> def micuadrado(lado, relleno):
+...    if relleno:
 ...        t.begin_fill()
 ...    for x in range(0,4):
-...        t.forward(size)
+...        t.forward(lado)
 ...        t.left(90)
-...    if filled == True:
+...    if relleno:
 ...        t.end_fill()
 ...
 \end{verbatim}
 \end{listing}
 
-The first two lines check to see if the value of parameter `filled' is set to True. If it is, then filling is turned on.  We then loop four times to draw the four sides of the rectangle, before checking a second time whether the parameter `filled' is True, and if so, turn filling off once again. You can now draw a filled square by calling:
+Las primeras dos líneas chequean si el valor del parámetro `relleno' es True. Si lo es, entonces se activa el relleno.  Luego se efectúa el bucle cuatro veces para dibujar los cuatro lados del cuadrado. Por último se vuelve a chequear el valor de la variable `relleno' para desactivarlo en caso de que sea verdadero.  Así que ahora es posible crear un  cuadrado relleno simplemente con una llamada a la función micuadrado:
 
 \begin{listing}
 \begin{verbatim}
->>> mysquare(50, True)
+>>> micuadrado(50, True)
 \end{verbatim}
 \end{listing}
 
 \noindent
-And an unfilled square by calling:
+Y un cuadrado sin rellenar mediante:
 
 \begin{listing}
 \begin{verbatim}
->>> mysquare(150, False)
+>>> micuadrado(150, False)
 \end{verbatim}
 \end{listing}
 
 \noindent
-Which causes our turtle to draw the image in figure~\ref{fig28}$\ldots$ $\ldots$which, now that I think about it, looks like a weird square eye.
+Lo que hace que nuestra tortuga dibuje algo como en la figura~\ref{fig28}$\ldots$ $\ldots$ Que, ahora que lo pienso, parece un extraño ojo cuadrado.
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=72mm]{figure28.eps}
 \end{center}
-\caption{A square eye.}\label{fig28}
+\caption{Un ojo cuadrado.}\label{fig28}
 \end{figure}
 
-You can draw all sorts of shapes and fill them with colour. Let's turn the star, we drew earlier, into a function. The original code looked like this:
+Puedes dibujar toda clase de formas y rellenarlas con color. Vamos a convertir la estrella que dibujamos anteriormente en una función.  El código original era:
 
 \begin{listing}
 \begin{verbatim}
@@ -472,71 +472,72 @@ You can draw all sorts of shapes and fill them with colour. Let's turn the star,
 \end{verbatim}
 \end{listing}
 
-We can use the same if-statements from the mysquare function, and use the size parameter in the \code{forward} function.
+Podemos utilizar las mismas sentencias if de la función micuadrado y utilizar el parámetro lado para que la función sea más flexible: 
 
 \begin{listing}
 \begin{verbatim}
-1.  >>> def mystar(size, filled):
-2.  ...     if filled:
+1.  >>> def miestrella(lado, relleno):
+2.  ...     if relleno:
 3.  ...         t.begin_fill()
 4.  ...     for x in range(1,19):
-5.  ...         t.forward(size)
+5.  ...         t.forward(lado)
 6.  ...         if x % 2 == 0:
 7.  ...             t.left(175)
 8.  ...         else:
 9.  ...             t.left(225)
-10. ...     if filled:
+10. ...     if relleno:
 11. ...         t.end_fill()
 \end{verbatim}
 \end{listing}
 
-In lines 2 and 3, we switch filling on, depending upon the value of the parameter \code{filled} (turn filling on, if the parameter is set to True, turn it off, if the parameter is set to False).  We do the reverse in lines 10 and 11 (switch filling back off again).  The other difference about this function is that we pass the size of the star in the parameter \code{size}, and use this value in line 5.
+En las líneas 2 y 3 activamos el relleno, dependiendo del valor del parámetro \code{relleno} (activa el relleno si el parámetro está activado a True). Las líneas 10 y 11 desactivan el relleno en caso de haberse activado.  La otra diferencia respecto de esta función es que pasamos el parámetro \code{lado} y lo usamos en la línea 5 para que se puedan crear estrellas de diferentes tamaños.
 \par
-Now let's set the colour to gold (you might remember that gold can be made by using 100\% of red, 85\% of green and no blue), and then call the function:
+Vamos a activar el color dorado (como quizás recuerdes el color dorado se compone de 100\% de rojo, 85\% de verde y nada de azul), y luego llamamos a la función que hemos creado:
 
 \begin{listing}
 \begin{verbatim}
 >>> t.color(1, 0.85, 0)
->>> mystar(120, True)
+>>> miestrella(120, True)
 \end{verbatim}
 \end{listing}
 
 \noindent
-The turtle should draw the gold star in figure~\ref{fig29}. We can add an outline for the star, by changing the colour again (this time to black) and redrawing the star with filling turned off
+La tortuga debería dibujar una estrella dorada como la de la figura~\ref{fig29}. 
+Podemos añadirle un borde a la estrella, si cambiamos el color de nuevo (esta vez será el negro) y volviendo a dibujar la estrella con el relleno desactivado:
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=85mm]{figure29.eps}
 \end{center}
-\caption{A gold star.}\label{fig29}
+\caption{Una estrella dorada.}\label{fig29}
 \end{figure}
 
 \begin{listing}
 \begin{verbatim}
 >>> t.color(0,0,0)
->>> mystar(120, False)
+>>> miestrella(120, False)
 \end{verbatim}
 \end{listing}
 
 \noindent
-Thus the star now looks like figure~\ref{fig30}.
+La estrella ahora se verá como en la figura~\ref{fig30}.
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=85mm]{figure30.eps}
 \end{center}
-\caption{A star with an outline.}\label{fig30}
+\caption{Una estrella con borde.}\label{fig30}
 \end{figure}
 
-\section{Things to try}
+\section{Cosas para probar}
 
-\emph{In this chapter we learned about the turtle module, using it to draw a few basic geometric shapes. We used functions in order to re-use some of our code, to make it easier to draw shapes with different colours.}
+\emph{En este capítulo hemos aprendido algunas cosas más del módulo turtle. Lo hemos utilizado para dibujar algunas figuras geométricas básicas. Hemos utiliado funciones paa reutilizar el código y hacer más sencillo dibujar diversas formas de diferentes tamaños y colores.}
 
-\subsection*{Exercise 1}
-We've drawn stars, squares and rectangles.  How about an octagon?  An octagon is an 8 sided shape.
-(Hint: try turning 45 degrees).
+\subsection*{Ejercicio 1}
+Hemos dibujado estrellas y cuadrados. ¿Qué tal dibujar un octágono? Un octágono es una forma geométrica que tiene 8 lados.
+(Pista: prueba a girar 45 grados).
 
-\subsection*{Exercise 2}
-Now convert the octagon drawing code into a function which will fill it with a colour.
+\subsection*{Ejercicio 2}
+Ahora convierte el código del octágono en una función que sirva para construirlo y permita que se rellene o no según nuestros deseos (y un parámetro que utilicemos para tal fin).
 
 \newpage
