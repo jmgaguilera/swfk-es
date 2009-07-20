@@ -4,13 +4,13 @@
 % or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
 
 
-\chapter{Built-in Functions}\label{app:builtinfunctions}
+\chapter{Funciones internas de Python}\label{app:builtinfunctions}
 
-Python has a number of built-in functions---functions that can be used without needing to \textbf{import} them first.  Some of the available built-in functions are listed below.
+Python tiene un conjunto de funciones internas---funciones que se pueden utilizar sin necesidad de \textbf{importarlas} primero.   En este apéndice se muestran algunas de estas funciones.
 
-\subsection*{abs}\index{functions!abs}
+\subsection*{abs}\index{funciones!abs}
 
-The \textbf{abs} function returns the absolute value of a number.  An absolute value is a number that is not negative.  So the absolute value of 10 is 10, and the absolute value of -20.5 is 20.5.  For example:
+La función \textbf{abs} retorna el valor absoluto de un número.   El valor absoluto de un número es el número en positivo siempre.   Por ejemplo, el valor absoluto de 10 es 10, el valor absoluto de -20 es 20, el valor absoluto de -20.5 es 20.5.   Por ejemplo:
 
 \begin{listing}
 \begin{verbatim}
@@ -21,9 +21,9 @@ The \textbf{abs} function returns the absolute value of a number.  An absolute v
 \end{verbatim}
 \end{listing}
 
-\subsection*{bool}\index{functions!bool}
+\subsection*{bool}\index{funciones!bool}
 
-The \textbf{bool} function returns either True or False based on the value passed as its parameter. For numbers, 0 returns False, while any other number returns True:
+La función \textbf{bool} retorna o True o False basándose en el valor que se le pase como parámetro.  Si se le pasa un número, el 0 retorna False y cualquier otro número retorna True:
 
 \begin{listing}
 \begin{verbatim}
@@ -38,7 +38,7 @@ True
 \end{verbatim}
 \end{listing}
 
-For other values, None returns False while anything else returns True:
+Para otros valores de otros tipos (objetos, cadenas, listas,...) None retorna False mientras que cualquier otro valor retorna True:
 
 \begin{listing}
 \begin{verbatim}
@@ -49,9 +49,9 @@ True
 \end{verbatim}
 \end{listing}
 
-\subsection*{cmp}\index{functions!cmp}
+\subsection*{cmp}\index{funciones!cmp}
 
-The \textbf{cmp} function compares two values and returns a negative number if the first value is less than the second; returns 0 if the first value is equal to the second; and returns a positive number if the first value is greater than the second. For example, 1 is less than 2:
+La función \textbf{cmp} compara dos valores y retorna un número negativo si el primer valor es menor que el segundo; retorna 0 si ambos valores son iguales, y retorna un número positivo si el primer valor es mayor que el segundo.   Por ejemplo, 1 es menor que 2:
 
 \begin{listing}
 \begin{verbatim}
@@ -61,7 +61,7 @@ The \textbf{cmp} function compares two values and returns a negative number if t
 \end{listing}
 
 \noindent
-And 2 is equal to 2:
+Y 2 es igual a 2:
 
 \begin{listing}
 \begin{verbatim}
@@ -71,7 +71,7 @@ And 2 is equal to 2:
 \end{listing}
 
 \noindent
-But 2 is greater than 1:
+Pero 2 es mayor que 1:
 
 \begin{listing}
 \begin{verbatim}
@@ -81,7 +81,7 @@ But 2 is greater than 1:
 \end{listing}
 
 \noindent
-Compare doesn't only work with numbers. You can use other values, such as strings:
+La comparación no únicamente funciona con números.   Puedes utilizar otros valores, como las cadenas:
 
 \begin{listing}
 \begin{verbatim}
@@ -95,7 +95,7 @@ Compare doesn't only work with numbers. You can use other values, such as string
 \end{listing}
 
 \noindent
-But do be careful with strings; the return value may not be exactly what you expect$\ldots$
+Pero ten cuidado con las cadenas; el valor de retorno no tiene por qué ser lo que tú esperas$\ldots$
 
 \begin{listing}
 \begin{verbatim}
@@ -106,7 +106,7 @@ But do be careful with strings; the return value may not be exactly what you exp
 \end{verbatim}
 \end{listing}
 
-A lower-case 'a' is actually greater than an upper-case 'A'. Of course$\ldots$
+Una `a' en minúscula es mayor que una en mayúsculas `A'. Desde luego$\ldots$
 
 \begin{listing}
 \begin{verbatim}
@@ -118,11 +118,11 @@ A lower-case 'a' is actually greater than an upper-case 'A'. Of course$\ldots$
 \end{listing}
 
 \noindent
-$\ldots$3 letter a's (aaa) are less than 4 letter a's (aaaa).
+$\ldots$3 letras `a' (aaa) es menor que 4 letras `a' (aaaa).
 
-\subsection*{dir}\index{functions!dir}
+\subsection*{dir}\index{funciones!dir}
 
-The \textbf{dir} function returns a list of information about a value.  You can use dir on strings, numbers, functions, modules, objects, classes---pretty much anything.  On some values, the information might not be all that useful (in fact it might not make a huge amount of sense at all).  For example, calling dir on the number 1 results in$\ldots$
+La función \textbf{dir} retorna una lista con información sobre un valor.   Puedes utilizar dir en cadenas, números, funciones, módulos, objetos, clases---en casi cualquier cosa.   Para algunos valores, la información que devuelve puede que no tenga sentido para ti.   Por ejemplo, si llamamos a la función dir pasándole como parámetro el número 1, el resultado es$\ldots$
 
 \begin{listingignore}
 \begin{verbatim}
@@ -139,7 +139,7 @@ The \textbf{dir} function returns a list of information about a value.  You can 
 \end{verbatim}
 \end{listingignore}
 
-$\ldots$quite a large number of special functions. Whereas calling dir on the string 'a' results in...
+$\ldots$un amplio número de funciones especiales.  Y si llamamos dir sobre la cadena `a' el resultado es$\ldots$
 
 \begin{listingignore}
 \begin{verbatim}
@@ -156,7 +156,7 @@ $\ldots$quite a large number of special functions. Whereas calling dir on the st
 \end{verbatim}
 \end{listingignore}
 
-Which shows you there are functions such as \code{capitalize} (change the first letter in a string to a capital)$\ldots$
+Que muestra un conjunto de funciones como \code{capitalize} (que sirve para poner en mayúscula la primera letra de una cadena)$\ldots$
 
 \begin{listing}
 \begin{verbatim}
@@ -165,11 +165,13 @@ Aaaaa
 \end{verbatim}
 \end{listing}
 
-$\ldots$\code{isalnum} (which returns True if a string is alphanumeric---contains only letters and numbers), \code{isalpha} (which returns True if a string contains only letters), and so on. Dir can be useful when you have a variable and quickly want to find out what you can do with it.
+$\ldots$\code{isalnum} (es una función que retorna True si la cadena es `alfanumérica'----es decir si únicamente contiene números y letras, sin símbolos `raros'), \code{isalpha} (es una función que retorna True si una cadena contiene únicamente letras), y así sucesivamente. 
 
-\subsection*{eval}\index{functions!eval}
+Dir puede ser útil cuando tienes una variable y quieres descubrir rápidamente qué puedes hacer con ella, qué funciones y qué propiedades tiene.
 
-The \textbf{eval} function takes a string as a parameter and runs it as though it were a Python expression.  This is similar to the \textbf{exec} keyword, but works a little differently.  With exec you can create mini Python programs in your string, but eval only allows simple expressions, such as:
+\subsection*{eval}\index{funciones!eval}
+
+La función \textbf{eval} toma como parámetro una cadena y la ejecuta como si fuese una expresión de Python.  Es parecido a la palabra reservada \textbf{exec} pero funciona algo diferente.  Con exec se pueden crear miniprogramas de Python, sin embargo, con eval únicamente se permite que la cadena contenga expresiones simples, como en:
 
 \begin{listing}
 \begin{verbatim}
@@ -178,13 +180,13 @@ The \textbf{eval} function takes a string as a parameter and runs it as though i
 \end{verbatim}
 \end{listing}
 
-\subsection*{file}\index{functions!file}
+\subsection*{file/open}\index{funciones!file}\index{funciones!open}
 
-A function to open a file and return a file object with functions that can access information in the file (the contents of the file, its size and so on). You can find more information about file and file objects in Chapter~\ref{ch:ashortchapteraboutfiles}.
+file es una función para abrir un fichero (se puede usar indistintamente la función open). Retorna un objeto fichero que tiene funciones para acceder a la información del fichero (su contenido, su tamaño y otras más).   Puedes acceder a más información sobre el uso de esta función en el Capítulo~\ref{ch:ashortchapteraboutfiles}.
 
-\subsection*{float}\index{functions!float}
+\subsection*{float}\index{funciones!float}
 
-The \textbf{float} function converts a string or a number into a floating point number. A floating point number is a number with a decimal place (also called a real number). For example, the number 10 is an `integer' (also called a whole number), but 10.0, 10.1, 10.253, and so on, are all `floats'. You can convert a string to a float by calling:
+La función \textbf{float} convierte una cadena o un número entero en un número de coma flotante (con decimales).   Un número de coma flotante es un número con coma decimal (también se llaman números reales).   Por ejemplo, el número 10 es un `entero', pero el 10.0, 10.1 10.253, son `flotantes'. Puedes convertir una cadena en un flotante ejecutando:
 
 \begin{listing}
 \begin{verbatim}
@@ -194,7 +196,7 @@ The \textbf{float} function converts a string or a number into a floating point 
 \end{listing}
 
 \noindent
-You can use a decimal place in the string as well:
+También puedes utilizar la coma (el punto) decimal en la propia cadena:
 
 \begin{listing}
 \begin{verbatim}
@@ -204,7 +206,7 @@ You can use a decimal place in the string as well:
 \end{listing}
 
 \noindent
-A number can be converted to a float by calling:
+Un número se puede transformar en un flotante ejecutando:
 
 \begin{listing}
 \begin{verbatim}
@@ -214,7 +216,7 @@ A number can be converted to a float by calling:
 \end{listing}
 
 \noindent
-Of course, converting a floating point number just returns another floating point number:
+Y desde luego, si conviertes un número que ya es flotante con la función float, el resultado es el propio número flotante:
 
 \begin{listing}
 \begin{verbatim}
@@ -224,11 +226,20 @@ Of course, converting a floating point number just returns another floating poin
 \end{listing}
 
 \noindent
-Calling float with no arguments, returns 0.0.
+Si se llama a float sin argumentos, el resultado es el número 0.0.
 
-\subsection*{int}\index{functions!int}
+\begin{listing}
+\begin{verbatim}
+>>> float()
+0.0
+\end{verbatim}
+\end{listing}
 
-The \textbf{int} function converts a string or a number into a whole number (or integer). For example:
+\noindent
+
+\subsection*{int}\index{funciones!int}
+
+La función \textbf{int} convierte una cadena (que contenga un número entero) o un número cualquiera en un número entero. Por ejemplo:
 
 \begin{listing}
 \begin{verbatim}
@@ -239,7 +250,7 @@ The \textbf{int} function converts a string or a number into a whole number (or 
 \end{verbatim}
 \end{listing}
 
-This function works a little differently from the \textbf{float} function. If you try to convert a floating point number in a string, you will get an error message:
+Esta función trabaja de un modo diferente a la función \textbf{float}. Si intentas convertir un número de coma flotante que esté en una cadena obtendrás un mensaje de error:
 
 \begin{listing}
 \begin{verbatim}
@@ -251,100 +262,109 @@ ValueError: invalid literal for int() with base 10: '123.456'
 \end{listing}
 
 \noindent
-However, if you call int with no argument, then 0 is returned.
-
-\subsection*{len}\index{functions!len}
-
-The \textbf{len} function returns the length of an object. In this case of a string, it returns the number of characters in the string:
+Si llamas a int sin argumentos el valor que se retorna es 0.
 
 \begin{listing}
 \begin{verbatim}
->>> len('this is a test string')
-21
+>>> int()
+0
 \end{verbatim}
 \end{listing}
 
 \noindent
-For a list or a tuple, it returns the number of items:
+
+\subsection*{len}\index{funciones!len}
+
+La función \textbf{len} retorna la longitud de un objeto.   En el caso de una cadena retorna el número de caracteres de la cadena:
 
 \begin{listing}
 \begin{verbatim}
->>> mylist = [ 'a', 'b', 'c', 'd' ]
->>> print(len(mylist))
+>>> len('esto es una cadena de prueba')
+28
+\end{verbatim}
+\end{listing}
+
+\noindent
+Para una lista o un tupla devuelve el número de elementos que contiene:
+
+\begin{listing}
+\begin{verbatim}
+>>> milista = [ 'a', 'b', 'c', 'd' ]
+>>> print(len(milista))
 4
->>> mytuple = (1,2,3,4,5,6)
->>> print(len(mytuple))
+>>> mitupla = (1,2,3,4,5,6)
+>>> print(len(mitupla))
 6
 \end{verbatim}
 \end{listing}
 
 \noindent
-For a map, it also returns the number of items:
+Para un mapa o diccionario también retorna el número de elementos:
 
 \begin{listing}
 \begin{verbatim}
->>> mymap = { 'a' : 100, 'b' : 200, 'c' : 300 }
->>> print(len(mymap))
+>>> mimapa = { 'a' : 100, 'b' : 200, 'c' : 300 }
+>>> print(len(mimapa))
 3
 \end{verbatim}
 \end{listing}
 
 \noindent
-You might find the len function useful with loops, if you want to count through the elements in a list.  You could do this using the following code:
+En los bucles puede resultar muy útil esta función. Si quisieras recorrer los elementos de una lista podrías hacer lo siguiente:
 
 \begin{listing}
 \begin{verbatim}
->>> mylist = [ 'a', 'b', 'c', 'd' ]
->>> for item in mylist:
-...     print(item)
+>>> milista = [ 'a', 'b', 'c', 'd' ]
+>>> for elemento in milista:
+...     print(elemento)
 \end{verbatim}
 \end{listing}
 
 \noindent
-Which would print out all the items in the list (a,b,c,d)---but what if you wanted to print the index position of each item in the list?  In this case we could find the length of the list, then count through the items as follows:
+Lo que imprimiría todos los elementos de la lista (a,b,c,d)---pero si lo que quisieras hacer fuese imprimir el índice de la posición en la que se encuentra cada elemento de la lista$\ldots$   En ese caso necesitas la longitud de la lista y recorrer los elementos como sigue:
 
 \begin{listing}
 \begin{verbatim}
->>> mylist = [ 'a', 'b', 'c', 'd' ]
->>> length = len(mylist)
->>> for x in range(0, length):
-...     print('the item at index %s is %s' % (x, mylist[x]))
+>>> milista = [ 'a', 'b', 'c', 'd' ]
+>>> longitud = len(milista)
+>>> for x in range(0, longitud):
+...     print('el elemento en la  posición %s es %s' % (x, milista[x]))
 ... 
-the item at index 0 is a
-the item at index 1 is b
-the item at index 2 is c
-the item at index 3 is d
+el elemento en la posición 0 es a
+el elemento en la posición 1 es b
+el elemento en la posición 2 es c
+el elemento en la posición 3 es d
 \end{verbatim}
-\end{listing}
+\end{lesting}
 
 \noindent
-We store the length of the list in the variable `length', and then use that variable in the \code{range} function to create our loop.
+Almacenamos la longitud de la lista en la variable `longitud', luego usamos esa variable en la función \code{range} para crear el bucle.
 
-\subsection*{max}\index{functions!max}
+\subsection*{max}\index{funciones!max}
 
-The \textbf{max} function returns the largest item in a list, tuple or even a string. For example:
+La función \textbf{max} retorna el elemento mayor de una lista, tupla o cadena.   Por ejemplo:
 
 \begin{listing}
 \begin{verbatim}
->>> mylist = [ 5, 4, 10, 30, 22 ]
->>> print(max(mylist))
+>>> milista = [ 5, 4, 10, 30, 22 ]
+>>> print(max(milista))
 30
 \end{verbatim}
 \end{listing}
 
 \noindent
-A string with the items are separated by commas or spaces will also work:
+En una cadena retorna el carácter mayor:
 
 \begin{listing}
 \begin{verbatim}
->>> s = 'a,b,d,h,g'
+>>> s = 'abdhg'
 >>> print(max(s))
 h
 \end{verbatim}
 \end{listing}
 
 \noindent
-And you don't have to use lists, or tuples or strings. You can also call the max function directly with a number of arguments:
+No es necesario utilizar listas, tuplas o cadenas.  Puedes ejecutar la función max pasando directamente varios parámetros:
 
 \begin{listing}
 \begin{verbatim}
@@ -353,21 +373,23 @@ And you don't have to use lists, or tuples or strings. You can also call the max
 \end{verbatim}
 \end{listing}
 
-\subsection*{min}\index{functions!min}
+\subsection*{min}\index{funciones!min}
 
-The \textbf{min} function works in the same way as max, except it returns the smallest item in the list/tuple/string:
+La función \textbf{min} funciona de la misma forma que max, con la diferencia de que retorna el elemento más pequeño de una lista, tupla o cadena:
 
 \begin{listing}
 \begin{verbatim}
->>> mylist = [ 5, 4, 10, 30, 22 ]
->>> print(min(mylist))
+>>> milista = [ 5, 4, 10, 30, 22 ]
+>>> print(min(milista))
 4
 \end{verbatim}
 \end{listing}
 
-\subsection*{range}\index{functions!range}
+\subsection*{range}\index{funciones!range}
 
-The \textbf{range} function is mainly used in for-loops, when you want to loop through some code a number of times. We first saw range in Chapter~\ref{ch:againandagain}, so we've seen how to use it with two arguments, but it can also be used with three arguments. Here's another example of range with two arguments:
+La función \textbf{range} se utiliza principalmente para los bucles for, cuando quieres ejecutar un trozo de código (un bloque) un número determinado de veces.   Lo vimos en el Capítulo~\ref{ch:againandagain}. Allí vimos cómo utilizarla con dos argumentos. Pero también se puede utilizar con tres parámetros (o argumentos).
+
+Veamos de nuevo un ejemplo con dos argumentos:
 
 \begin{listing}
 \begin{verbatim}
@@ -383,7 +405,7 @@ The \textbf{range} function is mainly used in for-loops, when you want to loop t
 \end{listing}
 
 \noindent
-What you might not have realised, is that the \code{range} function actually just returns a special object (called an iterator) which the for-loop then works through. You can convert the iterator into a list (oddly enough, using the function \code{list}), so if you print the return value when calling range, you'll see the numbers it contains:
+Lo que puede que no te hayas dado cuenta aún es que la función \code{range} en realidad retorna un objeto especial (llamado `iterador') que es el que usa el bucle for para poder repetir las veces que se indique.  Puedes convertir el iterador en una lista (utilizando la función \code{list}). Puedes probarlo imprimiendo el valor de retorno de la función range utilizando la función list:
 
 \begin{listing}
 \begin{verbatim}
@@ -393,52 +415,54 @@ What you might not have realised, is that the \code{range} function actually jus
 \end{listing}
 
 \noindent
-You get a list of numbers that can be assigned to variables and used elsewhere in your program:
+Para conseguir una lista de números que puedas utilizar en otra parte de tu programa puedes hacer algo así:
 
 \begin{listingignore}
 \begin{verbatim}
->>> my_list_of_numbers = list(range(0, 30))
->>> print(my_list_of_numbers)
+>>> mi_lista_de_numeros = list(range(0, 30))
+>>> print(mi_lista_de_numeros)
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 
 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
 \end{verbatim}
 \end{listingignore}
 
 \noindent
-Range also takes a third argument, called a `step' (the first two arguments are called the `start' and the `stop'). If the step value is not passed into the function (in other words, when you call it with only the start and stop values), by default the number 1 is used. But what happens when we pass the number 2 as the step?  You can see the result in the following example:
+La función range también puede recibir un tercer argumento (parámetro), denominado `step'\footnote{En inglés `step' significa `paso'.} (los primeros argumentos se denominan `start' y `stop').   Si no se pasa el parámetro `step' el valor que se utiliza por defecto es 1.  ¿Qué sucede cuando pasamos el número 2 en este tercer parámetro?   Puedes verlo en el siguiente ejemplo:
 
 \begin{listing}
 \begin{verbatim}
->>> my_list_of_numbers = list(range(0, 30, 2))
->>> print(my_list_of_numbers)
+>>> mi_lista_de_numeros = list(range(0, 30, 2))
+>>> print(my_lista_de_numeros)
 [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28]
 \end{verbatim}
 \end{listing}
 
 \noindent
-Each number in the list increases by 2 from the previous number. We can use larger steps:
+Cada número de la lista es el anterior + 2.   Ya habrás adivinado lo que hace el parámetro `step'.
+
+Podemos probar con pasos mayores:
 
 \begin{listing}
 \begin{verbatim}
->>> mylist = list(range(0, 500, 50))
->>> print(mylist)
+>>> milista = list(range(0, 500, 50))
+>>> print(milista)
 [0, 50, 100, 150, 200, 250, 300, 350, 400, 450]
 \end{verbatim}
 \end{listing}
 
-This creates a list from 0 to 500 (but not including 500, of course), incrementing the numbers by 50.
+Que crea un lista desde el 0 al 500 (pero sin incluir el último, como siempre), incrementando los números de 50 en 50.
 
-\subsection*{sum}\index{functions!sum}
+\subsection*{sum}\index{funciones!sum}
 
-The \textbf{sum} function adds up items in a list and returns the total number. For example:
+La función \textbf{sum} suma los elementos de una lista y retorna el número total.   Por ejemplo:
 
 \begin{listing}
 \begin{verbatim}
->>> mylist = list(range(0, 500, 50))
->>> print(mylist)
+>>> mlista = list(range(0, 500, 50))
+>>> print(milista)
 [0, 50, 100, 150, 200, 250, 300, 350, 400, 450]
 
->>> print(sum(mylist))
+>>> print(sum(milista))
 2250
 \end{verbatim}
 \end{listing}
