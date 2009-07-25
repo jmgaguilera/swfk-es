@@ -611,11 +611,11 @@ Lo siguiente que hacemos es decirle a Tk que esta función es la que se debe uti
 \end{verbatim}
 \end{listing}
 
-El primer parámetro de la función \code{bind\_all} describe el evento que queremos que Tk atienda.  En este caso el evento es \code{<KeyPress-Return>} (que es la pulsación -KeyPress- de la tecla Intro -Return-).  Además, el segundo parámetro indica la función que queremos que se ejecute cada vez que suceda el evento indicado. En este caso decimos que se llame a la función \code{mover\_triangulo}.
+El primer parámetro de la función \code{bind\_all} describe el evento que queremos que Tk atienda.  En este caso el evento es \code{$<$KeyPress$-$Return$>$} (que es la pulsación -KeyPress- de la tecla Intro -Return-).  Además, el segundo parámetro indica la función que queremos que se ejecute cada vez que suceda el evento indicado. En este caso decimos que se llame a la función \code{mover\_triangulo}.
 
 Si ejecutas este código pulsa primero en el lienzo con el ratón para asegurarte de que está activada esa ventana, luego pulsa la tecla Intro (Return) en el teclado.
 
-¿Qué te parecería cambiar la dirección del triángulo dependiendo de la tecla que se pulse, por ejemplo, las teclas de flecha?  Primero vamos a modificar la función \move{move} a lo siguiente:
+¿Qué te parecería cambiar la dirección del triángulo dependiendo de la tecla que se pulse, por ejemplo, las teclas de flecha?  Primero vamos a modificar la función \code{move} a lo siguiente:
 
 \begin{listing}
 \begin{verbatim}
