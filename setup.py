@@ -1,3 +1,4 @@
+#coding=utf-8
 from distutils.core import setup, Command
 from distutils.spawn import find_executable, spawn
 from zipfile import ZipFile
@@ -28,7 +29,7 @@ dvipdf = find_executable('dvipdf')
 # Get the book version
 #
 s = open('frontmatter.tex').read()
-mat = re.compile(r'Version\s*(.*)').search(s)
+mat = re.compile(r'Versión\s*(.*)').search(s)
 version = mat.group(1)
 
 if not os.path.exists(target_dir):
@@ -94,11 +95,14 @@ class LatexCommand(Command):
         
             tex = 'swfk.tex'
             try:
-              spawn([latex, '--output-directory=%s' % target_dir, tex])
-              spawn([makeindex, '%s/swfk.idx' % target_dir])
-              spawn([latex, '--output-directory=%s' % target_dir, tex])
-            except: 
-              pass
+                spawn([latex, '--output-directory=%s' % target_dir, tex])
+            except:
+                pass
+            spawn([makeindex, '%s/swfk.idx' % target_dir])
+            try:
+               spawn([latex, '--output-directory=%s' % target_dir, tex])
+            except:
+                pass
 
             pdf = '%s/swfk-%s-%s%s.pdf' % (target_dir, platform, version, fname_suffix)
             spawn([dvipdf, '%s/swfk.dvi' % target_dir, pdf])

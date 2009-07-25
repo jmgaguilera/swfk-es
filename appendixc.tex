@@ -4,13 +4,13 @@
 % or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
 
 
-\chapter{A Few Python Modules}\label{app:afewpythonmodules}\index{modules}
+\chapter{Unos cuantos módulos de Python}\label{app:afewpythonmodules}\index{módulos}
 
-Python has a large number of modules available for doing all sorts of things.  If you want to read about them, you can look at the Python documentation at the following address: \href{http://docs.python.org/modindex.html}{docs.python.org/modindex.html}, however, a few of the more useful modules are explained below.  A warning if you do decide to look at the Python documentation---the list of modules is very long, and some of them are quite complicated.
+Python tiene un gran número de módulos disponibles para hacer toda clase de cosas.   Si quieres leer sobre ellos, puedes echarle un vistazo a la documentación de Python en: \href{http://docs.python.org/modindex.html}{http://docs.python.org/modindex.html}, no obstante, vamos a explicar algunos de los módulos más útiles en este apéndice.   Un aviso, si decides echarle un vistazo a la documentación de Python---la lista de módulos es muy amplia y algunos son muy complicados de utilizar.
 
-\subsection*{The `random' module}\index{modules!random}
+\subsection*{El módulo `random'}\index{módulos!random}
 
-If you've ever played the game where you ask someone to guess a number between 1 and 100, you'll know what to do with the random module.  Random contains a number of functions useful for coming up with$\ldots$ random numbers. It's kind of like asking the computer to pick a number. The random module contains a number of functions, but the most useful are \code{randint}\index{modules!random!randint}, \code{choice} and \code{shuffle}. The first function, \code{random},  picks a random number between a start and end number (in other words, between 1 and 100, or between 100 and 1000, or between 1000 and 5000, and so on).  For example:
+Si has jugado alguna vez al juego en el que pides a alquien que adivine un número entre el 1 y el 100, enseguida se te ocurrirá para qué utilizar el módulo random.   Random (significa `aleatorio') contiene unas funciones que son útiles para generar$\ldots$ números aleatorios. Puede servir para pedirle al ordenador que elija un número.   Las funciones más útiles son \code{randint}\index{módulos!random!randint}, \code{choice} y \code{shuffle}. La primera función, \code{randint},  elige un número aleatorio de entre un número de inicio y fin (en otras palabras, entre 1 y 100, o entre 100 and 1000, o entre 1000 y 5000, u otros dos cualquiera).  Por ejemplo:
 
 \begin{listingignore}
 \begin{verbatim}
@@ -24,7 +24,9 @@ If you've ever played the game where you ask someone to guess a number between 1
 \end{verbatim}
 \end{listingignore}
 
-We could use this to create a simple (and annoying) guessing game, using a while loop:
+Los números que salgan en tu consola no tienen necesariamente que coincidir, ya que el ordenador elegirá un número diferente cada vez que ejecutes randint. Por eso se llaman números `aleatorios'.
+
+Podemos utilizar esta función para crear un simple juego de adivinanzas utilizando un bucle while:
 
 \begin{listingignore}
 \begin{verbatim}
@@ -32,20 +34,20 @@ import random
 import sys
 num = random.randint(1, 100)
 while True:
-    print('Guess a number between 1 and 100')
+    print('Piensa un número entre el 1 y el 100')
     chk = sys.stdin.readline()
     i = int(chk)
     if i == num:
-        print('You guessed right')
+        print('¡Acertaste!')
         break
     elif i < num:
-        print('Try higher')
+        print('Prueba con uno mayor')
     elif i > num:
-        print('Try lower')
+        print('Prueba con uno menor')
 \end{verbatim}
 \end{listingignore}
 
-Use \code{choice}\index{modules!random!choice},  if you have a list and want to pick a random item from that list. For example:
+Utiliza \code{choice}\index{módulos!random!choice} si tienes una lista de números y quieres elegir al azar uno de ellos.  Por ejemplo:
 
 \begin{listingignore}
 \begin{verbatim}
@@ -53,33 +55,37 @@ Use \code{choice}\index{modules!random!choice},  if you have a list and want to 
 >>> list1 = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' ]
 >>> print(random.choice(list1))
 c
->>> list2 = [ 'ice cream', 'pancakes', 'trifle', 'pavlova', 'sponge' ]
+>>> list2 = [ 'helado', 'pasteles', 'bizcocho', 'tarta de merengue', 'esponja' ]
 >>> print(random.choice(list2))
-trifle
+bizcocho
 \end{verbatim}
 \end{listingignore}
 
-And finally, use \code{shuffle}\index{modules!shuffle} if you want to mix up a list (like shuffling cards):
+Como antes el resultado que salga en tu consola no tiene que coincidir con el del ejemplo puesto que la elección es `aleatoria'.
+
+Y finalmente, utiliza \code{shuffle}\index{móduls!shuffle} si quieres mezclar una lista (como si barajaras unas cartas)
 
 \begin{listingignore}
 \begin{verbatim}
 >>> import random
 >>> list1 = [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' ]
->>> list2 = [ 'ice cream', 'pancakes', 'trifle', 'pavlova', 'sponge' ]
+>>> list2 = [ 'helado', 'pasteles', 'bizcocho', 'tarta de merengue', 'esponja' ]
 >>> random.shuffle(list1)
 >>> print(list1)
 ['h', 'e', 'a', 'b', 'c', 'g', 'f', 'd']
 >>> random.shuffle(list2)
 >>> print(list2)
-['pancakes', 'ice cream', 'sponge', 'trifle', 'pavlova']
+[ 'esponja', 'pasteles', 'bizcocho', 'helados', 'tarta de merengue' ]
 \end{verbatim}
 \end{listingignore}
 
-\subsection*{The `sys' module}\index{modules!sys}
+Como en los casos anteriores, el resultado que obtengas puede ser diferente al del ejemplo.
 
-The \code{sys} module contains useful `system' functions. This is just an odd way of saying that they are very important within Python. Some of the most useful functions and values available in \code{sys} are: \code{exit}, \code{stdin}, \code{stdout}, and \code{version}.
+\subsection*{El módulo `sys'}\index{módulos!sys}
+
+El módulo \code{sys} contiene útiles funciones de `sistema'.  Lo que significa que son muy importantes dentro de Python.   Algunas de las más útiles en este módulo \code{sys} son: \code{exit}, \code{stdin}, \code{stdout}, y \code{version}.
 \par
-The \code{exit}\index{modules!sys!exit} function is another way of stopping the Python console. For example if you type:
+La función \code{exit}\index{módulos!sys!exit} es otra forma de finalizar la consola de Python.   Por ejemplo, si tecleas:
 
 \begin{listingignore}
 \begin{verbatim}
@@ -88,66 +94,66 @@ The \code{exit}\index{modules!sys!exit} function is another way of stopping the 
 \end{verbatim}
 \end{listingignore}
 
-The Python console will stop. Depending upon whether you're using Windows, Mac or Linux, a number of different things might happen---but the end result is that the Python console stops running.
+Se cerrará la consola de Python.   Dependiendo de que uses Windows, Mac o Linux, pasarán diferentes cosas---pero el resultado final será que la consola de Python termina de ejecutarse.
 
-\code{Stdin}\index{modules!sys!stdin} has been used elsewhere in this book (see Chapter~\ref{ch:sortoflikerecycling}), to prompt someone using a program to enter some values. For example:
+\code{stdin}\index{módulos!sys!stdin} se ha utilizado en este libro (ver Capítulo~\ref{ch:sortoflikerecycling}), para pedir a quien esté usando el programa con el fin de que introduzca algunos valores.   Por ejemplo:
 
 \begin{listingignore}
 \begin{verbatim}
 >>> import sys
->>> myvar = sys.stdin.readline()
-this is a test value
->>> print(myvar)
-this is a test value
+>>> mivar = sys.stdin.readline()
+Esto es un texto de prueba que tecleo por consola
+>>> print(mivar)
+Esto es un texto de prueba que tecleo por consola
 \end{verbatim}
 \end{listingignore}
 
-\code{Stdout}\index{modules!sys!stdout} is the opposite---used to write messages to the console. In some ways, it's the same as \code{print}, but works more like a file, so sometimes it's more useful to use \code{stdout} than \code{print}:
+\code{stdout}\index{módulos!sys!stdout} es lo contrario---se utiliza para escribir mensajes en la consola.  En cierto modo, es lo mismo que \code{print}, pero funciona más como un fichero, por eso, algunas veces es más útil usar \code{stdout} que \code{print}:
 
 \begin{listingignore}
 \begin{verbatim}
 >>> import sys
->>> l = sys.stdout.write('this is a test')
-this is a test>>>
+>>> l = sys.stdout.write('esto es una prueba')
+esto es una prueba>>>
 \end{verbatim}
 \end{listingignore}
 
-Notice where the prompt ($>>>$) reappears?  It's not an error, that it's at the end of the message.  That's because, unlike \code{print}, when you call \code{write}, it doesn't automatically move to the next line. To do the same with \code{write} we can do the following:
+¿Te has dado cuenta en dónde aparece el prompt ($>>>$)?   No es un error, está al final del mensaje.   Eso es porque, al contrario que \code{print},  cuando utilizas \code{write} no se mueve automáticamente a la siguiente línea.   Para hacer lo mismo que print con la función \code{write} podemos hacer lo siguiente:
 
 \begin{listingignore}
 \begin{verbatim}
 >>> import sys
->>> l = sys.stdout.write('this is a test\n')
-this is a test
+>>> l = sys.stdout.write('esto es una prueba\n')
+esto es una prueba
 >>>
 \end{verbatim}
 \end{listingignore}
 
 \noindent
-(Note that \code{stdout.write} returns the number of characters written--try \code{print(l)} to see the result).
+(Observa que \code{stdout.write} retorna el número de caracteres que ha escrito---prueba \code{print(l)} para ver el resultado).
 
 \noindent
-{\textbackslash}n is the \emph{escape} character\index{escape characters} for a newline (what you get when you hit the enter key).  An escape character is a special character that you use in strings when you can't type it directly. For example, if you want to create a string with a newline in the middle, but try to use the enter key, you'll get an error:
+{\textbackslash}n es un carácter de \emph{escape} \index{caracteres de escape} que representa el carácter de salto de línea (el carácter que se imprime en pantalla cuando pulsas la tecla Intro. Que no es que muestre nada en pantalla, es que cambia de línea).  Un carácter de escape es un carácter especial que puedes utilizar en las cadenas cuando no puedes teclear directamente el carácter verdadero.   Por ejemplo, si quieres crear una cadena que tenga un salto de línea en medio, podrías intentar teclear la tecla Intro, pero Python mostraría un error:
 
 \begin{listing}
 \begin{verbatim}
->>> s = 'test test 
+>>> s = 'prueba 
   File "<stdin>", line 1
-    s = 'test test 
-                  ^
+    s = 'prueba 
+               ^
 SyntaxError: EOL while scanning single-quoted string
 \end{verbatim}
 \end{listing}
 
-Instead you can use the newline escape character:
+En su lugar, puedes utilizar el carácter de escape que representa el salto de línea:
 \begin{listing}
 \begin{verbatim}
->>> s = 'test test\ntest'
+>>> s = 'prueba\n prueba'
 \end{verbatim}
 \end{listing}
 
 \noindent
-Finally, \code{version}\index{modules!sys!version} is just a way of displaying the version of Python you are running:
+Finalmente, \code{version}\index{módulos!sys!version} es una función que sirve para mostrar la versión de Python que se está ejecutando:
 
 \begin{listingignore}
 \begin{verbatim}
@@ -158,9 +164,11 @@ Finally, \code{version}\index{modules!sys!version} is just a way of displaying t
 \end{verbatim}
 \end{listingignore}
 
-\subsection*{The `time' module}\index{modules!time}
+En este caso el resultado que se muestre en tu consola dependerá de la versión de Python y de Sistema Operativo que estés ejecutando.
 
-Python's time module contains functions for displaying$\ldots$ well, the time, obviously. However, if you try to call the most obvious function (\code{time})\index{modules!time!time (function)}, the result won't quite be what you were expecting:
+\subsection*{El módulo `time'}\index{módulos!time}
+
+El módulo de Python denominado `time' dispone de funciones para mostrar$\ldots$ bueno, es obvio, el tiempo.   Sin embargo, si pruebas a ejecutar la función más evidente (\code{time})\index{módulos!time!time (función)}, el resultado no será lo que estés esperando:
 
 \begin{listingignore}
 \begin{verbatim}
@@ -170,45 +178,45 @@ Python's time module contains functions for displaying$\ldots$ well, the time, o
 \end{verbatim}
 \end{listingignore}
 
-The number returned by \code{time()} is actually the number of seconds since the 1st of January, 1970 (at 00:00:00am to be exact). You might not think this is enormously useful, however it does, occasionally, have its purpose. For example, if you create a program and want to know how fast bits of it run, you can record the time at the beginning, the time at the end, and then compare the values. For example, how long would it take to print all the numbers from 0 to 100,000?  We can easily create a function to print them out:
+El número que retorna \code{time()} es el número de segundos que han pasado desde el uno de enero de 1970 (a las cero horas, cero minutos, cero segundos).   Puedes pensar que esto no es muy útil, sin embargo en ocasiones tiene su propósito.  Por ejemplo, si haces un programa y quieres saber lo rápido que se ejecutan algunas partes del mismo, puedes registrar el tiempo al principio del trozo que quieres medir, luego registrar el tiempo al final y comparar los valores.   Por ejemplo, ¿Cuánto tardará imprimir todos los números del 0 al 100.000?   Podemos hacer una función como la siguiente:
 
 \begin{listing}
 \begin{verbatim}
->>> def lots_of_numbers(max):
+>>> def muchos_numeros(max):
 ...     for x in range(0, max):
 ...         print(x)
 \end{verbatim}
 \end{listing}
 
 \noindent
-Then call the function:
+Luego ejecutamos la función:
 
 \begin{listing}
 \begin{verbatim}
->>> lots_of_numbers(100000)
+>>> muchos_numeros(100000)
 \end{verbatim}
 \end{listing}
 
 \noindent
-But if we want to know how long it took, we can modify the function and use the \code{time} module:
+Pero si quisiéramos conocer cuanto ha tardado, podemos modificar la función y usar el módulo \code{time}:
 
 \begin{listing}
 \begin{verbatim}
->>> def lots_of_number(max):
+>>> def muchos_numeros(max):
 ...     t1 = time.time()
 ...     for x in range(0, max):
 ...         print(x)
 ...     t2 = time.time()
-...     print('it took %s seconds' % (t2-t1))
+...     print('tardó %s segundos' % (t2-t1))
 \end{verbatim}
 \end{listing}
 
 \noindent
-If we call it again:
+Si la ejecutamos de nuevo:
 
 \begin{listingignore}
 \begin{verbatim}
->>> lots_of_numbers(100000)
+>>> muchos_numeros(100000)
 0
 1
 2
@@ -219,16 +227,19 @@ If we call it again:
 99997
 99998
 99999
-it took 6.92557406425 seconds
+tardó 6.92557406425 segundos
 \end{verbatim}
 \end{listingignore}
 
 \noindent
-How does it work?  The first time we call the \code{time()} function, we assign the value to the variable \code{t1}. We then loop and print out all the numbers. Again we call the \code{time()} function and this time assign the value to the variable \code{t2}. Since it took a few seconds for the loop to complete, the value in \code{t2} will be higher (or later to be exact) than \code{t1} (the number of seconds since 1st of Jan, 1970 will have increased). So if you subtract \code{t2} from \code{t1}, you have the number of seconds it took to print all those numbers.
 
-Other functions available on the time module include: \code{asctime}, \code{ctime}, \code{localtime}, \code{sleep}, \code{strftime}, and \code{strptime}.
+Evidentemente, en tu ordenador puede tardar más o menos que el del ejemplo. Dependiendo de lo rápido que sea.
 
-The function \code{asctime}\index{modules!time!asctimes} takes a date as a tuple (remember: a tuple is a list of values that cannot be changed) and converts it into a readable form. You can also call it without any argument and it will display the current date and time in a readable form:
+¿Cómo funciona?   La primera vez que se ejecuta la función \code{time()} asignamos el valor que retorna a la variable \code{t1}.  Luego se ejecuta el bucle y se imprimen todos los números.  Después volvemos a ejecutar \code{time()} y asignamos el valor a la variable \code{t2}.  Puesto que el bucle tardó varios segundos, el valor de \code{t2} será mayor (será más tarde, puesto que time mide el tiempo) que el valor de \code{t1} (el número de segundos que han pasado desde el 1 de enero de 1970 se ha incrementado).  Por eso, si restas \code{t2} de \code{t1}, el resultado medirá el número de segundos que se ha tardado en imprimir todos los números.
+
+Otras funciones disponibles en el módulo time son: \code{asctime}, \code{ctime}, \code{localtime}, \code{sleep}, \code{strftime}, and \code{strptime}.
+
+La función \code{asctime}\index{módulos!time!asctimes} toma una fecha en forma de tupla (recuerda: una tupla es una lista de valores que no se puede modificar) y la convierte en formato cadena para su lectura.   También se puede ejecutar sin pasarle ningún parámetro y retornará en una cadena la fecha y hora actual:
 
 \begin{listingignore}
 \begin{verbatim}
@@ -239,7 +250,7 @@ Sun May 27 20:11:12 2007
 \end{listingignore}
 
 \noindent
-To call it with an argument, we first need to make a tuple with the correct values for date and time.  Let's assign the tuple to the variable \code{t}:
+Para ejecutarla con un parámetro, primero necesitamos crear una tupla con valores correctos para la fecha y la hora.   Vamos a asignar la tupla a la variable \code{t}:
 
 \begin{listing}
 \begin{verbatim}
@@ -248,7 +259,8 @@ To call it with an argument, we first need to make a tuple with the correct valu
 \end{listing}
 
 \noindent
-The values in the sequence are year, month, day, hours, minutes, seconds, day of the week (0 is Monday, 1 is Tuesday, and so on, up till Sunday which is 6) and finally the day of the year and whether or not it is daylight savings (0 is isn't, 1 it is). Calling \code{asctime} with the above tuple, we get:
+
+Los valores de la secuencia son, en este orden, el año, mes, día, horas, minutos, segundos, dia de la semana (0 es el lunes, 1 es el martes, y así hasta el 6 que es el domingo) y finalmente el día del año y si existe horario de verano o no (0 es que no y 1 que sí).  Al ejecutar \code{asctime} con la tupla anterior, obtenemos:
 
 \begin{listing}
 \begin{verbatim}
@@ -260,7 +272,7 @@ Sun May 27 10:30:48 2007
 \end{listing}
 
 \noindent
-But be careful with the values you put in a tuple. You can end up with a nonsensical date if you put in the wrong values:
+Ten cuidado con los valores de la tupla.   Puedes crear una tupla que tenga una fecha sin sentido en la realidad:
 
 \begin{listing}
 \begin{verbatim}
@@ -272,9 +284,9 @@ Mon May 27 10:30:48 2007
 \end{listing}
 
 \noindent
-Because the value for `day of the week' was set to 0 (rather than 6), asctime now thinks that May the 27th is a Monday, rather than what it actually is---a Sunday.
+Debido a que el valor del `día de la semana' era 0 (en lugar de 6), la función asctime ahora piensa que el 27 de mayo es lunes en lugar del verdadero día que es---domingo.
 
-The function \code{ctime}\index{modules!time!ctime} is used to convert a number of seconds into a readable form.  For example, we can use the \code{time()} function explained in the beginning of this section:
+La función \code{ctime}\index{módulos!time!ctime} se utiliza para convertir un número de segundos en una forma legible.   Por ejemplo, podemos utilizar la función \code{time()} que explicamos al principio de esta sección para obtener el número de segundos y pasar el resultado a ctime para que convertir los segundos en una cadena con la fecha en formato legible:
 
 \begin{listingignore}
 \begin{verbatim}
@@ -288,7 +300,7 @@ Sun May 27 23:22:32 2007
 \end{listingignore}
 
 \noindent
-The function \code{localtime}\index{modules!time!localtime} returns the current date and time as a tuple in the same sequence of values we've just used:
+La función \code{localtime}\index{módulos!time!localtime} retorna la fecha actual como una tupla de la misma forma que anteriormente:
 
 \begin{listingignore}
 \begin{verbatim}
@@ -299,7 +311,7 @@ The function \code{localtime}\index{modules!time!localtime} returns the current 
 \end{listingignore}
 
 \noindent
-This value we can also pass into \code{asctime}:
+Por eso, este valor se lo podemos pasar como parámetro a la función \code{asctime}:
 
 \begin{listingignore}
 \begin{verbatim}
@@ -311,7 +323,7 @@ Sun May 27 23:27:22 2007
 \end{listingignore}
 
 \noindent
-The function \code{sleep}\index{modules!time!sleep} is quite useful when you want to delay your program for a certain period of time.  For example, if you wanted to print out one number every second, the following loop wouldn't be very successful:
+La función \code{sleep}\index{módulos!time!sleep} es bastante útil cuando quieres retardar la ejecución de tu programa durante un cierto período de tiempo.   Por ejemplo, si quisieras imprimir un número cada segundo, el siguiente bucle no sería muy útil:
 
 \begin{listing}
 \begin{verbatim}
@@ -325,7 +337,7 @@ The function \code{sleep}\index{modules!time!sleep} is quite useful when you wan
 \end{verbatim}
 \end{listing}
 
-It would instantly print out all the numbers from 1 to 60. However if you tell Python to go to sleep for a second between each print statement:
+Imprimiría todos los números del 1 al 60 casi instantáneamente.   Sin embargo, si le dices a Python que `duerma' durante un segundo entre cada print:
 
 \begin{listing}
 \begin{verbatim}
@@ -337,9 +349,11 @@ It would instantly print out all the numbers from 1 to 60. However if you tell P
 \end{listing}
 
 \noindent
-There will be a short (1 second) delay between the display of each number. Telling a computer to sleep might not seem all that useful, but there are times when it can be.  Think about your alarm clock that wakes you up in the morning.  When you hit the sleep button, it stops buzzing for a few minutes, giving you an extra few moments of sleep (at least until someone calls you for breakfast).  The \code{sleep} function is just as useful in certain situations.
+Habrá un retardo de 1 segundo entre cada número.   Decirle al ordenador que `duerma' un tiempo puede que no parezca muy útil, pero a veces lo es.   Piensa en tu reloj despertador, el que te despierta por la mañana.   Cuando pulsas el botón deja de sonar durante unos minutos, lo que de permite seguir durmiendo unos minutos (al menos hasta que alguien te llama para desayunar).  La función \code{sleep} es igual de útil en ciertas ocasiones.
 
-The function \code{strftime}\index{modules!time!strftime} is used to change the way a date and time value is displayed, and \code{strptime} is used to take a string and convert it into a date/time tuple. Let's look at strftime first.  Just before we saw how to change a tuple into a string using \code{asctime}:
+La función \code{strftime}\index{módulos!time!strftime} se utiliza para cambiar la forma en la que se muestra la fecha y la hora y \code{strptime} se utiliza para tomar una cadena y convertirla en una tupla de fecha/hora.  
+
+Veamos primero strftime.   Antes vimos como convertir una tupla en una cadena de fecha utilizando \code{asctime}:
 
 \begin{listing}
 \begin{verbatim}
@@ -350,7 +364,7 @@ Sun May 27 10:30:48 2007
 \end{listing}
 
 \noindent
-That works fine for most situations, but what if you don't like the way that string is displayed---what if you only want to display the date and not the time?  We can do that with \code{strftime}:
+En muchas situaciones esto es suficiente. Pero si no nos gusta cómo se muestra la fecha---por ejemplo, si únicamente quisiéramos mostrar la fecha y no la hora, lo podemos hacer con la función \code{strftime}:
 
 \begin{listing}
 \begin{verbatim}
@@ -359,7 +373,7 @@ That works fine for most situations, but what if you don't like the way that str
 \end{verbatim}
 \end{listing}
 
-As you can see, \code{strftime} takes 2 arguments:  the first is a date/time format (which describes how the date/time should be displayed), and the second is the tuple containing the time values.  The format, \%d \%b \%Y is another way of saying: `show the day, the month and then the year'.  We could also display the month as a number, for example:
+Como ves, \code{strftime} toma dos parámetros:   el primero es una cadena de formato de fecha y hora (que describe cómo debe mostrarse), el segundo es una tupla que contenga los valores como en los casos anteriores.   El formato, \%d \%b \%Y es una forma de decir: `muestra el día, el mes y el año'.  Si quisiéramos mostrar el mes en forma de número podríamos hacerlo así:
 
 \begin{listing}
 \begin{verbatim}
@@ -368,53 +382,53 @@ As you can see, \code{strftime} takes 2 arguments:  the first is a date/time for
 \end{verbatim}
 \end{listing}
 
-This format is a way of saying, `display the day, then a forward-slash, then display the month as a number, then a forward-slash, then display the year'.  There are a number of different values you can use in a format\index{date/time formats}:
+Este formato está diciendo lo siguiente, `muestra el día, luego una barra inclinada (también llamada slash), luego muestra el mes como un número del 1 al 12, luego otra barra inclinada y al final muestra el año'.  Existen diferentes valores que se pueden utilizar en una cadena para formatear fechas\index{formatos de fecha/hora}:
 
 \begin{center}
 \begin{tabular}{|l|p{12cm}|}
 \hline
-\%a & a shortened version of a week day (for example, Mon, Tues, Wed, Thurs, Fri, Sat, and Sun) \\
+\%a & Una versión corta del día de la semana (por ejemplo, Mon, Tues, Wed, Thurs, Fri, Sat, y Sun) \\
 \hline
-\%A & the full weekday name (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) \\
+\%A & El nombre completo del día de la semana (Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday) \\
 \hline
-\%b & a shortened version of a month name (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct , Nov, Dec) \\
+\%b & Una versión corta del mes (Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct , Nov, Dec) \\
 \hline
-\%B & the full version of a month name (January, February, March, April, May, and so on) \\
+\%B & El nombre completo del mes (January, February, March, April, May, y así sucesivamente) \\
 \hline
-\%c & the full date and time, in the same format the asctime uses \\
+\%c & La fecha y hora completa en el mismo formato que utiliza asctime \\
 \hline
-\%d & the day of the month as a number (from 01 to 31) \\
+\%d & El día del mes de forma numérica (del 01 al 31) \\
 \hline
-\%H & the hour of the day, in 24 hour format (from 00 to 23) \\
+\%H & La hora del día, en formato de 24 horas (de 00 a 23) \\
 \hline
-\%I & the hour of the day, in 12 hour format (from 01 to 12) \\
+\%I & La hora del día, en formato de 12 horas (de 01 a 12) \\
 \hline
-\%j & the day of the year as a number (from 001 to 366) \\
+\%j & El día del año en forma numérica (de 001 a 366) \\
 \hline
-\%m & the month as a number (from 01 to 12) \\
+\%m & El mes en forma numérica (de 01 a 12) \\
 \hline
-\%M & the minute as a number (from 00 to 59) \\
+\%M & El minuto en forma numérica (de 00 a 59) \\
 \hline
-\%p & morning or afternoon as either AM or PM \\
+\%p & La mañana o la tarde en forma: AM o PM \\
 \hline
-\%S & the seconds as a number \\
+\%S & El segundo en forma numérica \\
 \hline
-\%U & the week number of the year as a number (from 00 to 53) \\
+\%U & El número de la semana del año (de 00 a 53) \\
 \hline
-\%w & the day of the week as a number.  Sunday is 0, Monday is 1, up to Saturday, which is 6 \\
+\%w & El día de la semana en forma numérica: el 0 es domingo, el 1 es lunes, el 2 es martes, hasta el 6 que es sábado \\
 \hline
-\%x & a simple date format (usually month/day/year---for example, 03/25/07) \\
+\%x & un formato simple de fecha (normalmente mes/día/año---por ejemplo, 03/25/07) \\
 \hline
-\%X & a simple time format (usually hour:minutes:seconds---for example 10:30:53) \\
+\%X & un formato simple de hora (normalmente hora:minuto:segundo---por ejemplo 10:30:53) \\
 \hline
-\%y & the year in 2 digits (for example, 2007 would be 07) \\
+\%y & el año con dos dígitos (por ejemplo, 2007 sería 07) \\
 \hline
-\%Y & the year in 4 digits (e.g. 2007) \\
+\%Y & el año con cuatro dígitos (por ejemplo 2007) \\
 \hline
 \end{tabular}
 \end{center}
 
-The function \code{strptime}\index{modules!time!strptime} is almost the reverse of \code{strftime}---it takes a string and converts it into a tuple containing the date and time values. It also takes the same values in the format string. An example of using this function is:
+La función \code{strptime}\index{módulos!time!strptime} es casi lo contrario de la función \code{strftime}---toma una cadena y la convierte en una tupla que contiene la fecha y la hora.   También toma los mismos valores de la cadena de formateo.   Por ejemplo:
 
 \begin{listingignore}
 \begin{verbatim}
@@ -426,7 +440,7 @@ The function \code{strptime}\index{modules!time!strptime} is almost the reverse 
 \end{listingignore}
 
 \noindent
-If the date in our string is day/month/year (for example, 01/02/2007), we might use:
+Si la fecha de nuestra cadena fuese en formato día/mes/año (por ejemplo, 01/02/2007), podríamos utilizar:
 
 \begin{listingignore}
 \begin{verbatim}
@@ -438,7 +452,7 @@ If the date in our string is day/month/year (for example, 01/02/2007), we might 
 \end{listingignore}
 
 \noindent
-Or if the date is month/day/year, we might use:
+O si la fecha fuese en formato mes/día/año, usaríamos:
 
 \begin{listingignore}
 \begin{verbatim}
@@ -450,24 +464,24 @@ Or if the date is month/day/year, we might use:
 \end{listingignore}
 
 \noindent
-We can combine the 2 functions to convert a string in one format to another. Let's do it in a function:
+Podemos combinar las dos funciones para convertir una cadena de fecha de un formato a otro.  Hagámoslo en una función:
 
 \begin{listing}
 \begin{verbatim}
 >>> import time
->>> def convert_date(datestring, format1, format2):
-...     t = time.strptime(datestring, format1)
+>>> def convertir_fecha(cadena_fecha, format1, format2):
+...     t = time.strptime(cadena_fecha, format1)
 ...     return time.strftime(format2, t)
 ...
 \end{verbatim}
 \end{listing}
 
 \noindent
-We can use this function by passing in the date string, the format of that string, and then the format that we want the returned date in:
+Podemos utilizar esta función pasándole la cadena de fecha, el formato de esa cadena y, por último, el formato en que queremos que se devuelva la fecha, por ejemplo:
 
 \begin{listing}
 \begin{verbatim}
->>> print(convert_date('03/05/2007', '%m/%d/%Y', '%d %B %Y'))
+>>> print(convertir_fecha('03/05/2007', '%m/%d/%Y', '%d %B %Y'))
 05 March 2007
 \end{verbatim}
 \end{listing}
