@@ -1,0 +1,619 @@
+% appendixa.tex
+% This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 New Zealand License.
+% To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/nz
+% or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+
+\chapter{Palabras clave de Python}\label{app:pythonkeywords}
+
+Las palabras clave (o palabras reservadas) son aquellas palabras importantes que se utilizan en el propio lenguaje (cada lenguaje de programación tiene sus propias palabras clave). Si intentases utilizar esas palabras para darle nombre a tus variables o nombres de función, o las intentases usar de una forma que no esté definida por el lenguaje, lo que sucedería sería que Python te mostraría un mensaje de error en la consola. 
+
+En este apéndice se da una breve descripción de cada una de las palabras clave (o reservadas) del lenguaje de programación Python.
+
+\subsection*{and}\index{palabras clave o reservadas!and}
+
+La palabra reservada \textbf{and} se utiliza para unir dos expresiones para indicar que ambas expresiones deben ser True. Por ejemplo:
+
+\begin{listingignore}
+\begin{verbatim}
+if edad > 10 and edad < 20
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+Que significa que la edad debe ser mayor que 10 y menor que 20.
+
+\subsection*{as}\index{palabras clave o reservadas!as}
+
+La palabra reservada \textbf{as} se utiliza para dar un nombre diferente a un módulo que acabas de importar. Por ejemplo, si tuvieras un módulo con un nombre como:
+
+\begin{listingignore}
+\begin{verbatim}
+soy_un_modulo_de_python_que_no_es_muy_util
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+Sería muy complicado tener que teclear su nombre cada vez que quisieras usar una función u objeto contenido en él:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import soy_un_modulo_de_python_que_no_es_muy_util
+>>> soy_un_modulo_de_python_que_no_es_muy_util.llamar_funcion()
+He hecho algo
+>>> soy_un_modulo_de_python_que_no_es_muy_util.llamar_funcion_haz_otra_cosa()
+¡He hecho otra cosa!
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+En vez de esto, puedes darle otro nombre cuando lo importas, así se puede teclear el nuevo nombre en lugar del anterior (es como si el nuevo nombre fuera su apodo):
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import soy_un_modulo_de_python_que_no_es_muy_util as noutil
+>>> noutil.llamar_funcion()
+He hecho algo
+>>> noutil.llamar_funcion_haz_otra_cosa()
+¡He hecho otra cosa!
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+De todos modos es probable que no uses mucho esta palabra clave.
+
+\subsection*{assert}\index{palabras clave o reservadas!assert}
+
+Assert es una palabra reservada avanzada que utilizan los programadores para indicar que algún código debe ser True.  Es una forma de encontrar errores y problemas en el código---lo normal es que se utilice en programas avanzados y por programadores expertos.
+
+\subsection*{break}\index{palabras clave o reservadas!break}
+
+La palabra reservada \textbf{break} se utiliza para parar la ejecución de algún código. Podrías utilizar un break dentro de un bucle for o while como en el siguiente ejemplo:
+
+\begin{listing}
+\begin{verbatim}
+>>> edad = 25
+>>> for x in range(1, 100):
+...     print('contando %s' % x)
+...     if x == edad:
+...         print('fin de la cuenta')
+...         break
+\end{verbatim}
+\end{listing}
+
+\noindent
+Si la variable `edad' tuviera el valor 10, este código imprimiría:
+
+\begin{listing}
+\begin{verbatim}
+contando 1
+contando 2
+contando 3
+contando 4
+contando 5
+contando 6
+contando 7
+contando 8
+contando 9
+contando 10
+fin de la cuenta
+\end{verbatim}
+\end{listing}
+
+\noindent
+Mira el capítulo~\ref{ch:againandagain} para obtener más información sobre los bucles for.
+
+\subsection*{class}\index{palabras clave o reservadas!class}
+
+La palabra reservada \textbf{class} se utiliza para definir un tipo de objeto. Esta característica aparece en muchos lenguajes de programación, es muy útil cuando se desarrollan programas más complicados, pero es muy avanzada para este libro.
+
+\subsection*{del}\index{palabras clave o reservadas!del}
+
+Del es una función especial que se utiliza para eliminar algo.  Por ejemplo, si tuvieras una lista de cosas que quisieras para tu cumpleaños anotadas en tu diario, pero cambiases de opinión sobre una de ellas, podrías tacharla de la lista, y añadir una nueva:
+
+\begin{center}
+\includegraphics*[width=70mm]{list.eps}
+\end{center}
+
+\noindent
+Si tuvieramos una lista en python:
+
+\begin{listing}
+\begin{verbatim}
+>>> lo_que_quiero = ['coche de control remoto', 'bicicleta nueva', 'juego de ordenador']
+\end{verbatim}
+\end{listing}
+
+\noindent
+Podríamos eliminar el juego de ordenador utilizando la función \code{del}, y añadir el nuevo elemento utilizando la función \code{append}:
+
+\begin{listing}
+\begin{verbatim}
+>>> del lo_que_quiero[2]
+>>> lo_que_quiero.append('roboraptor')
+\end{verbatim}
+\end{listing}
+
+\noindent
+Y luego puedes ver la nueva lista:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(lo_que_quiero)
+['coche de control remoto', 'bicicleta nueva', 'roboraptor']
+\end{verbatim}
+\end{listing}
+
+\noindent
+Mira el Capítulo~\ref{ch:8multipliedby3.57} para más información sobre listas.
+
+\subsection*{elif}\index{palabras clave o reservadas!elif}
+
+La palabra reservada \textbf{elif} se utiliza como parte de la sentencia if.  Mira \textbf{if} más abajo...
+
+\subsection*{else}\index{palabras clave o reservadas!else}
+
+La palabra reservada \textbf{else} se utiliza también como parte de la sentencia if.  Mira \textbf{if} más abajo...
+
+\subsection*{except}\index{palabras clave o reservadas!except}
+
+Otra palabra reservada que se utiliza para encontrar problemas en el código.  De nuevo se utiliza en programas más complejos, pero es muy avanzada para este libro.
+
+\subsection*{exec}\index{palabras clave o reservadas!exec}
+
+\textbf{exec} es una función especial que se utiliza para que Python mire el contenido de una cadena como si fuese un trozo de código escrito en el propio lenguaje Python.  Por ejemplo, puedes crear una variable y asignarle una cadena como la que sigue en el ejemplo:
+
+\begin{listing}
+\begin{verbatim}
+>>> mivariable = 'Hola'
+\end{verbatim}
+\end{listing}
+
+\noindent
+Y luego imprimir el contenido:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(mivariable)
+Hola
+\end{verbatim}
+\end{listing}
+
+\noindent
+Pero también podrías incluir el código en una cadena:
+
+\begin{listing}
+\begin{verbatim}
+>>> mivariable = 'print("Hola")'
+\end{verbatim}
+\end{listing}
+
+\noindent
+Y luego utilizar exec para convertir la cadena en un miniprograma Python y ejecutarlo:
+
+\begin{listing}
+\begin{verbatim}
+>>> exec(mivariable)
+Hola
+\end{verbatim}
+\end{listing}
+
+Es una idea algo extraña, y puede parecer que no tiene sentido hasta que lo necesites.  Como en otros casos se trata de una de esas palabras clave que se usa únicamente en programas más avanzados.
+
+\subsection*{finally}\index{palabras clave o reservadas!finally}
+
+Esta es otra palabra reservada avanzada que se usa para estar seguro de que cuando sucede un error, se ejecuta siempre el código que se indique (normalmente para limpiar el `desorden' que haya dejado atrás el código que falló). 
+
+\subsection*{for}\index{palabras clave o reservadas!for}
+
+La palabra reservada \textbf{for} se utiliza para crear bucles. Por ejemplo:
+
+\begin{listing}
+\begin{verbatim}
+for x in range(0,5):
+    print('x vale %s' % x)
+\end{verbatim}
+\end{listing}
+
+\noindent
+El ejemplo anterior ejecuta el bloque de código (la sentencia print) 5 veces, dando como resultado la salida:
+
+\begin{listing}
+\begin{verbatim}
+x vale 0
+x vale 1
+x vale 2
+x vale 3
+x vale 4
+\end{verbatim}
+\end{listing}
+
+\subsection*{from}\index{palabras clave o reservadas!from}
+
+Cuando se importa un módulo, puedes importar únicamente la parte que necesites, para ello debes usar la palabra reservada \textbf{from}. Por ejemplo, el módulo turtle tiene una función denominada \code{Pen()}, que se utiliza para crear un objeto Pen (que es un lienzo sobre el que la tortuga se mueve)---puedes importar el módulo completo y luego utilizar la función \code{Pen} como sigue:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> import turtle
+>>> t = turtle.Pen()
+\end{verbatim}
+\end{listingignore}
+
+O puedes importar únicamente la función \code{Pen} por sí misma, y luego utilizarla directamente (sin necesidad de referirse al módulo turtle):
+
+\begin{listingignore}
+\begin{verbatim}
+>>> from turtle import Pen
+>>> t = Pen()
+\end{verbatim}
+\end{listingignore}
+
+Desde luego, esto significa que no puedes utilizar las partes del módulo que no hayas importado. Por ejemplo, el módulo time tiene funciones denominadas localtime y gmtime.  Si importamos localtime y luego intentas utilizar gmtime lo que sucede es que Python devuelve un mensaje de error:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> from time import localtime
+>>> print(localtime())
+(2007, 1, 30, 20, 53, 42, 1, 30, 0)
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+Funciona bien, pero:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(gmtime())
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'gmtime' is not defined
+\end{verbatim}
+\end{listing}
+
+Al decir Python que ```gmtime' is not defined'' nos está diciendo que no conoce la función \code{gmtime}$\ldots$. Si un módulo tuviera un montón de funciones que quisieras utilizar pero no quieres tener que usar el nombre del módulo cada vez (que es lo que sucede cuando importas con `import nombre\_de\_modulo') puedes importar todo lo que contiene el módulo mediante el uso del asterisco (*):
+
+\begin{listingignore}
+\begin{verbatim}
+>>> from time import *
+>>> print(localtime())
+(2007, 1, 30, 20, 57, 7, 1, 30, 0)
+>>> print(gmtime())
+(2007, 1, 30, 13, 57, 9, 1, 30, 0)
+\end{verbatim}
+\end{listingignore}
+
+En este caso, importamos todo lo que contiene el módulo time, y nos podemos referir a cada función por su nombre, si tener que poner por delante el nombre del módulo.
+
+\subsection*{global}\index{palabras clave o reservadas!global}
+
+En el Capítulo~\ref{ch:sortoflikerecycling}, hablamos sobre el \emph{ámbito}.  Si recuerdas, el ámbito es la `visibilidad' de una variable. Si una variable está definida fuera de una función, normalmente se puede ver dentro de la función. Si está definida dentro de una función, no se puede ver \textbf{fuera} de la función.
+\par
+La palabra reservada \code{global} es una excepción a esta regla. Cuano una variable se define como global, puede verse en cualquier sitio. Global es algo que es mundial o universal. Si te imaginas que tu consola de Python es como un minimundo, entonces global significa que lo ve todo el mundo.  Por ejemplo:
+
+\begin{listing}
+\begin{verbatim}
+>>> def test():
+...     global a
+...     a = 1
+...     b = 2
+\end{verbatim}
+\end{listing}
+
+¿Qué pasaría si llamas a print(a), y a print(b), después de ejecutar la función test?  En el primer caso se imprimirá normalmente el valor 1 que fue lo que se asignó a la variable `a' al ejecutar la función test. El segundo caso generará un mensaje de error:
+
+\begin{listing}
+\begin{verbatim}
+>>> test()
+>>> print(a)
+1
+>>> print(b)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'b' is not defined
+\end{verbatim}
+\end{listing}
+
+La variable \code{a} es global (visible por todo el `mundo'), sin embargo la variable \code{b} únicamente es visible dentro de la función.  
+
+Observa que debes llamar a \code{global} antes de asignar un valor a la variable.
+
+\subsection*{if}\index{palabras clave o reservadas!if}
+
+Es una sentencia que sirve para tomar una decisión sobre algo---Muchas veces se utiliza con las palabras reservadas \code{else} y \code{elif} (else if).  La sentencia if es una forma de decir, ``si algo es verdadero, entonces ejecuta una acción''.  Por ejemplo:
+
+\begin{listing}
+\begin{verbatim}
+if precio_juguete > 1000:
+    print('Ese juguete es demasiado caro')
+elif precio_juguete > 100:
+    print('Ese juguete es caro')
+else:
+    print('Me gustaría ese juguete')
+\end{verbatim}
+\end{listing}
+
+Esta sentencia if significa lo siguiente, si el precio de un juguete es mayor que 1000 euros, es demasiado caro; si el precio del juguete es mayor que 100 euros \footnote{Pero menor o igual a 1000, porque es un elif y ya se ha visto en el if que no es mayor que 1000 euros.} entonces es caro.... en otro caso se ejecuta la sentencia print y se muestra en consola ``Me gustaría ese juguete''. El Capítulo~\ref{ch:howtoaskaquestion} tiene más información sobre las sentencias if.
+
+\subsection*{import}\index{palabras clave o reservadas!import}
+
+La palabra reservada \textbf{import} es una forma de decirle a Python que cargue el módulo que se le indica para que se pueda utilizar. Por ejemplo:
+
+\begin{listing}
+\begin{verbatim}
+>>> import sys
+\end{verbatim}
+\end{listing}
+
+Este código le dice a Python que quieres utilizar el módulo \code{sys}.
+
+\section*{in}\index{palabras clave o reservadas!in}
+
+La palabra reservada \textbf{in} se utiliza en las expresiones para descubrir si un elemento está incluido en una colección de elementos (lista, tupla, diccionario). Por ejemplo, para ver si el número 1 está incluido en una lista podríamos hacer:
+
+\begin{listing}
+\begin{verbatim}
+>>> lista = [1,2,3,4]
+>>> if 1 in lista:
+...     print('el número está en la lista')
+el número está en la lista
+\end{verbatim}
+\end{listing}
+
+\noindent
+O si la lechuga está en la lista de la compra:
+
+\begin{listing}
+\begin{verbatim}
+>>> lista_de_compra = [ 'huevos', 'leche', 'queso' ]
+>>> if 'lechuga' in lista_de_compra:
+...     print('la lechuga está en la lista de la compra')
+... else:
+...     print('la lechuga no está en la lista de la compra')
+...
+la lechuga no está en la lista de la compra
+\end{verbatim}
+\end{listing}
+
+\subsection*{is}\index{palabras clave o reservadas!is}
+
+La palabra reservada \textbf{is}, es algo así como el operador de igualdad (==) que sirve para decir si dos cosas son iguales (por ejemplo 10 == 10 es verdadero ---True---, 10 == 11 es falso ---False---).  Pero hay una diferencia fundamental entre \textbf{is} y ==. Si estás comparando dos cosas, == puede devolver True, en donde `is' puede que devuelva False (incluso aunque tú pienses que las cosas son iguales).
+\par
+Se trata de uno de los conceptos de programación avanzada que tienden a ser muy confusos, así que por el momento limítate a utilizar ==.
+
+\subsection*{lambda}\index{palabras clave o reservadas!lambda}
+
+Otra palabra reservada avanzada. De hecho lambda es tan complicada que escribir una explicación sobre ella podría hacer que este libro ardiera en llamas.
+\par
+\emph{Así que mejor no hablar sobre ella.}
+
+\subsection*{not}\index{palabras clave o reservadas!not}
+
+Si algo es verdadero, la palabra reservada \textbf{not} lo convierte en falso, y lo contrario.  Por ejemplo, si creamos una variable \code{x} y le asignamos el valor True...
+
+\begin{listing}
+\begin{verbatim}
+>>> x = True
+\end{verbatim}
+\end{listing}
+
+...y luego imprimimos el valor de x utilizando \textbf{not}, el resultado es:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(not x)
+False
+\end{verbatim}
+\end{listing}
+
+Lo que no parece muy útil, hasta que comienzas a utilizar \text{not} en sentencias if.  Por ejemplo, si tienes 12 años y la edad más importante para ti es 12 años, no querrás tener que referirte al resto de edades diciendo:
+
+\begin{quotation}
+``1 no es una edad importante''
+``2 no es una edad importante''
+``3 no es una edad importante''
+``4 no es una edad importante''
+...
+...
+``50 no es una edad importante''
+\end{quotation}
+
+de uno en uno.
+\par\noindent
+No querrías escribirlo así:
+
+\begin{listing}
+\begin{verbatim}
+if edad == 1:
+    print("1 no es una edad importante")
+elif edad == 2:
+    print("2 no es una edad importante")
+elif edad == 3:
+    print("3 no es una edad importante")
+elif edad == 4:
+    print("4 no es una edad importante")
+\end{verbatim}
+\end{listing}
+
+\noindent
+$\ldots$y seguir hasta el infinito. Una forma mucho más simple de hacerlo sería:
+
+\begin{listing}
+\begin{verbatim}
+if edad < 10 or edad > 10:
+    print("%s no es una edad importante" % edad)
+\end{verbatim}
+\end{listing}
+
+\noindent
+Pero aún sería más simple utilizando \textbf{not}:
+
+\begin{listing}
+\begin{verbatim}
+if not edad == 10:
+    print("%s no es una edad importante" % edad)
+\end{verbatim}
+\end{listing}
+
+\noindent
+Como te habrás dado cuenta, esta sentencia if es una forma de decir ``si la edad no es igual a 10''.
+
+\subsection*{or}\index{palabras clave o reservadas!or}
+
+La palabra reservada \textbf{or} se utiliza para unir dos expresiones en una sentencia (como por ejemplo la sentencia if), para decir que al menos una de las expresiones tiene que ser True. Por ejemplo:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> if amigo == 'Rachel' or amigo == 'Rob':
+...     print('Los Robinsons')
+... elif amigo == 'Bill' or amigo == 'Bob':
+...     print('Los Baxters')
+\end{verbatim}
+\end{listingignore}
+
+En este caso, si la variable \code{amigo} contiene `Raquel' o `Rob' entnces imprime `Los Robinsons'.  Si la variable amigo contiene `Bill' o `Bob' entonces imprime `Los Baxters'.
+
+\subsection*{pass}\index{palabras clave o reservadas!pass}
+
+Algunas veces, cuando escribes un programa, puede ser que solemente quieras escribir partes del mismo para probar cosas.  El problema es que no puedes construir algunas sentencias, por ejemplo if o for, sin que tenga un bloque de código incluido. Por ejemplo:
+
+\begin{listing}
+\begin{verbatim}
+>>> if edad > 10:
+...     print('mayor de 10 años')
+\end{verbatim}
+\end{listing}
+
+\noindent
+El código anterior funcionará, pero si tecleas únicamente:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> if edad > 10:
+...
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+Saldrá un mensaje de error en la consola parecido a este:
+
+\begin{listingignore}
+\begin{verbatim}
+  File "<stdin>", line 2
+    ^
+IndentationError: expected an indented block
+\end{verbatim}
+\end{listingignore}
+
+Cuando tienes una sentencia que espera un bloque de código después de ella y no aparece, Python muestra el mensaje anterior.
+\par
+La palabra reservada \textbf{pass} se puede utilizar en estos casos para que puedas escribir la sentencia sin necesidad de que contenga el bloque de código (es una sentencia que no hace nada).  Por ejemplo, podrías querer escribir un bucle for con una setencia if en él. Tal vez aún no has decidido qué poner dentro de la sentencia if.  Puede que pongas un print, o un break, u otra cosa.  En ese caso puedes utilizar \textbf{pass} y el código funcionará (aunque no haga lo que tu quieres aún porque no lo has decidido).   El código:
+
+\begin{listing}
+\begin{verbatim}
+>>> for x in range(1,7):
+...     print('x es %s' % x)
+...     if x == 5:
+...         pass
+\end{verbatim}
+\end{listing}
+
+\noindent
+Imprimirá lo siguiente:
+
+\begin{listing}
+\begin{verbatim}
+x es 1
+x es 2
+x es 3
+x es 4
+x es 5
+x es 6
+\end{verbatim}
+\end{listing}
+
+\noindent
+Más tarde puedes añadir el código del bloque para la sentencia if (sustituyendo la sentencia \textbf{pass}).
+
+\subsection*{print}\index{palabras clave o reservadas!print}
+
+La función \textbf{print} escribe algo en la consola de Python; una cadena, un número o una variable:
+
+\begin{listing}
+\begin{verbatim}
+print('Hola mundo')
+print(10)
+print(x)
+\end{verbatim}
+\end{listing}
+
+\subsection*{raise}\index{palabras clave o reservadas!raise}
+
+Otra palabra reservada avanzada.   En este caso, \textbf{raise} se utiliza para provocar que se produzca un error---lo que puede parecer algo extraño de hacer, pero en programas avanzados es realmente bastante útil.
+
+\subsection*{return}\index{palabras clave o reservadas!return}
+
+La palabra reservada \textbf{return} se utiliza para retornar el valor de una función.   Por ejemplo, podrías crear una función para retornar la cantidad de dinero que has ahorrado:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> def midinero():
+...     return cantidad
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+Cuando llamas a esta función, el valor retornado se puede asignar a otra variable:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> dinero = midinero()
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+o se puede imprimir:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> print(midinero())
+\end{verbatim}
+\end{listingignore}
+
+\subsection*{try}\index{palabras clave o reservadas!try}
+
+La palabra reservada \textbf{try} sirve para iniciar un bloque de código que tiene que terminar con las palabras reservadas \textbf{except} y/o \textbf{finally}.  Todas juntas \textbf{try/except/finally} crean bloques de código que sirven para controlar los errores en un programa---por ejemplo, para asegurarse que un programa muestra un mensaje útil para los usuarios cuando hay un error  en lugar de un feo mensaje de Python.
+
+Se trata de un conjunto de palabras reservadas (try/except/finally) avanzado que escapa a lo que podemos tratar en este texto introductorio.
+
+\subsection*{while}\index{palabras clave o reservadas!while}
+
+Es parecido al bucle for, \textbf{while} es otra forma de generar bucles.  El bucle for va contando a lo largo de un rango de valores, mientras que el bucle while se ejecuta mientras una expresión sea True.   Tienes que tener mucho cuidado con los bucles while, porque si la expresión siempre es True, el bucle continuará para siempre y nunca finalizará (a lo que se suele llamar `bucle infinito').   Por ejemplo:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> x = 1
+>>> while x == 1:
+...     print('hola')
+\end{verbatim}
+\end{listingignore}
+
+Si ejecutas el código anterior el bucle continuará para siempre.   Bueno, al menos hasta que te canses y cierres la consola de Python o pulses las teclas \textbf{CTRL+C} (La tecla control y la tecla C juntas) para interrumpirlo.   Sin embargo el siguiente código:
+
+\begin{listing}
+\begin{verbatim}
+>>> x = 1
+>>> while x < 10:
+...     print('hola')
+...     x = x + 1
+\end{verbatim}
+\end{listing}
+
+Imprimirá `hola' 9 veces (cada vez que se completa una pasada del bucle se suma 1 a la variable \code{x}, hasta que \code{x} sea igual a 10, que ya no es menor que 10). Como se ve, es parecido al bucle for, pero en ocasiones es necesario utilizar while.
+
+\subsection*{with}\index{palabras clave o reservadas!with}
+
+\textbf{With} es una palabra reservada muy avanzada.
+
+\subsection*{yield}\index{palabras clave o reservadas!yield}
+\textbf{Yield} es otra palabra reservada muy avanzada.
+
+\newpage

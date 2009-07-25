@@ -1,0 +1,470 @@
+% appendixb.tex
+% This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 New Zealand License.
+% To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/nz
+% or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+
+
+\chapter{Funciones internas de Python}\label{app:builtinfunctions}
+
+Python tiene un conjunto de funciones internas---funciones que se pueden utilizar sin necesidad de \textbf{importarlas} primero.   En este apéndice se muestran algunas de estas funciones.
+
+\subsection*{abs}\index{funciones!abs}
+
+La función \textbf{abs} retorna el valor absoluto de un número.   El valor absoluto de un número es el número en positivo siempre.   Por ejemplo, el valor absoluto de 10 es 10, el valor absoluto de -20 es 20, el valor absoluto de -20.5 es 20.5.   Por ejemplo:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(abs(10))
+10
+>>> print(abs(-20.5))
+20.5
+\end{verbatim}
+\end{listing}
+
+\subsection*{bool}\index{funciones!bool}
+
+La función \textbf{bool} retorna o True o False basándose en el valor que se le pase como parámetro.  Si se le pasa un número, el 0 retorna False y cualquier otro número retorna True:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(bool(0))
+False
+>>> print(bool(1))
+True
+>>> print(bool(1123.23))
+True
+>>> print(bool(-500))
+True
+\end{verbatim}
+\end{listing}
+
+Para otros valores de otros tipos (objetos, cadenas, listas,...) None retorna False mientras que cualquier otro valor retorna True:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(bool(None))
+False
+>>> print(bool('a'))
+True 
+\end{verbatim}
+\end{listing}
+
+\subsection*{cmp}\index{funciones!cmp}
+
+La función \textbf{cmp} compara dos valores y retorna un número negativo si el primer valor es menor que el segundo; retorna 0 si ambos valores son iguales, y retorna un número positivo si el primer valor es mayor que el segundo.   Por ejemplo, 1 es menor que 2:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(cmp(1,2))
+-1
+\end{verbatim}
+\end{listing}
+
+\noindent
+Y 2 es igual a 2:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(cmp(2,2))
+0
+\end{verbatim}
+\end{listing}
+
+\noindent
+Pero 2 es mayor que 1:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(cmp(2,1))
+1
+\end{verbatim}
+\end{listing}
+
+\noindent
+La comparación no únicamente funciona con números.   Puedes utilizar otros valores, como las cadenas:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(cmp('a','b'))
+-1
+>>> print(cmp('a','a'))
+0
+>>> print(cmp('b','a'))
+1
+\end{verbatim}
+\end{listing}
+
+\noindent
+Pero ten cuidado con las cadenas; el valor de retorno no tiene por qué ser lo que tú esperas$\ldots$
+
+\begin{listing}
+\begin{verbatim}
+>>> print(cmp('a','A'))
+1
+>>> print(cmp('A','a'))
+-1
+\end{verbatim}
+\end{listing}
+
+Una `a' en minúscula es mayor que una en mayúsculas `A'. Desde luego$\ldots$
+
+\begin{listing}
+\begin{verbatim}
+>>> print(cmp('aaa','aaaa'))
+-1
+>>> print(cmp('aaaa','aaa'))
+1
+\end{verbatim}
+\end{listing}
+
+\noindent
+$\ldots$3 letras `a' (aaa) es menor que 4 letras `a' (aaaa).
+
+\subsection*{dir}\index{funciones!dir}
+
+La función \textbf{dir} retorna una lista con información sobre un valor.   Puedes utilizar dir en cadenas, números, funciones, módulos, objetos, clases---en casi cualquier cosa.   Para algunos valores, la información que devuelve puede que no tenga sentido para ti.   Por ejemplo, si llamamos a la función dir pasándole como parámetro el número 1, el resultado es$\ldots$
+
+\begin{listingignore}
+\begin{verbatim}
+>>> dir(1)
+['__abs__', '__add__', '__and__', '__class__', '__cmp__', '__coerce__', '__delattr__', 
+'__div__', '__divmod__', '__doc__', '__float__', '__floordiv__', '__getattribute__', 
+'__getnewargs__', '__hash__', '__hex__', '__index__', '__init__', '__int__', '__invert__', 
+'__long__', '__lshift__', '__mod__', '__mul__', '__neg__', '__new__', '__nonzero__', 
+'__oct__', '__or__', '__pos__', '__pow__', '__radd__', '__rand__', '__rdiv__', 
+'__rdivmod__', '__reduce__', '__reduce_ex__', '__repr__', '__rfloordiv__', 
+'__rlshift__', '__rmod__', '__rmul__', '__ror__', '__rpow__', '__rrshift__', '__rshift__',
+'__rsub__', '__rtruediv__', '__rxor__', '__setattr__', '__str__', '__sub__', '__truediv__',
+'__xor__']
+\end{verbatim}
+\end{listingignore}
+
+$\ldots$un amplio número de funciones especiales.  Y si llamamos dir sobre la cadena `a' el resultado es$\ldots$
+
+\begin{listingignore}
+\begin{verbatim}
+>>> dir('a')
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__ge__', 
+'__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__',
+'__init__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', 
+'__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', 
+'__str__', 'capitalize', 'center', 'count', 'decode', 'encode', 'endswith', 'expandtabs', 
+'find', 'index', 'isalnum', 'isalpha', 'isdigit', 'islower', 'isspace', 'istitle', 
+'isupper', 'join', 'ljust', 'lower', 'lstrip', 'partition', 'replace', 'rfind', 'rindex', 
+'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 
+'swapcase', 'title', 'translate', 'upper', 'zfill']
+\end{verbatim}
+\end{listingignore}
+
+Que muestra un conjunto de funciones como \code{capitalize} (que sirve para poner en mayúscula la primera letra de una cadena)$\ldots$
+
+\begin{listing}
+\begin{verbatim}
+>>> print('aaaaa'.capitalize())
+Aaaaa
+\end{verbatim}
+\end{listing}
+
+$\ldots$\code{isalnum} (es una función que retorna True si la cadena es `alfanumérica'----es decir si únicamente contiene números y letras, sin símbolos `raros'), \code{isalpha} (es una función que retorna True si una cadena contiene únicamente letras), y así sucesivamente. 
+
+Dir puede ser útil cuando tienes una variable y quieres descubrir rápidamente qué puedes hacer con ella, qué funciones y qué propiedades tiene.
+
+\subsection*{eval}\index{funciones!eval}
+
+La función \textbf{eval} toma como parámetro una cadena y la ejecuta como si fuese una expresión de Python.  Es parecido a la palabra reservada \textbf{exec} pero funciona algo diferente.  Con exec se pueden crear miniprogramas de Python, sin embargo, con eval únicamente se permite que la cadena contenga expresiones simples, como en:
+
+\begin{listing}
+\begin{verbatim}
+>>> eval('10*5')
+50
+\end{verbatim}
+\end{listing}
+
+\subsection*{file/open}\index{funciones!file}\index{funciones!open}
+
+file es una función para abrir un fichero (se puede usar indistintamente la función open). Retorna un objeto fichero que tiene funciones para acceder a la información del fichero (su contenido, su tamaño y otras más).   Puedes acceder a más información sobre el uso de esta función en el Capítulo~\ref{ch:ashortchapteraboutfiles}.
+
+\subsection*{float}\index{funciones!float}
+
+La función \textbf{float} convierte una cadena o un número entero en un número de coma flotante (con decimales).   Un número de coma flotante es un número con coma decimal (también se llaman números reales).   Por ejemplo, el número 10 es un `entero', pero el 10.0, 10.1 10.253, son `flotantes'. Puedes convertir una cadena en un flotante ejecutando:
+
+\begin{listing}
+\begin{verbatim}
+>>> float('12')
+12.0
+\end{verbatim}
+\end{listing}
+
+\noindent
+También puedes utilizar la coma (el punto) decimal en la propia cadena:
+
+\begin{listing}
+\begin{verbatim}
+>>> float('123.456789')
+123.456789
+\end{verbatim}
+\end{listing}
+
+\noindent
+Un número se puede transformar en un flotante ejecutando:
+
+\begin{listing}
+\begin{verbatim}
+>>> float(200)
+200.0
+\end{verbatim}
+\end{listing}
+
+\noindent
+Y desde luego, si conviertes un número que ya es flotante con la función float, el resultado es el propio número flotante:
+
+\begin{listing}
+\begin{verbatim}
+>>> float(100.123)
+100.123
+\end{verbatim}
+\end{listing}
+
+\noindent
+Si se llama a float sin argumentos, el resultado es el número 0.0.
+
+\begin{listing}
+\begin{verbatim}
+>>> float()
+0.0
+\end{verbatim}
+\end{listing}
+
+\noindent
+
+\subsection*{int}\index{funciones!int}
+
+La función \textbf{int} convierte una cadena (que contenga un número entero) o un número cualquiera en un número entero. Por ejemplo:
+
+\begin{listing}
+\begin{verbatim}
+>>> int(123.456)
+123
+>>> int('123')
+123
+\end{verbatim}
+\end{listing}
+
+Esta función trabaja de un modo diferente a la función \textbf{float}. Si intentas convertir un número de coma flotante que esté en una cadena obtendrás un mensaje de error:
+
+\begin{listing}
+\begin{verbatim}
+>>> int('123.456')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+ValueError: invalid literal for int() with base 10: '123.456'
+\end{verbatim}
+\end{listing}
+
+\noindent
+Si llamas a int sin argumentos el valor que se retorna es 0.
+
+\begin{listing}
+\begin{verbatim}
+>>> int()
+0
+\end{verbatim}
+\end{listing}
+
+\noindent
+
+\subsection*{len}\index{funciones!len}
+
+La función \textbf{len} retorna la longitud de un objeto.   En el caso de una cadena retorna el número de caracteres de la cadena:
+
+\begin{listing}
+\begin{verbatim}
+>>> len('esto es una cadena de prueba')
+28
+\end{verbatim}
+\end{listing}
+
+\noindent
+Para una lista o un tupla devuelve el número de elementos que contiene:
+
+\begin{listing}
+\begin{verbatim}
+>>> milista = [ 'a', 'b', 'c', 'd' ]
+>>> print(len(milista))
+4
+>>> mitupla = (1,2,3,4,5,6)
+>>> print(len(mitupla))
+6
+\end{verbatim}
+\end{listing}
+
+\noindent
+Para un mapa o diccionario también retorna el número de elementos:
+
+\begin{listing}
+\begin{verbatim}
+>>> mimapa = { 'a' : 100, 'b' : 200, 'c' : 300 }
+>>> print(len(mimapa))
+3
+\end{verbatim}
+\end{listing}
+
+\noindent
+En los bucles puede resultar muy útil esta función. Si quisieras recorrer los elementos de una lista podrías hacer lo siguiente:
+
+\begin{listing}
+\begin{verbatim}
+>>> milista = [ 'a', 'b', 'c', 'd' ]
+>>> for elemento in milista:
+...     print(elemento)
+\end{verbatim}
+\end{listing}
+
+\noindent
+Lo que imprimiría todos los elementos de la lista (a,b,c,d)---pero si lo que quisieras hacer fuese imprimir el índice de la posición en la que se encuentra cada elemento de la lista$\ldots$   En ese caso necesitas la longitud de la lista y recorrer los elementos como sigue:
+
+\begin{listing}
+\begin{verbatim}
+>>> milista = [ 'a', 'b', 'c', 'd' ]
+>>> longitud = len(milista)
+>>> for x in range(0, longitud):
+...     print('el elemento en la  posición %s es %s' % (x, milista[x]))
+... 
+el elemento en la posición 0 es a
+el elemento en la posición 1 es b
+el elemento en la posición 2 es c
+el elemento en la posición 3 es d
+\end{verbatim}
+\end{lesting}
+
+\noindent
+Almacenamos la longitud de la lista en la variable `longitud', luego usamos esa variable en la función \code{range} para crear el bucle.
+
+\subsection*{max}\index{funciones!max}
+
+La función \textbf{max} retorna el elemento mayor de una lista, tupla o cadena.   Por ejemplo:
+
+\begin{listing}
+\begin{verbatim}
+>>> milista = [ 5, 4, 10, 30, 22 ]
+>>> print(max(milista))
+30
+\end{verbatim}
+\end{listing}
+
+\noindent
+En una cadena retorna el carácter mayor:
+
+\begin{listing}
+\begin{verbatim}
+>>> s = 'abdhg'
+>>> print(max(s))
+h
+\end{verbatim}
+\end{listing}
+
+\noindent
+No es necesario utilizar listas, tuplas o cadenas.  Puedes ejecutar la función max pasando directamente varios parámetros:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(max(10, 300, 450, 50, 90))
+450
+\end{verbatim}
+\end{listing}
+
+\subsection*{min}\index{funciones!min}
+
+La función \textbf{min} funciona de la misma forma que max, con la diferencia de que retorna el elemento más pequeño de una lista, tupla o cadena:
+
+\begin{listing}
+\begin{verbatim}
+>>> milista = [ 5, 4, 10, 30, 22 ]
+>>> print(min(milista))
+4
+\end{verbatim}
+\end{listing}
+
+\subsection*{range}\index{funciones!range}
+
+La función \textbf{range} se utiliza principalmente para los bucles for, cuando quieres ejecutar un trozo de código (un bloque) un número determinado de veces.   Lo vimos en el Capítulo~\ref{ch:againandagain}. Allí vimos cómo utilizarla con dos argumentos. Pero también se puede utilizar con tres parámetros (o argumentos).
+
+Veamos de nuevo un ejemplo con dos argumentos:
+
+\begin{listing}
+\begin{verbatim}
+>>> for x in range(0, 5):
+...     print(x)
+... 
+0
+1
+2
+3
+4
+\end{verbatim}
+\end{listing}
+
+\noindent
+Lo que puede que no te hayas dado cuenta aún es que la función \code{range} en realidad retorna un objeto especial (llamado `iterador') que es el que usa el bucle for para poder repetir las veces que se indique.  Puedes convertir el iterador en una lista (utilizando la función \code{list}). Puedes probarlo imprimiendo el valor de retorno de la función range utilizando la función list:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(list(range(0, 5)))
+[0, 1, 2, 3, 4]
+\end{verbatim}
+\end{listing}
+
+\noindent
+Para conseguir una lista de números que puedas utilizar en otra parte de tu programa puedes hacer algo así:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> mi_lista_de_numeros = list(range(0, 30))
+>>> print(mi_lista_de_numeros)
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 
+16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+La función range también puede recibir un tercer argumento (parámetro), denominado `step'\footnote{En inglés `step' significa `paso'.} (los primeros argumentos se denominan `start' y `stop').   Si no se pasa el parámetro `step' el valor que se utiliza por defecto es 1.  ¿Qué sucede cuando pasamos el número 2 en este tercer parámetro?   Puedes verlo en el siguiente ejemplo:
+
+\begin{listing}
+\begin{verbatim}
+>>> mi_lista_de_numeros = list(range(0, 30, 2))
+>>> print(my_lista_de_numeros)
+[0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28]
+\end{verbatim}
+\end{listing}
+
+\noindent
+Cada número de la lista es el anterior + 2.   Ya habrás adivinado lo que hace el parámetro `step'.
+
+Podemos probar con pasos mayores:
+
+\begin{listing}
+\begin{verbatim}
+>>> milista = list(range(0, 500, 50))
+>>> print(milista)
+[0, 50, 100, 150, 200, 250, 300, 350, 400, 450]
+\end{verbatim}
+\end{listing}
+
+Que crea un lista desde el 0 al 500 (pero sin incluir el último, como siempre), incrementando los números de 50 en 50.
+
+\subsection*{sum}\index{funciones!sum}
+
+La función \textbf{sum} suma los elementos de una lista y retorna el número total.   Por ejemplo:
+
+\begin{listing}
+\begin{verbatim}
+>>> mlista = list(range(0, 500, 50))
+>>> print(milista)
+[0, 50, 100, 150, 200, 250, 300, 350, 400, 450]
+
+>>> print(sum(milista))
+2250
+\end{verbatim}
+\end{listing}
+
+\newpage

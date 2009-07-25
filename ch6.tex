@@ -1,0 +1,445 @@
+% ch6.tex
+% This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 New Zealand License.
+% To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/nz
+% or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+
+
+\chapter{Una forma de reciclar$\ldots$}\label{ch:sortoflikerecycling}
+
+Estoy pensando en la cantidad de basura que generas cada día. Agua embotellada o botellas de refrescos, paquetes de crispies, envoltorios de sandwiches, bolsas de verduras, bandejas de plástico de la carne, bolsas de plástico de la compra, periódicos, revistas y muchas cosas más$\ldots$
+\par
+Piensa ahora en lo que pasaría si toda esa basura quedase tirada en un montón al otro lado de tu calle.
+
+\begin{center}
+\includegraphics*[width=100mm]{trash.eps}
+\end{center}
+
+Probablemente reciclas tanto como puedes.  Lo cual está muy bien, porque a nadie le gusta tener  que escalar una montaña de basura de camino al colegio.  Por eso, las botellas de cristal van al cubo de reciclar para que las fundan y vuelvan a hacer nuevas jarras, vasos y botellas con ellas; el papel se vuelve a convertir en papel reciclado; el plástico sirve para hacer nuevos artículos de plástico---de forma que tu calle no desaparece bajo toneladas de basura. Reutilizamos las cosas que se fabrican para evitar comernos el mundo a trozos al fabricar continuamente nuevos objetos.
+
+Reciclar o reutilizar también es muy importante en el mundo de la programación. No porque tu programa vaya a desaparecer bajo un montón de basura---sino porque si no reutilizas algo de lo que haces posiblemente perderías los dedos de tanto teclear.
+
+Hay diversas formas de reutilizar código en Python (en general, en todos los lenguajes de programación), vimos una de las formas en el Capítulo 3, con la función range.  Las funciones\index{funciones} son un modo de reutilizar código---de forma que escribes el código una vez y lo puedes usar en tus programas tantas veces como quieras.  Vamos a comenzar por un ejemplo simple de una función:
+
+\begin{listing}
+\begin{verbatim}
+>>> def mifuncion(minombre):
+...     print('hola %s' % minombre)
+...
+\end{verbatim}
+\end{listing}
+
+La función anterior se llama `mifuncion' y tiene como parámetro `minombre'.  Un \emph{parámetro} es una variable que solamente está disponible dentro del `cuerpo' de la función (El \emph{cuerpo} de la función es el bloque de código que comienza inmediatamente después de la línea con el \code{def}\footnote{`def' es la contracción de `define' que en inglés significa `definir'}).
+
+Puedes ejecutar la función llamándola por su nombre y utilizando paréntesis para delimitar el valor que quieras asignar al parámetro:
+
+\begin{listing}
+\begin{verbatim}
+>>> mifuncion('Miguel')
+hola Miguel
+\end{verbatim}
+\end{listing}
+
+\noindent
+Podríamos modificar la función para que \emph{recibiese} dos parámetros: 
+
+\begin{listing}
+\begin{verbatim}
+>>> def mifuncion(nombre, apellidos):
+...     print('Hola %s %s' % (nombre, apellidos))
+...
+\end{verbatim}
+\end{listing}
+
+\noindent
+Y podemos ejecutarla de la misma forma que la primera vez:
+
+\begin{listing}
+\begin{verbatim}
+>>> mifuncion('Miguel', 'González Pérez')
+Hola Miguel González Pérez
+\end{verbatim}
+\end{listing}
+
+\noindent
+También podríamos crear algunas variables y utilizarlas para llamar a la función (para asignar con ellas los parámetros):
+
+\begin{listing}
+\begin{verbatim}
+>>> fn = 'Joe'
+>>> ln = 'Robertson'
+>>> mifuncion(fn, ln)
+Hola Joe Robertson
+\end{verbatim}
+\end{listing}
+
+\noindent
+Una función puede \emph{devolver valores} utilizando la sentencia \code{return}\index{return}\footnote{En inglés `return' significa `retorno'}:
+
+\begin{listing}
+\begin{verbatim}
+>>> def calcular_ahorros(tareas, reparto, gastos):
+...     return tareas + reparto - gastos
+...
+>>> print(calcular_ahorros(10, 10, 5))
+15
+\end{verbatim}
+\end{listing}
+
+Esta función toma 3 parámetros y luego suma los dos primeros, tareas y reparto, antes de restar el último, gastos.  El resultado se devuelve con la sentencia \code{return}---este resultado se puede utilizar para asignarlo a una variable (de la misma forma que lo hemos hecho en otras ocasiones): 
+
+\begin{listing}
+\begin{verbatim}
+>>> mis_ahorros = calcular_ahorros(20, 10, 5)
+>>> print(mis_ahorros)
+25
+\end{verbatim}
+\end{listing}
+
+\noindent
+Importante, cualquier variable que se use dentro del cuerpo de una función, no estará accesible (no se podrá usar) a partir de que la función haya finalizado:
+
+\begin{listing}
+\begin{verbatim}
+>>> def variable_test():
+...     a = 10
+...     b = 20
+...     return a * b
+...
+>>> print(variable_test())
+200
+>>> print(a)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'a' is not defined
+\end{verbatim}
+\end{listing} 
+
+En el ejemplo anterior creamos la función \code{variable\_test}, que multiplica dos variables (\code{a} y \code{b}) y devuelve el resultado.  Si llamamos a la función utilizando \code{print}\footnote{como ves, `print' es una función que recibe un parámetro en este caso.}, obtenemos la respuesta: 200.  Sin embargo, si intentamos imprimir el contenido de la variable \code{a} (o \code{b}), vemos un mensaje de error ```a' no está definida''. Esto sucede por algo que se suele llamar `\emph{ámbito}'\index{ámbito} en el mundo de la programación.
+\par
+Imagina que una función es como una islita en el océano---y que está demasiado lejos para nadar a ninguna parte desde ella.  Ocasionalmente, un avión vuela hasta ella y deja caer unos trozos de papel en la isla (son los parámetros que llegan a la función)  entonces los habitantes juntan los papeles y crean un mensaje, lo ponen dentro de una botella y la tiran al mar (la botella es el valor que retorna la función).  A la persona que coge la botella y lee el mensaje no le importa lo que hacen los isleños, ni cuantos son.   Posiblemente esta sea la manera más sencilla de pensar sobre el concepto de \emph{ámbito}---únicamente tiene un pequeño problema.  Uno de los isleños tiene unos prismáticos muy potentes y puede ver el continente.  Puede ver lo que la gente está haciendo allí, y puede afectar al mensaje que están creando:
+
+\begin{listing}
+\begin{verbatim}
+>>> x = 100
+>>> def variable_test2():
+...     a = 10
+...     b = 20
+...     return a * b * x
+... 
+>>> print(variable_test2())
+20000
+\end{verbatim}
+\end{listing}
+
+Como se ve, incluso aunque no se pueden utilizar las variables \code{a} y \code{b} fuera de la función, la variable \code{x} (que se ha creado fuera, y antes, que la función) sí se puede utilizar dentro de ella.  Piensa en el isleño con los prismáticos, y tal vez te ayude a comprender la idea.
+
+En resumen, las variables que están creadas fuera de una función se pueden utilizar dentro de la función (además de sus parámetros y las que se creen dentro de la función). Sin embargo, las variables creadas dentro de la función y los parámetros de la función únicamente están disponibles dentro de la función. En otras palabras, el \emph{ámbito} de las variables de dentro de una función está reducido a la propia función, mientras que el \emph{ámbito} de las variables exteriores a una función se extiende a las funciones que se usen después de que la variable se haya creado.
+
+\begin{center}
+\includegraphics*[width=100mm]{islanders.eps}
+\end{center}
+
+El bucle for que creamos en un capítulo anterior para mostrar los ahorros de un año se puede convertir en una función fácilmente:
+
+\begin{listing}
+\begin{verbatim}
+>>> def obtener_ahorros_anuales(tareas, reparto, gastos):
+...     ahorros = 0
+...     for semana in range(1, 53):
+...         ahorros = ahorros + tareas + reparto - gastos
+...         print('Semana %s = %s' % (semana, ahorros))
+...
+\end{verbatim}
+\end{listing}
+
+Prueba a teclear la función en la consola y luego llámala con diferentes valores para los parámetros, \code{tareas}, \code{reparto} y \code{gastos}:
+
+\begin{listing}
+\begin{verbatim}
+>>> obtener_ahorros_anuales(10, 10, 5)
+Semana 1 = 15
+Semana 2 = 30
+Semana 3 = 45
+Semana 4 = 60
+Semana 5 = 75
+Semana 6 = 90
+Semana 7 = 105
+Semana 8 = 120
+Semana 9 = 135
+Semana 10 = 150
+
+(continúa...)
+
+\end{verbatim}
+\end{listing}
+
+\begin{listing}
+\begin{verbatim}
+>>> obtener_ahorros_anuales(25, 15, 10)
+Semana 1 = 30
+Semana 2 = 60
+Semana 3 = 90
+Semana 4 = 120
+Semana 5 = 150
+
+(continúa...)
+
+\end{verbatim}
+\end{listing}
+
+Esto es un poco más útil que tener que teclear el bucle for cada vez que quieres probar con un valor diferente.  Las funciones se pueden agrupar en algo llamado `módulos', y con ello Python comienza a convertirse en algo útil de verdad$\ldots$
+\par
+\noindent
+\emph{En breve hablaremos sobre los módulos.}
+
+\section{Trocitos}
+
+Cuando Python se instala en tu ordenador, se instalan con él un montón de funciones y módulos. Algunas funciones están disponibles por defecto.  Por ejemplo, hemos utilizado sin necesidad de hacer nada más la función \code{range}.  Otro ejemplo posible es \code{open}\index{funciones!open}\index{En inglés `open' significa `abrir'.}, que es otra función que aún no hemos usado.
+
+\begin{WINDOWS}
+
+Para poder ver cómo se usa la función \code{open}, abre el Block de Notas de Windows y teclea algunas palabras, luego graba el fichero en el disco C: de la siguiente forma:
+
+\begin{enumerate}
+ \item haz click en el menú Archivo, y pulsa Guardar,
+ \item haz doble click en `Mi PC' en la ventana de diálogo,
+ \item haz doble click en `Disco Local (C:)',
+ \item En la caja de texto de Archivo (abajo) donde dice `*.txt', teclea `test.txt' 
+\end{enumerate}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=65mm]{figure17.eps}
+\end{center}
+\caption{La ventana de diálogo para guardar ficheros del Block de Notas de Windows.}\label{fig17}
+\end{figure}
+
+Abre la consola de Python y prueba lo siguiente:
+
+\begin{listing}
+\begin{verbatim}
+>>> f = open('c:\\test.txt')
+>>> print(f.read())
+\end{verbatim}
+\end{listing}
+
+\end{WINDOWS}
+
+\begin{MAC}
+Para ver cómo se utiliza la función \code{open} abre el Editor de Texto haciendo click en el icono del editor (\includegraphics*[width=12mm]{textedit-icon.eps}).  Teclea unas cuantas palabras y luego graba el fichero en el Escritorio haciendo click en Archivo, luego Guardar, e introduciendo el nombre `test.txt' en la caja de texto que está junto a `Guardar como'.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=65mm]{figure18.eps}
+\end{center}
+\caption{Ventana de diálogo para Guardar del Editor de Texto del Mac OS X.}\label{fig18}
+\end{figure}
+
+Abre la consola de Python y prueba lo siguiente:
+
+\begin{listing}
+\begin{verbatim}
+>>> f = open('Desktop/test.txt')
+>>> print(f.read())
+\end{verbatim}
+\end{listing}
+
+\end{MAC}
+
+\begin{LINUX}
+Para ver cómo se utiliza la función \code{open}, abre un editor de textos de Linux, teclea algunas palabras y guarda el archivo en tu directorio `home' pulsando Archivo, Guardar y seleccionando el directorio Home  teclea `test.txt' en el nombre del fichero (observa la figura~\ref{fig19} para ver un ejemplo).
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=65mm]{figure19.eps}
+\end{center}
+\caption{La ventana de diálogo Guardar del Editor de Textos KEdit.}\label{fig19}
+\end{figure}
+
+Abre la consola de Python y prueba lo siguiente:
+
+\begin{listing}
+\begin{verbatim}
+>>> f = open('Desktop/test.txt')
+>>> print(f.read())
+\end{verbatim}
+\end{listing}
+
+\end{LINUX}
+
+¿Qué es lo que hace este trozo de código?  La primera línea llama a la función \code{open} pasándole como parámetro el nombre del fichero que acabas de crear.  La función retorna un valor de un tipo especial (denominado `objeto') que representa al fichero.  No es que sea el propio fichero; es más bien como si la variable fuese como un dedo que apunta al fichero diciendo ``¡¡¡AQUÍ ESTÁ!!!''. Este objeto se guarda en la variable \code{f}.
+\par
+La siguiente línea llama a la función \code{read}\footnote{En inglés `read' significa `leer'} para leer el contenido del fichero, y el resultado (el valor que retorna read) se pasa como parámetro a la función print, que imprime el valor en la consola.  Como la variable \code{f} contiene un objeto, para ejecutar la función read es necesario usar el símbolo de punto (.) con la variable objeto y la función a utilizar. El código \code{f.read()} hace que se lea el contenido del fichero f.
+
+\fbox{\colorbox{PaleBlue}{\parbox{.75\linewidth} {
+\par
+El apéndice~\ref{app:builtinfunctions} (al final del libro) contiene más información sobre las funciones que vienen ya en Python cuando lo instalas.
+\par
+}}}
+
+\section{Módulos}\index{módulos}
+
+En realidad hemos visto ya un par de formas diferentes de reutilizar código. Unas son las funciones normales, que podemos crear nosotros mismos o utilizar las que vienen con Python (como \code{range}, \code{open}, \code{int} y \code{str}. Otras son las funciones especiales que tienen los objetos---que podemos ejecutar utilizando el símbolo punto (.)---y la siguiente son los módulos; que permiten agrupar muchas funciones y objetos juntos según sea necesario. Vimos un ejemplo de módulo cuando usamos la tortuga (el módulo `turtle', que agrupaba un conjunto de funciones sobre la tortuga). Otro ejemplo de esto es el módulo `time'\index{módulos!time}\footnote{En inglés `time' significa `tiempo'}:
+
+\begin{listing}
+\begin{verbatim}
+>>> import time
+\end{verbatim}
+\end{listing}
+
+La sentencia import se utiliza en Python para decirle que queremos acceder al módulo cuyo nombre sea el que escribamos después del `import'\footnote{En inglés `import' significa `importar'}.  En el ejemplo anterior estamos diciéndole a Python que queremos usar el módulo `time'. De este modo, después podemos utilizar las funciones y objetos que están disponibles en este módulo. Para ello tenemos que usar el nombre del módulo seguido del símbolo punto y de la función a utilizar:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> print(time.localtime())
+(2006, 11, 10, 23, 49, 1, 4, 314, 1)
+\end{verbatim}
+\end{listingignore}
+
+localtime\index{módulos!time!localtime} es una función que está \emph{dentro} del módulo time. Retorna la fecha y la hora actual troceada en una tupla(ver \emph{Tuplas y listas} en la página~\pageref{tuplesandlists}) en partes individuales---año, mes, día, hora, minuto, segundo, día de la semana, día del año, y si hay horario de verano o no (1 si hay, 0 si no hay).
+
+Puedes utilizar otra función (asctime) del módulo time para convertir la fecha y la hora devuelta por localtime en algo que sea pueda comprender de forma más sencilla:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> t = time.localtime()
+>>> print(time.asctime(t))
+Sat Nov 18 22:37:15 2006
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+Podríamos escribirlo en una única línea si quisieramos:
+
+\begin{listingignore}
+\begin{verbatim}
+>>> print(time.asctime(time.localtime()))
+Sat Nov 18 22:37:15 2006
+\end{verbatim}
+\end{listingignore}
+
+Suponte que quieres pedirle a alguien que teclee algún valor. Se puede hacer utilizando la sentencia \code{print} y el módulo `\code{sys}'\index{módulos!sys}---importándolo del mismo modo que hiciste con el módulo \code{time}:
+
+\begin{listing}
+\begin{verbatim}
+import sys
+\end{verbatim}
+\end{listing}
+
+Dentro del módulo sys hay un objeto denominado `stdin'\index{módules!sys!stdin} (es la contracción de standard input, que significa `entrada estándar').  El objeto stdin posee una función (a las funciones de los objetos también se las suelen llamar métodos) que se llama \code{readline}---que se usa para leer una línea de texto que alguien introduzca desde el teclado (Hasta el momento en que se pulse la tecla Intro).  Puedes probar la función \code{readline} introduciendo las sentencias siguientes en la consola de Python:
+
+\begin{listing}
+\begin{verbatim}
+>>> print(sys.stdin.readline())
+\end{verbatim}
+\end{listing}
+
+Observarás que el cursor se queda esperando en la pantalla. Ahora puedes teclear algunas palabras y luego pulsar la tecla Intro. Lo que hayas tecleado se imprimirá en la consola.  Vuelve a pensar por un momento en el código que escribimos anteriormente con una sentencia if:
+
+\begin{listing}
+\begin{verbatim}
+if edad >= 10 and edad <= 13:
+    print('tienes %s años' % edad)
+else:
+    print('¿Eh?')
+\end{verbatim}
+\end{listing}
+
+En lugar de crear la variable \code{edad} de antemano, podemos pedir que se introduzca el valor desde el teclado.  En primer lugar vamos a convertir el código en una función$\ldots$
+
+\begin{listing}
+\begin{verbatim}
+>>> def tu_edad(edad):
+...     if edad >= 10 and edad <= 13:
+...         print('tienes %s años' % edad)
+...     else:
+...         print('¿Eh?')
+... 
+\end{verbatim}
+\end{listing}
+
+Esta función se puede llamar pasándole un número en el parámetro. Vamos a probarlo para ver si funciona bien:
+
+\begin{listing}
+\begin{verbatim}
+>>> tu_edad(9)
+¿Eh?
+>>> tu_edad(10)
+tienes 10 años
+\end{verbatim}
+\end{listing}
+
+Ahora que sabemos que la función está bien hecha y funciona bien, podemos modificarla para preguntar por la edad de la persona:
+
+\begin{listing}
+\begin{verbatim}
+>>> def tu_edad():
+...     print('Por favor, introduce tu edad')
+...     edad = int(sys.stdin.readline())
+...     if edad >= 10 and edad <= 13:
+...         print('tienes %s años' % edad)
+...     else:
+...         print('¿Eh?')
+... 
+\end{verbatim}
+\end{listing}
+
+Necesitamos utilizar la función \code{int} para convertir en un número el valor que devuelve \code{readline()} puesto que esta última retorna lo que se haya introducido por el teclado en formato cadena. De este modo funcionará correctamente la función if---vuelve a mirar \emph{¿Cuál es la diferencia?} en la página~\pageref{whatsthedifference} para obtener más información sobre esto.  
+
+Para probarlo tú, ejecuta la función tu\_edad sin parámetros y luego teclea tu edad cuando aparezca el texto `Por favor, introduce tu edad':
+
+\begin{listingignore}
+\begin{verbatim}
+>>> tu_edad()
+Por favor, introduce tu edad
+10 # el número es lo que tecleas y finalizas pulsando Intro
+tienes 10 años
+>>> tu_edad()
+Por favor, introduce tu edad
+15
+¿Eh?
+\end{verbatim}
+\end{listingignore}
+
+\noindent
+\emph{Lo importante a tener en cuenta es que aunque teclees un número (en los casos anteriores 10 ó 15), la función readline siempre retorna una cadena.}
+
+\fbox{\colorbox{PaleBlue}{\parbox{.75\linewidth} {
+\code{sys} y \code{time} son sólo dos de los muchos módulos que están incluidos con Python.  Para más información sobre otros módulos de Python (aunque no todos), mira el Apéndice~\ref{app:afewpythonmodules}.
+}}}
+
+\section{Cosas para probar}
+
+\emph{En este capítulo hemos visto cómo reciclar en Python; mediante el uso de funciones y módulos.  Hemos visto algo de lo que significa el `ámbito' de una variable, cómo las variables que están fuera de una función `se ven' dentro de ellas mientras que las que están dentro no se pueden ver fuera, y hemos aprendido cómo crear nuestras propias funciones utilizando la sentencia \code{def}}.
+
+\subsection*{Ejercicio 1}
+En el ejercicio 2 del Capítulo~\ref{ch:againandagain} creamos un bucle for para calcular el interés que podríamos ganar a partir de 100 euros durante un período de 10 años.  Ese bucle for podría convertirse fácilmente en una función.  Prueba a crear una función que se llame calcular\_interes que tome como parámetros la cantidad inicial, y la tasa de interés.  Luego podrás ejecutarla utilizando un código como el que sigue:
+
+\begin{listing}
+\begin{verbatim}
+calcular_interes(100, 0.03)
+\end{verbatim}
+\end{listing}
+
+\subsection*{Ejercicio 2}
+Toma la función que acabas de crear y modifícala para que calcule el interés para diferentes períodos---por ejemplo, 5 ó 15 años. Será necesario añadir un parámetro más.  Luego podrás ejecutarla de la siguiente forma:
+
+\begin{listing}
+\begin{verbatim}
+calcular_interes(100, 0.03, 5)
+\end{verbatim}
+\end{listing}
+
+\subsection*{Ejercicio 3}
+En lugar de una simple función en la que le pasamos los valores como parámetros, podemos hacer un miniprograma que pida por pantalla los valores (utilizando la función \code{sys.stdin.readline()}).  La nueva función no tendrá parámetros porque los datos se introducen con el teclado. De esta forma la llamaremos así:
+
+\begin{listing}
+\begin{verbatim}
+calcular_interes()
+\end{verbatim}
+\end{listing}
+
+\noindent
+Para crear este programa hace falta una función de la que no hemos hablado aún: \code{float}. La función \code{float} es muy parecida a la función \code{int}. La diferencia es que convierte cadenas en números de coma flotante (con decimales) en lugar de enteros. Se comentará algo más de estos números en el Capítulo~\ref{ch:8multipliedby3.57}).  Los números de coma flotante son números con coma decimal (.), como 20.3 o 2541.933\footnote{En español se usa la coma decimal (,) pero los ingleses utilizan el punto (.) decimal, por eso para escribir números con coma decimal en Python, y en casi todos los lenguajes de programación, hay que usar el punto (.)}.
+
+\newpage

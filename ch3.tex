@@ -1,0 +1,174 @@
+% ch3.tex
+% This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 New Zealand License.
+% To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/nz
+% or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+
+
+\chapter{Tortugas, y otras criaturas lentas}\index{turtle}\label{ch:turtles}
+
+Hay ciertas similitudes entre las tortugas del mundo real y una tortuga Python. En el mundo real, la tortuga es es un reptil verde (a veces) que se mueve muy lentamente y lleva la casa a su espalda.  En el mundo de Python, una tortuga es una es una flecha negra y pequeña que se mueve lentamente en la pantalla. Aunque no lleva ninguna casa a cuestas.
+
+De hecho, al considerar que una tortuga de Python va dejando un rastro según se mueve por la pantalla, aún es menos parecida a una tortuga de la vida real, por lo que se parece más a un caracol o a una babosa. Sin embargo, supongo que un módulo que se denominara `babosa' no hubiera sido especiamente atractivo, por lo que tiene sentido que sigamos pensando en tortugas. Únicamente tienes que imaginar que la tortuga lleva consigo un par de rotuladores, y va dibujando por el suelo según se mueve.
+
+En el oscuro, profundo y distante pasado, existía un simple lenguaje de programación llamado Logo. Logo se utilizaba para controlar a una tortuga robot (que se llamaba Irving, por cierto). Pasado el tiempo, la tortuga evolucionó de ser un robot que se podía mover por el suelo, a una pequeña flecha que se movía por la pantalla.
+
+\emph{Lo que demuestra que las consas no siempre mejoran con el avance de la tecnología---un pequeño robot tortuga sería mucho más divertido.}
+
+El módulo de Python llamado turtle\footnote{`turtle' en inglés significa `tortuga'. Los nombres de módulos de Python no se pueden traducir y deben escribirse en la consola sin equivocar ninguna letra} (volveremos a hablar de los módulos más adelante, pero por ahora imagina que un módulo es algo que podemos usar dentro de un programa) es parecido al lenguaje de programación Logo, pero mientras Logo era (y es) un poco limitado, Python sirve para muchas más cosas.  El módulo turtle nos vale para aprender de forma sencilla cómo los ordenadores hacer dibujos en la pantalla de tu ordenador.
+
+Comencemos y veamos como funcina.  El primer paso es decirle a Python que queremos usar el módulo `turtle', para ello hay que ``importar'' el módulo:
+
+\begin{listing}
+\begin{verbatim}
+>>> import turtle
+\end{verbatim}
+\end{listing}
+
+Lo siguiente que necesitamos hacer es mostrar un lienzo sobre el que dibujar.  Un lienzo es una base de tela que los artistas usan para pintar; en este caso es un espacio en blanco en la pantalla sobre el que podemos dibujar:
+
+\begin{listing}
+\begin{verbatim}
+>>> t = turtle.Pen()
+\end{verbatim}
+\end{listing}
+
+En este código, ejecutamos una función especial (Pen\index{Pen}) del módulo turtle. Lo que sirve para crear un lienzo sobre el que dibujar. Una función es un trozo de código que podemos reutilizar (como con los módulos, volveremos con las funciones más tarde) para hacer algo útil tantas veces como necesitemos---en este caso, la función Pen crea el lienzo y devuelve un objeto que representa a una tortuga---asignamos el objeto a la variable `t' (en efecto, le estamos dando a nuestra tortuga el nombre `t'). Cuando teclees el código en la consola de Python, verás que aparece en pantalla una caja blanca (el lienzo) que se parece a la de la figura~\ref{fig10}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{figure10.eps}
+\end{center}
+\caption{Una flecha que representa a la tortuga.}\label{fig10}
+\end{figure}
+
+\emph{Sí, esa pequeña flecha en medio de la pantalla es la tortuga. Y, no, si lo estás pensando tienes razón, no se parece mucho a una tortuga.}
+
+Puedes darle órdenes a la tortuga utilizando funciones del objeto que acabas de crear (cuando ejecutaste \code{turtle.Pen()})---puesto que asignamos el objeto a la variable \code{t}, utilizaremos \code{t} para dar las órdenes.
+Una orden que podemos dar a la tortua es \code{forward}\footnote{`forward' significa `adelante' en inglés}.  Decirle forward\index{turtle!forward} a la tortuga supone darle la orden para que se mueva hacia adelante en la dirección en que ella esté mirando (No tengo ni idea si es una tortuga chico o chica. Vamos a pensar que es una chica). Vamos a decirle a la tortuga que se mueva hacia adelante 50 pixels (hablaremos sobre lo que son en un minuto):
+
+\begin{listing}
+\begin{verbatim}
+>>> t.forward(50)
+\end{verbatim}
+\end{listing}
+
+Deberías ver en tu pantalla algo parecido a la figura~\ref{fig11}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{figure11.eps}
+\end{center}
+\caption{La tortuga dibuja una línea.}\label{fig11}
+\end{figure}
+
+Desde el punto de vista de ella, se ha movido hacia adelante 50 pasos.  Desde nuestro punto de vista, se ha movido 50 pixels.
+
+\noindent
+\emph{Pero, ¿Qué es un pixel?}
+
+Un pixel\index{pixels} es un punto de la pantalla.
+
+En la pantalla del ordenador todo lo que aparece está formado por pequeños puntos (cuadrados).  Los programas que usas y los juegos a los que sueles jugar en el ordenador, o en una Playstation, o una Xbox, o una Wii; todos se muestran a base de un gran puñado de puntos de diferentes colores organizados en la pantalla.  De hecho, si la observaras con una lupa, serías capaz de verlos. Por eso si mirásemos con la lupa en el lienzo para ver la línea que acaba de dibujar la tortuga observaríamos que está formada por 50 puntos. También podríamos ver que la flecha que representa la tortuga está formada por puntos cuadrados, como se puede ver en la figura~\ref{fig12}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{figure12.eps}
+\end{center}
+\caption{Ampliando la línea y la flecha.}\label{fig12}
+\end{figure}
+
+Hablaremos más sobre los puntos o pixels, en un capítulo posterior.
+
+Lo siguiente que vamos a hacer es decirle a la tortuga que se gire a la izquierda \index{turtle!turning left} o derecha\index{turtle!turning right}:
+
+\begin{listing}
+\begin{verbatim}
+>>> t.left(90)
+\end{verbatim}
+\end{listing}
+
+Esta orden le dice a la tortuga que se gire a la izquierda 90 grados.  Puede que no hayas estudiado aún los grados\index{degrees} en el cole, así que te explico que la forma más fácil de pensar en ellos, es que son como si dividieramos la circunferencia de un reloj como vemos en la figura~\ref{fig13}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=52mm]{figure13.eps}
+\end{center}
+\caption{Las `divisiones' en un reloj.}\label{fig13}
+\end{figure}
+
+La diferencia con un reloj, es que en lugar de hacer 12 partes (o 60, si cuentas minutos en lugar de horas), es que se hacen 360 divisiones o partes de la circunferencia. Por eso, si divides la circunferencia de un reloj en 360 divisiones, obtienes 90 divisiones en el trozo en el que normalmente hay 3, 180 en donde normalmente hay 6 y 270 en donde normalmente hay 9; y el 0 estaría en la parte de arriba (en el comienzo), donde normalmente está el número de las 12 horas.  La figura~\ref{fig14} te muestra las divisiones en grados de la circunferencia.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=52mm]{figure14.eps}
+\end{center}
+\caption{Grados.}\label{fig14}
+\end{figure}
+
+Visto esto, ¿Qué es lo que realmente significa que le des a la tortuga la orden \code{left(90)}?
+\par
+Si estás de pie mirando en una dirección y extiendes el brazo hacia el lado directamente desde el hombro, ESO son 90 grados. Si apuntas con el brazo izquierdo, serán 90 grados hacia la izquierda. Si apuntas con con el brazo derecho, serán 90 grados a la derecha. Cuando la tortuga de Python se gira a la izquierda, planta su nariz en un punto y luego gira todo el cuerpo para volver la cara a hacia la nueva dirección (lo mismo que si te volvieras tú hacia donde apuntas con el brazo). Por eso el código \code{t.left(90)} da lugar a que la flecha apunte ahora hacia arriba, como se muestra en la figura~\ref{fig15}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{figure15.eps}
+\end{center}
+\caption{La tortuga después de girar a la izquierda.}\label{fig15}
+\end{figure}
+
+Vamos a probar las mismas órdenes de nuevo algunas veces más:
+
+\begin{listing}
+\begin{verbatim}
+>>> t.forward(50)
+>>> t.left(90)
+>>> t.forward(50)
+>>> t.left(90)
+>>> t.forward(50)
+>>> t.left(90)
+\end{verbatim}
+\end{listing}
+
+Nuestra tortuga ha dibujado un cuadrado y está a la izquierda mirando en la misma dirección en la que comenzó (ver figura~\ref{fig16}).
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{figure16.eps}
+\end{center}
+\caption{Dibujando un cuadrado.}\label{fig16}
+\end{figure}
+
+Podemos borrar lo que está dibujado en el lienzo con la orden clear\footnote{En inglés `clear' significa `limpiar'}\index{turtle!clear}:
+
+\begin{listing}
+\begin{verbatim}
+>>> t.clear()
+\end{verbatim}
+\end{listing}
+
+Existen algunas otras funciones básicas que puedes utilizar con tu tortuga: \code{reset}\footnote{En inglés `reset' significa `reiniciar'}\index{turtle!reset}, que también sirve para limpiar la pantalla pero que además vuelve a poner a la tortuga en su posición de comienzo; \code{backward}\footnote{En inglés `backward' significa `hacia atrás'}\index{turtle!backward}, que mueve la tortuga hacia atrás; \code{right}, que hace girar a la tortuga a la derecha; \code{up}\footnote{En inglés `up' significa `arriba'}\index{turtle!up} (para de dibujar) que le dice a la tortuga que pare de dibujar cuando se mueve (en otras palabras, levanta el rotulador del lienzo); y finalmente \code{down}\footnote{En inglés `down' significa `abajo'}\index{turtle!down} (comienza a dibujar) lo que sirve para decirle a la tortuga que vuelva a dibujar. Puedes utilizar estas funciones de la misma forma que las otras:
+
+\begin{listing}
+\begin{verbatim}
+>>> t.reset()
+>>> t.backward(100)
+>>> t.right(90)
+>>> t.up()
+>>> t.down()
+\end{verbatim}
+\end{listing}
+
+\noindent
+Volveremos al módulo turtle en breve.
+
+\section{Cosas que puedes probar}
+
+\emph{En este capítulo hemos visto como utilizar el módulo turtle para dibujar lineas simple utiliando giros a la izquierda y a la derecha.  Hemos visto que la tortuga utilizar grados como unidad de giro, y que son algo similar a las divisiones de los minutos en un reloj.}
+
+\subsection*{Ejercicio 1}
+Crea un lienzo utilizando la función \code{Pen} del módulo turtle, y luego dibuja un rectángulo.
+
+\subsection*{Ejercicio 2}
+Crea otro lienzo utilizando la función \code{Pen} del módulo turtle, y después dibuja un triángulo.
+
+\newpage

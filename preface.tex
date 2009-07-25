@@ -1,0 +1,136 @@
+% preface.tex
+% This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 New Zealand License.
+% To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/nz
+% or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+
+
+\chapter*{Introducción}\normalsize
+    \addcontentsline{toc}{chapter}{Introducción}
+\begin{center}
+{\em Una Nota para los Padres...}
+\end{center}
+\pagestyle{plain}
+
+\noindent
+Querida `Unidad Paternal' u otro Tutor,
+
+Para que tu hijo pueda iniciarse a la programación, es necesario que instales Python en tu ordenador. Este libro se ha actualizado para utilizar Python 3.0--esta última versión de Python no es compatible con versiones anteriores, por lo que si tienes instalada una versión anterior de Python, necesitarás descargar una versión más antigua de este libro.
+
+La instalación de Python es una tarea simple, pero hay algunas cosas a tener en cuenta dependiendo del Sistema Operativo en el que se instale. Si acabas de comprar un ordenador nuevo, no tienes ni idea de qué hacer con él, y mi afirmación anterior te ha dado escalofríos, probablemente querrás buscar a alguien que haga esta tarea por ti. Dependiendo del estado de tu ordenador, y la velocidad de tu conexión a Internet, te puede llevar de 15 minutos a varias horas.
+
+\begin{WINDOWS}
+
+\noindent
+En primer lugar, ve a  \href{http://www.python.org}{www.python.org} y descarga el último instalador de Windows para Python 3.  En el momento de escribir este libro era:
+\begin{quote}
+     \href{http://www.python.org/ftp/python/3.0.1/python-3.0.1.msi}{http://www.python.org/ftp/python/3.0.1/python-3.0.1.msi}
+\end{quote}
+Haz doble click en el icono del instalador de Windows (¿Recuerdas dónde lo has descargado?), y sigue las instrucciones para instalarlo en la ubicación por defecto (posiblemente será \emph{c:$\backslash$Python30} o algo parecido).
+
+\end{WINDOWS}
+
+\begin{MAC}
+
+\noindent
+A la fecha de escritura de este libro, instalar Python 3 en tu Mac es más complicado que lo que era habitual. No existen paquetes disponibles que te permitan instalarlo con un click. Existe información describiendo el proceso de instalación (este enlace muestra una buena \href{http://farmdev.com/thoughts/66/python-3-0-on-mac-os-x-alongside-2-6-2-5-etc-/}{página}), pero el proceso básico consiste en descargar el paquete con el código fuente y después compilarlo y construirlo tú mismo. No es tan difícil como suena, pere necesitarás realizar algunos pasos en el Terminal. Si lo encuentras demasiado complicado, te recomiendo usar la \href{http://www.briggs.net.nz/log/wp-content/uploads/2008/03/swfk-mac.zip}{versión anterior} de este libro (Y la versión anterior de Python).
+
+\noindent
+En primer lugar, ve a \href{www.python.org}{www.python.org} y descarga el paquete con el código fuente de Python. En diciembre de 1008, la dirección de esta descarga es:
+
+\noindent
+\href{http://www.python.org/ftp/python/3.0/Python-3.0.tar.bz2}{http://www.python.org/ftp/python/3.0/Python-3.0.tar.bz2}
+
+\noindent
+Inicia el Terminal, e introduce las siguientes sentencias:
+
+\begin{listing}
+\begin{verbatim}
+$ cd ~/Downloads/Python-3.0/
+$ ./configure --enable-framework MACOSX_DEPLOYMENT_TARGET=10.5 --with-universal-archs=all
+$ make && make test
+$ sudo make frameworkinstall
+\end{verbatim}
+\end{listing}
+
+\noindent
+Los siguientes pasos pueden, o puede que no, ser necesarios. En primer lugar teclea:
+
+\code{ls -la /Library/Frameworks/Python.framework/Versions/}
+
+\noindent
+En mi caso, se muestran únicamente dos directorios:
+
+\begin{listing}
+\begin{verbatim}
+    drwxr-xr-x  4 root  admin  136  6 Dec 23:31 .
+    drwxr-xr-x  6 root  admin  204  6 Dec 23:31 ..
+    drwxr-xr-x  9 root  admin  306  6 Dec 23:32 3.0
+    lrwxr-xr-x  1 root  admin    3  6 Dec 23:31 Current -> 3.0
+\end{verbatim}
+\end{listing}
+
+\noindent
+Si se muestran más de esos dos diretorios (por ejemplo)$\ldots$
+
+\begin{listing}
+\begin{verbatim}
+    drwxr-xr-x  4 root  admin  136   6 Dec 23:31 .
+    drwxr-xr-x  6 root  admin  204   6 Dec 23:31 ..
+    drwxr-xr-x  9 root  admin  306   7 Nov 08:19 2.4
+    drwxr-xr-x  9 root  admin  306  22 Mar 23:32 2.5
+    drwxr-xr-x  9 root  admin  306  12 Dec 10:22 2.6
+    drwxr-xr-x  9 root  admin  306   6 Dec 23:31 3.0
+    lrwxr-xr-x  1 root  admin    3   6 Dec 23:31 Current -> 3.0
+\end{verbatim}
+\end{listing}
+
+\noindent
+$\ldots$entonces puede ser que necesites ejecutar los siguientes pasos:
+
+\begin{listing}
+\begin{verbatim}
+$ cd /Library/Frameworks/Python.framework/Versions/
+$ sudo rm Current
+$ sudo ln -s 2.5 Current
+\end{verbatim}
+\end{listing}
+
+Por último, querrás configurar Python 3 para que sea la versión de Python que se ejecute por defecto cuando tu hijo abra el Terminal. Para ello necesitarás editar el path utilizado por Terminal--inicia Terminal, e introduce la siguiente sentencia \code{pico ~/.bash\_profile}.  Este fichero puede (o puede que no) existir ya, y si es así, puede (o puede que no) ser ya parte de tu path. En cualquier caso, al final del fichero, añade lo siguiente:
+
+\begin{listing}
+\begin{verbatim}
+export PATH="/Library/Frameworks/Python.framework/Versions/3.0/bin:${PATH}"
+\end{verbatim}
+\end{listing}
+
+Almacena los cambios, pulsando CTRL+X, y la tecla Y para grabar. Si reinicias el Terminal, y tecleas \code{python}, con suerte, verás algo similar a lo siguiente:
+
+\begin{listing}
+\begin{verbatim}
+Python 3.0 (r30:67503, Dec  6 2008, 23:22:48) 
+[GCC 4.0.1 (Apple Inc. build 5465)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+\end{verbatim}
+\end{listing}
+
+\end{MAC}
+
+\begin{LINUX}
+
+\noindent
+En primer lugar, descarga e instala la última versión de Python 3 de tu distribución Linux. Debido al gran número de versiones de Linux, es imposible dar los detalles exactos de la instalación de cada uno de ellos---pero como estás ejecutando Linux, la probabilidad de que sepas lo que estás haciendo es bastante alta. De hecho, problemente te sientes insultado por la mera idea de que te digan como instalar$\ldots$cualquier cosa.
+
+\end{LINUX}
+
+\noindent
+\emph{\color{BrickRed}Después de la instalación$\ldots$}
+
+\noindent
+$\ldots$Puede que te tengas que sentar junto a tu hijo durante los primeros capítulos, pero después de unos pocos ejemplo, deberían estar apartando tus manos del teclado porque querrán hacerlo ellos. Tus hijos deberían conocer como utilizar un editor de texto antes de comenzar (no, no un Procesador de Textos, como Microsoft Word---un editor de texto plano de la vieja guardia)---deberían saber como abrir y cerrar ficheros, crear nuevos ficheros de texto y grabar lo que están haciendo. Este libro intentará enseñarles lo básico, a partir de aquí.
+\\
+\\
+\noindent\\
+Gracias por tu tiempo, y un cordial saludo,
+\noindent\\
+EL LIBRO

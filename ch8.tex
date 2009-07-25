@@ -1,0 +1,543 @@
+% ch8.tex
+% This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 New Zealand License.
+% To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/3.0/nz
+% or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+
+
+\chapter{Tortugas en abundancia}\index{turtle!avanzado}\label{ch:turtlesgalore}
+
+Volvamos al módulo \code{turtle} que comenzamos a usar en el Capítulo~\ref{ch:turtles}. Recuerda que para crear el lienzo sobre que el la tortuga dibuja, necesitamos importar el módulo y crear el objeto `Pen' (el rotulador):
+
+\begin{listing}
+\begin{verbatim}
+>>> import turtle
+>>> t = turtle.Pen()
+\end{verbatim}
+\end{listing}
+
+Ahora podemos usar algunas funciones básicas para mover la tortuga por el lienzo y dibujar formas simples, pero es más interesante utilizar lo que hemos aprendido en los capítulos anteriores.  Por ejemplo, el código que utilizamos para crear un cuadrado era algo así:
+
+\begin{listing}
+\begin{verbatim}
+>>> t.forward(50)
+>>> t.left(90)
+>>> t.forward(50)
+>>> t.left(90)
+>>> t.forward(50)
+>>> t.left(90)
+\end{verbatim}
+\end{listing} 
+
+\noindent
+Ahora lo podemos reescribir utilizando un bucle for:
+
+\begin{listing}
+\begin{verbatim}
+>>> t.reset()
+>>> for x in range(1,5):
+...     t.forward(50)
+...     t.left(90)
+...
+\end{verbatim}
+\end{listing}
+
+Así hay que teclear menos, pero aún podemos hacer cosas más interesantes, intenta lo siguiente:
+
+\begin{listing}
+\begin{verbatim}
+>>> t.reset()
+>>> for x in range(1,9):
+...     t.forward(100)
+...     t.left(225)
+...
+\end{verbatim}
+\end{listing}
+
+Este código genera una estrella de 8 puntas como la que se muestra en la figura~\ref{fig20} (Cada una de las ocho veces, la tortuga gira 225 grados y se mueve 100 píxeles).
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{figure20.eps}
+\end{center}
+\caption{La tortuga dibujando una estrella de 8 puntas.}\label{fig20}
+\end{figure}
+
+\noindent
+Con un ángulo diferente (175 grados), y un bucle mayor (37 veces), podemos dibujar una estrella con más puntas (se muestra en la figura~\ref{fig21}):
+
+\begin{listing}
+\begin{verbatim}
+>>> t.reset()
+>>> for x in range(1,38):
+...     t.forward(100)
+...     t.left(175)
+...
+\end{verbatim}
+\end{listing}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{figure21.eps}
+\end{center}
+\caption{Una estrella con más puntas.}\label{fig21}
+\end{figure}
+
+\noindent
+O el código siguiente, que genera una estrella en espiral como la de la figura~\ref{fig22}.
+
+\begin{listing}
+\begin{verbatim}
+>>> for x in range(1,20):
+...     t.forward(100)
+...     t.left(95)
+...
+\end{verbatim}
+\end{listing}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{figure22.eps}
+\end{center}
+\caption{Una estrella con más puntas.}\label{fig22}
+\end{figure}
+
+\noindent
+Esto es algo más complicado:
+
+\begin{listing}
+\begin{verbatim}
+>>> t.reset()
+>>> for x in range(1,19):
+...     t.forward(100)
+...     if x % 2 == 0:
+...         t.left(175)
+...     else:
+...         t.left(225)
+...
+\end{verbatim}
+\end{listing}
+
+En el código anterior, chequeamos la variable \code{x} para ver si contiene un número par.  Para hacerlo utilizamos el operador denominado módulo (\%)\index{operador módulo}, con la expresión \code{x \% 2 == 0}, que pregunta si el resto de la división entre 2 es cero.
+\par
+x \% 2 es cero si el número que contenga la variable \code{x} es divisible entre 2, si es divisible entre dos no queda nada del resto de la división, el resto es cero (que es lo que hace el operador módulo, retornar el valor del resto de la división)---si no lo ves muy claro, no te preocupes, simplemente trata de recordar que puedes utilizar `\code{x \% 2 == 0}' para validar si el valor en una variable es un número par.  El resultado de ejecutar este código es una estrella de nueve puntas como la de la figura~\ref{fig23}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=84mm]{figure23.eps}
+\end{center}
+\caption{Una estrella de nueve puntas.}\label{fig23}
+\end{figure}
+
+No sólo puedes dibujar estrellas y figuras geométricas simples, utilizando una combinación de llamadas a función, la tortuga puede dibujar muchas cosas diferentes. Por ejemplo:
+
+\begin{listing}
+\begin{verbatim}
+t.color(1,0,0)
+t.begin_fill()
+t.forward(100)
+t.left(90)
+t.forward(20)
+t.left(90)
+t.forward(20)
+t.right(90)
+t.forward(20)
+t.left(90)
+t.forward(60)
+t.left(90)
+t.forward(20)
+t.right(90)
+t.forward(20)
+t.left(90)
+t.forward(20)
+t.end_fill()
+t.color(0,0,0)
+t.up()
+t.forward(10)
+t.down()
+t.begin_fill()
+t.circle(10)
+t.end_fill()
+t.setheading(0)
+t.up()
+t.forward(90)
+t.right(90)
+t.forward(10)
+t.setheading(0)
+t.begin_fill()
+t.down()
+t.circle(10)
+t.end_fill()
+\end{verbatim}
+\end{listing}
+
+\noindent
+Lo que resulta muy largo de dibujar. El resultado es un coche algo feo y primitivo como el de la figura~\ref{fig24}. De todos modos nos sirve para demostrar un par de otras funciones de la tortuga:  \code{color}, para cambiar el color del rotulador que está utilizando la tortuga; \code{begin\_fill} y \code{end\_fill}, para rellenar un área del lienzo; and \code{circle}, para dibujar un círculo del tamaño indicado.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=80mm]{figure24.eps}
+\end{center}
+\caption{¡La tortuga es bastante mala dibujando coches!}\label{fig24}
+\end{figure}
+
+\section{Coloreando}
+
+La función \code{color}\index{turtle!color} recibe 3 parámetros. El primero es un valor para el color rojo, el segundo es para el color verde y el tercero para el azul.
+\par
+\emph{¿Por qué rojo, verde y azul?}
+\par
+Si sabes pintar, seguro que conocer parte de la respuesta a esta pregunta.  Cuando mezclas dos pinturas de colores diferentes, el resultado es otro color\footnote{En realidad, los tres \textbf{colores primarios} en pintura son rojo, amarillo y azul,  y no rojo/verde/azul (RGB), que lo son en los ordenadores.}.  Cuando mezclas azul y rojo, obtienes el púrpura$\ldots$ y cuando mezclas demasiados colores juntos sueles obtene un marrón sucio.  En un ordenador puedes mezclar colores de la misma manera---junta rojo y verde y tendrás el amarillo---la diferencia es que en un ordenador estamos mezclando luz de colores, no pintura de colores.
+ 
+Aunque no estemos utilizando pintura, por un momento piensa en tres grandes botes de pintura.  Rojo, verde y azul.  Cada bote está lleno, por lo que diremos que el bote lleno de pintura vale 1 (o 100\%).  En un batidor podemos poner el bote entero de pintura roja (100\%), y después añadimos el bote completo de pintura verde (de nuevo el 100\%).  Despues de mezclarlos el resultado será el color amarillo.  Vamos a dibujar un círculo amarillo con la tortuga:
+
+\begin{listing}
+\begin{verbatim}
+>>> t.color(1,1,0)
+>>> t.begin_fill()
+>>> t.circle(50)
+>>> t.end_fill()
+\end{verbatim}
+\end{listing}
+
+Lo que se hace en el ejemplo anterior es ejecutar la función color con los colores rojo y verde al 100\% y 0\% para el color azul (en otras palabras, 1, 1, y 0).  Para hacer más sencillo el experimentar con differentes colores, vamos a convertir el código anterior en una función que dibuje círculos de colores:
+
+\begin{listing}
+\begin{verbatim}
+>>> def micirculo(rojo, verde, azul):
+...     t.color(rojo, verde, azul)
+...     t.begin_fill()
+...     t.circle(50)
+...     t.end_fill()
+...
+\end{verbatim}
+\end{listing}
+
+\noindent
+Podemos dibujar un círculo verde brillante utilizando todo el bote de pintura verde (1 o 100\%):
+
+\begin{listing}
+\begin{verbatim}
+>>> micirculo(0, 1, 0)
+\end{verbatim}
+\end{listing}
+
+\noindent
+Y podemos dibujar un círculo verde más oscuro utilizando solamente la mitad de la pintura verde (0.5 o 50\%)
+
+\begin{listing}
+\begin{verbatim}
+>>> micirculo(0, 0.5, 0)
+\end{verbatim}
+\end{listing}
+
+En este momento ya no tiene mucho sentido seguir pensando en pintura. En el mundo real, si tienes un bote de pintura verde, no importa cuanto utilices, siempre será el mismo color.  Con los colores en un ordenador lo que estamos haciendo es jugar con luz, si usamos menos luz de un color lo que sucede es que se ve más oscuro.  Es lo mismo que cuando enciendes una linterna por la noche, la luz es amarillenta---cuando las pilas se empiezan a gastar cada vez hay menos luz y el color amarillo se va haciendo cada vez más oscuro, hasta que se apaga del todo y se queda todo oscuro (o negro).  Para que lo veas por tí mismo, intenta dibujar círculos con el color rojo al máximo y con el color rojo a la mitad (1 y 0.5), y luego prueba lo mismo con el azul.
+
+\begin{listing}
+\begin{verbatim}
+>>> micirculo(1, 0, 0)
+>>> micirculo(0.5, 0, 0)
+
+>>> micirculo(0, 0, 1)
+>>> micirculo(0, 0, 0.5)
+\end{verbatim}
+\end{listing}
+
+\noindent
+Utilizando diferentes combinaciones de rojo, verde y azul se puede generar una amplia variedad de colores.  Por ejemplo, puedes conseguir el color dorado utilizando el 100\% de rojo, 85\% de verde y nada de azul:
+
+\begin{listing}
+\begin{verbatim}
+>>> micirculo(1, 0.85, 0)
+\end{verbatim}
+\end{listing}
+
+\noindent
+El color rosa claro se puede conseguir combinando el 100\% de rojo, 70\% de verde y 75\% de azul:
+
+\begin{listing}
+\begin{verbatim}
+>>> micirculo(1, 0.70,0.75)
+\end{verbatim}
+\end{listing}
+
+\noindent
+El naranja se puede conseguir combinando el 100\% de rojo y el 65\% de verde, y el marrón mezclando 60\% de rojo, 30\% de verde y 15\% de azul:
+
+\begin{listing}
+\begin{verbatim}
+>>> micirculo(1, 0.65, 0)
+>>> micirculo(0.6, 0.3, 0.15)
+\end{verbatim}
+\end{listing}
+
+\noindent
+No olvides que puedes limpiar el lienzo cuando quieras utilizando \code{t.clear()}. O reiniciar la todo el lienzo, incluida la posición de la tortuga con la sentencia \code{t.reset()}.
+
+\section{Oscuridad}\index{turtle!color!negro}
+
+Tengo una pregunta para ti: ¿Qué sucede por la noche cuando apagas las luces? Todo se queda negro.
+\par
+En un ordenador sucede lo mismo con los colores.  Si no hay luz no hay colores. Por eso el valor del negro en un ordenador es 0 para el rojo, 0 para el verde y 0 para el azul:
+
+\begin{listing}
+\begin{verbatim}
+>>> micirculo(0, 0, 0)
+\end{verbatim}
+\end{listing}
+
+Genera un circulo negro como el de la figura~\ref{fig25}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=85mm]{figure25.eps}
+\end{center}
+\caption{¡Un agujero negro!}\label{fig25}
+\end{figure}
+
+Lo contrario también es cierto; si utilizas el 100\% en el rojo, verde y azul, el color que sale es el blanco.  Utiliza el código siguiente y desaparecerá el circulo negro:
+
+\begin{listing}
+\begin{verbatim}
+>>> micirculo(1,1,1)
+\end{verbatim}
+\end{listing}
+
+\section{Rellenando las cosas}\index{turtle!fill}
+
+Probablemente te has dado cuenta ya de que la función begin\_fill activa el relleno de figuras y la función end\_fill finaliza el relleno.  Vamos a hacerlo con un cuadrado a partir del código anterior. En primer lugar lo vamos a convertir en una función. Para dibujar un cuadrado con la tortuga hacemos lo siguiente:
+
+\begin{listing}
+\begin{verbatim}
+>>> t.forward(50)
+>>> t.left(90)
+>>> t.forward(50)
+>>> t.left(90)
+>>> t.forward(50)
+>>> t.left(90)
+>>> t.forward(50)
+>>> t.left(90)
+\end{verbatim}
+\end{listing}
+
+Al convertirlo en una función podríamos pasarle como parámetro el tamaño que deseamos para el cuadrado. Así, la función será un poco más flexible:
+
+\begin{listing}
+\begin{verbatim}
+>>> def micuadrado(lado):
+...     t.forward(lado)
+...     t.left(90)
+...     t.forward(lado)
+...     t.left(90)
+...     t.forward(lado)
+...     t.left(90)
+...     t.forward(lado)
+...     t.left(90)
+\end{verbatim}
+\end{listing}
+
+\noindent
+Para probar nuestra función:
+
+\begin{listing}
+\begin{verbatim}
+>>> micuadrado(50)
+\end{verbatim}
+\end{listing}
+
+Para comenzar está bien, pero no es perfecto.  Si observas el código del cuadrado verás el patrón (la repetición). Estamos repitiendo: \code{forward(lado)} y \code{left(90)} cuatro veces.  Eso es un desperdicio.  Así que podemos utilizar el bucle for para que haga las repeticiones por nosotros (de igual modo que hicimos antes):
+
+\begin{listing}
+\begin{verbatim}
+>>> def micuadrado(lado):
+...     for x in range(0,4):
+...         t.forward(lado)
+...         t.left(90)
+\end{verbatim}
+\end{listing}
+
+Es una gran mejora sobre la versión anterior. Ahora vamos a probar la función usando varios tamaños:
+
+\begin{listing}
+\begin{verbatim}
+>>> t.reset()
+>>> micuadrado(25)
+>>> micuadrado(50)
+>>> micuadrado(75)
+>>> micuadrado(100)
+>>> micuadrado(125)
+\end{verbatim}
+\end{listing}
+
+Y la tortuga debería dibujar algo parecido a lo que se ve en la figura~\ref{fig26}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{figure26.eps}
+\end{center}
+\caption{Muchos cuadrados.}\label{fig26}
+\end{figure}
+
+\noindent
+Ahora podríamos probar un cuadrado relleno.  En primer lugar reiniciamos el lienzo de nuevo (no es exactamente lo mismo que limpiarlo, reiniciar también pone de nuevo a la tortuga en su lugar de inicio):
+
+\begin{listing}
+\begin{verbatim}
+>>> t.reset()
+\end{verbatim}
+\end{listing}
+
+\noindent
+Para ello, activamos el relleno y llamamos a la función que crea el cuadrado:
+
+\begin{listing}
+\begin{verbatim}
+>>> t.begin_fill()
+>>> micuadrado(50)
+\end{verbatim}
+\end{listing}
+
+\noindent
+Como verás, el cuadrado no se ve relleno. Para que se rellene es necesario finalizar con:
+
+\begin{listing}
+\begin{verbatim}
+>>> t.end_fill()
+\end{verbatim}
+\end{listing}
+
+\noindent
+De este modo se genera un resultado similar al que se ve en la figura~\ref{fig27}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{figure27.eps}
+\end{center}
+\caption{Un cuadrado negro.}\label{fig27}
+\end{figure}
+
+¿Qué te parece modificar la función para que pueda dibujar cuadrados rellenos o sin rellenar según queramos?  Para eso necesitamos otro parámetro, y el código será ligeramente más complejo:
+
+\begin{listing}
+\begin{verbatim}
+>>> def micuadrado(lado, relleno):
+...    if relleno:
+...        t.begin_fill()
+...    for x in range(0,4):
+...        t.forward(lado)
+...        t.left(90)
+...    if relleno:
+...        t.end_fill()
+...
+\end{verbatim}
+\end{listing}
+
+Las primeras dos líneas chequean si el valor del parámetro `relleno' es True. Si lo es, entonces se activa el relleno.  Luego se efectúa el bucle cuatro veces para dibujar los cuatro lados del cuadrado. Por último se vuelve a chequear el valor de la variable `relleno' para desactivarlo en caso de que sea verdadero.  Así que ahora es posible crear un  cuadrado relleno simplemente con una llamada a la función micuadrado:
+
+\begin{listing}
+\begin{verbatim}
+>>> micuadrado(50, True)
+\end{verbatim}
+\end{listing}
+
+\noindent
+Y un cuadrado sin rellenar mediante:
+
+\begin{listing}
+\begin{verbatim}
+>>> micuadrado(150, False)
+\end{verbatim}
+\end{listing}
+
+\noindent
+Lo que hace que nuestra tortuga dibuje algo como en la figura~\ref{fig28}$\ldots$ $\ldots$ Que, ahora que lo pienso, parece un extraño ojo cuadrado.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{figure28.eps}
+\end{center}
+\caption{Un ojo cuadrado.}\label{fig28}
+\end{figure}
+
+Puedes dibujar toda clase de formas y rellenarlas con color. Vamos a convertir la estrella que dibujamos anteriormente en una función.  El código original era:
+
+\begin{listing}
+\begin{verbatim}
+>>> for x in range(1,19):
+...     t.forward(100)
+...     if x % 2 == 0:
+...         t.left(175)
+...     else:
+...         t.left(225)
+...
+\end{verbatim}
+\end{listing}
+
+Podemos utilizar las mismas sentencias if de la función micuadrado y utilizar el parámetro lado para que la función sea más flexible: 
+
+\begin{listing}
+\begin{verbatim}
+1.  >>> def miestrella(lado, relleno):
+2.  ...     if relleno:
+3.  ...         t.begin_fill()
+4.  ...     for x in range(1,19):
+5.  ...         t.forward(lado)
+6.  ...         if x % 2 == 0:
+7.  ...             t.left(175)
+8.  ...         else:
+9.  ...             t.left(225)
+10. ...     if relleno:
+11. ...         t.end_fill()
+\end{verbatim}
+\end{listing}
+
+En las líneas 2 y 3 activamos el relleno, dependiendo del valor del parámetro \code{relleno} (activa el relleno si el parámetro está activado a True). Las líneas 10 y 11 desactivan el relleno en caso de haberse activado.  La otra diferencia respecto de esta función es que pasamos el parámetro \code{lado} y lo usamos en la línea 5 para que se puedan crear estrellas de diferentes tamaños.
+\par
+Vamos a activar el color dorado (como quizás recuerdes el color dorado se compone de 100\% de rojo, 85\% de verde y nada de azul), y luego llamamos a la función que hemos creado:
+
+\begin{listing}
+\begin{verbatim}
+>>> t.color(1, 0.85, 0)
+>>> miestrella(120, True)
+\end{verbatim}
+\end{listing}
+
+\noindent
+La tortuga debería dibujar una estrella dorada como la de la figura~\ref{fig29}. 
+Podemos añadirle un borde a la estrella, si cambiamos el color de nuevo (esta vez será el negro) y volviendo a dibujar la estrella con el relleno desactivado:
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=85mm]{figure29.eps}
+\end{center}
+\caption{Una estrella dorada.}\label{fig29}
+\end{figure}
+
+\begin{listing}
+\begin{verbatim}
+>>> t.color(0,0,0)
+>>> miestrella(120, False)
+\end{verbatim}
+\end{listing}
+
+\noindent
+La estrella ahora se verá como en la figura~\ref{fig30}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=85mm]{figure30.eps}
+\end{center}
+\caption{Una estrella con borde.}\label{fig30}
+\end{figure}
+
+\section{Cosas para probar}
+
+\emph{En este capítulo hemos aprendido algunas cosas más del módulo turtle. Lo hemos utilizado para dibujar algunas figuras geométricas básicas. Hemos utiliado funciones paa reutilizar el código y hacer más sencillo dibujar diversas formas de diferentes tamaños y colores.}
+
+\subsection*{Ejercicio 1}
+Hemos dibujado estrellas y cuadrados. ¿Qué tal dibujar un octágono? Un octágono es una forma geométrica que tiene 8 lados.
+(Pista: prueba a girar 45 grados).
+
+\subsection*{Ejercicio 2}
+Ahora convierte el código del octágono en una función que sirva para construirlo y permita que se rellene o no según nuestros deseos (y un parámetro que utilicemos para tal fin).
+
+\newpage
