@@ -17,7 +17,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 \end{verbatim}
 \end{listing}
 
-La estrella (*), o tecla de asterico, se utiliza como símbolo de multiplicación\index{multiplication}, en lugar del simbolo de multiplicar tradicional (\textsf{X}) que utilizas en el cole (es necesario que utilices la tecla de estrella porque el ordenador no tendría forma de distinguir si lo querías era teclear la letra \emph{x} o el símbolo de la multiplicación \textsf{X}).  ¿Qué te parece si probamos un cálculo que sea un poco más útil?
+La estrella (*), o tecla de asterico, se utiliza como símbolo de multiplicación\index{multiplicación}, en lugar del simbolo de multiplicar tradicional (\textsf{X}) que utilizas en el cole (es necesario que utilices la tecla de estrella porque el ordenador no tendría forma de distinguir si lo querías era teclear la letra \emph{x} o el símbolo de la multiplicación \textsf{X}).  ¿Qué te parece si probamos un cálculo que sea un poco más útil?
 
 Supón que haces tus obligaciones de la casa una vez a la semana, y por ello te dan 5 euros, y que haces de chico repartidor de periódicos 5 veces por semana cobrando 30 euros---¿Cuánto dinero podrías ganar en un año?
 
@@ -36,7 +36,7 @@ Si has probado a calcular 8 x 3.57 con una calculadora el resultado que se muest
 ¿Porqué el resultado de Python es diferente? ¿Está roto?\\
 
 \noindent
-En realidad no. La razón de esta diferencia está en la forma en que se hacen los cálculos en el ordenador con los números de coma flotante\index{floating point} (Los números que tienen una coma y decimales).  Es algo complejo y que confunde a los principianes, por lo que es mejor que recuerdes únicamente que cuando estás trabajando con decimales, \emph{a veces} el resultado no será exactamente el experado. Esto puede pasar con las multiplicaciones, divisiones, sumas y restas.
+En realidad no. La razón de esta diferencia está en la forma en que se hacen los cálculos en el ordenador con los números de coma flotante\index{coma o punto flotante} (Los números que tienen una coma y decimales).  Es algo complejo y que confunde a los principianes, por lo que es mejor que recuerdes únicamente que cuando estás trabajando con decimales, \emph{a veces} el resultado no será exactamente el experado. Esto puede pasar con las multiplicaciones, divisiones, sumas y restas.
 }}}
 \end{center}
 \end{figure}
@@ -75,7 +75,7 @@ Veamos, ¿Qué pasaría si te gastases 10 euros cada semana? ¿Cuánto te quedar
 
 Son 5 más 30 euros menos 10 euros multiplicado por las 52 semanas que tiene el año. Te quedarán 1300 euros a final de año. Estupendo, pero aún no es que sea muy útil lo que hemos visto. Todo se podría haber hecho con una calculadora. Pero volveremos con este asunto más tarde para mostrarte como hacer que sea mucho más útil.  
 
-En la consola de Python puedes multiplicar\index{multiplication} y sumar\index{addition} (obvio), y restar\index{subtraction} y dividir\index{division}, además de un gran puñado de ootras operaciones matemáticas que no vamos a comentar ahora. Por el momento nos quedamos con los símbolos básicos de matemáticas que se pueden usar en Python (en realidad, en este lenguaje, se les llama operadores\index{operators}):
+En la consola de Python puedes multiplicar\index{multiplicación} y sumar\index{suma} (obvio), y restar\index{resta} y dividir\index{división}, además de un gran puñado de ootras operaciones matemáticas que no vamos a comentar ahora. Por el momento nos quedamos con los símbolos básicos de matemáticas que se pueden usar en Python (en realidad, en este lenguaje, se les llama operadores\index{operadores}):
 
 \begin{center}
 \begin{tabular}{|c|c|}
@@ -113,7 +113,7 @@ Sin embargo, en Python tienes que escribirlo así ``100 / 20''.
 
 \emph{Lo que es mucho más sencillo, o eso me parece a mi.  Pero bueno, yo soy un libro---¿Qué voy a saber yo?}
 
-\section{El uso de los paréntesis y el ``Orden de las Operaciones''}\index{order of operations}
+\section{El uso de los paréntesis y el ``Orden de las Operaciones''}\index{orden de las operaciones}
 
 En los lenguajes de programación se utilizan los paréntesis para controlar lo que se conoce como el ``Orden de las Operaciones''.  Una operación es cuando se usa un operador (uno de los símbolos de la tabla anterior).  Hay más operadores que esos símbolos básicos, pero para esa lista (suma, resta, multiplicación y división), es suficiente con saber que la multiplicación y la división tiene mayor orden de prioridad que la suma y la resta. Esto significa que en una fórmula, la parte de la multiplicación o la división se calcula antes que la parte de la suma y resta.  En la siguiente fórmula, todos los operadores son sumas (+), en este caso los números se suman en el orden que aparecen de izquierda a derecha:
 
@@ -179,7 +179,7 @@ En este caso se multiplica primero 30 por 20, luego el resultado se divide entre
 
 \emph{Recuerda que la multiplicación y la división siempre van antes que la suma y la resta, a menos que se utilicen paréntesis para controlar el orden de las operaciones.}
 
-\section{No hay nada tan voluble como una variable}\index{variable}
+\section{No hay nada tan voluble como una variable}\index{variables}
 
 Una `variable' es un término de programación que se utiliza para describir un sitio en el que almacenar cosas. Las `cosas' pueden ser números, o textos, o listas de números y textos---y toda clase de otros elementos demasiado numerosos para profundizar aquí. Por el momento, vamos a decir que una variable algo así como un buzón o caja.
 
@@ -266,7 +266,7 @@ este_tambien_es_un_nombre_valido_de_variable_pero_no_muy_util
 \end{verbatim}
 \end{listing}
 
-\section{Utilizando variables}\index{Variables}
+\section{Utilizando variables}\index{variables}
 
 Ya conocemos como crear una variable, ahora ¿Cómo la usamos?  ¿Recuerdas la fórmula que preparamos antes?  Aquella que nos servía para conocer cuánto dinero tendríamos al final de año, si ganabas 5 euros a la semana haciendo tareas, 30 euros a la semana repartiendo periódicos, y gastabas 10 euros por semana.  Por ahora tenemos: 
 
@@ -324,7 +324,7 @@ Solamente te quedarán 884 euros al final de año. Por ahora esto es un poco má
 \noindent
 \emph{¡Piensa en un buzón con una etiqueta en él!}
 
-\section{¿Un trozo de texto?}\index{strings}
+\section{¿Un trozo de texto?}\index{cadenas}
 
 Si has estado prestando atención, y no únicamente leyendo por encima el texto, recordarás que he mencionado que las variables se pueden utilizar para varias cosas---no únicamente para los números. En programación, la mayor parte del tiempo llamamos a los textos `cadenas de caracteres'. Esto puede parecer un poco extraño; pero si piensas que un texto es como un `encadenamiento de letras' (poner juntas las letras), entonces quizá tenga un poco más de sentido para ti.
 
@@ -374,7 +374,7 @@ SyntaxError: EOL while scanning string literal
 \end{verbatim}
 \end{listing}
 
-\index{multi-line string}Hablaremos de los errores más tarde, pero por el momento, si quieres escribir más de una línea de texto, recuerda que tienes que usar 3 comillas simples:
+\index{cadena de varias líneas}Hablaremos de los errores más tarde, pero por el momento, si quieres escribir más de una línea de texto, recuerda que tienes que usar 3 comillas simples:
 
 \begin{listing}
 \begin{verbatim}
@@ -457,7 +457,7 @@ Hola Joe y Jane, ¿Cómo estáis hoy?
 
 Cuando utilizas más de un marcador, necesitas que los valores que se usan para reemplazar las marcas se encuentren entre paréntesis---Así que el modo correcto de pasar 2 variables es (nombre1, nombre2). En Python a un conjunto de valores rodeados de paréntesis se le llama \emph{tupla}, y es algo parecido a una lista, de las que hablaremos a continuación.
 
-\section{No es la lista de la compra}\index{lists}
+\section{No es la lista de la compra}\index{listas}
 
 Huevos, leche, queso, apio, manteca de cahauetes, y levadura. Esto no es una lista de la compra completa, pero nos sirve para nuestros propósitos. Si quisieras almacenar esto en una variable podrías pensar en crear una cadena:
 
@@ -546,7 +546,7 @@ En el ejemplo anterior se crea la variable `lista1' para contener 3 letras, la l
 \noindent
 \emph{Y no únicamente para hacer la compra.}
 
-\subsection*{\color{BrickRed}Sustituyendo elementos}\index{lists!replacing}
+\subsection*{\color{BrickRed}Sustituyendo elementos}\index{listas!reemplazar}
 
 Podemos reemplazar un elemento en la lista asignándole un valor de la misma forma en que se hace con una variable corriente. Por ejemplo, podríamos cambiar el apio por lechuga asignando el valor nuevo a la posición de índice 3:
 
@@ -558,7 +558,7 @@ Podemos reemplazar un elemento en la lista asignándole un valor de la misma for
 \end{verbatim}
 \end{listing}
 
-\subsection*{\color{BrickRed}Añadiendo más elementos...}\index{lists!appending}
+\subsection*{\color{BrickRed}Añadiendo más elementos...}\index{listas!añadir elementos}
 
 Podemos añadir elementos a una lista utilizando el método denominado `append' (que en inglés significa `añadir'). Un método es una acción u orden que le dice a Python que queremos que haga algo. Más tarde hablaremos más de ellos, por el momento, recuerda que para añadir un elemento a nuestra lista de la compra, podemos hacer lo siguiente: 
 
@@ -572,7 +572,7 @@ Podemos añadir elementos a una lista utilizando el método denominado `append' 
 
 Al menos ahora sí que hemos mejorado la lista de la compra.
 
-\subsection*{\color{BrickRed}$\ldots$ y suprimiendo elementos}\index{lists!removing}
+\subsection*{\color{BrickRed}$\ldots$ y suprimiendo elementos}\index{listas!quitar elementos}
 
 Podemos quitar elementos de una lista mediante el uso de la orden `del' (que es una forma corta de escribir delete, que en inglés significa `borrar').  Por ejemplo, para eliminar el sexto elemento de la lista (levadura) podemos escribir:
 
@@ -586,7 +586,7 @@ Podemos quitar elementos de una lista mediante el uso de la orden `del' (que es 
 
 Recuerda que las posiciones comienzan a contar desde cero, por lo que lista\_de\_la\_compra[5] se refiere en realidad al sexto elemento.
 
-\subsection*{\color{BrickRed}2 listas mejor que 1}\index{lists!joining}
+\subsection*{\color{BrickRed}2 listas mejor que 1}\index{listas!unir listas}
 
 Podemos unir listas mediante el operador de suma, como si estuvieramos sumando dos números:
 
@@ -650,7 +650,7 @@ TypeError: unsupported operand type(s) for -: 'type' and 'int'
 \noindent
 El resultado será un mensaje de error bastante feo.
 
-\section{Tuplas y Listas}\label{tuplesandlists}\index{tuples}
+\section{Tuplas y Listas}\label{tuplesandlists}\index{tuplas}
 
 Una tupla (mencionada anteriormente) es una cosa parecida a una lista, la diferencia es que en lugar de utilizar corchetes, utilizas paréntesis---por ejemplo `(' y `)'. Las tuplas funcionan de forma similar a las listas:
 
