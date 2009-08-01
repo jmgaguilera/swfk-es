@@ -6,7 +6,7 @@
 
 \chapter{Cómo preguntar}\label{ch:howtoaskaquestion}
 
-En términos de programación, una pregunta normalmente significa que queremos hacer o una cosa u otra, dependiendo de la respuesta a la pregunta.  A la sentencia que permite esto de la denomina \textbf{sentencia if}\index{if - sentencia}\footnote{En inglés `if' significa `si'}.  Por ejemplo:
+En términos de programación, una pregunta normalmente significa que queremos hacer o una cosa u otra, dependiendo de la respuesta a la pregunta.  A la sentencia que permite esto se la denomina \textbf{sentencia if}\index{if - sentencia}\footnote{En inglés `if' significa `si'}.  Por ejemplo:
 
 \begin{quotation}
 ¿Qué edad tienes?  Si eres mayor de 20 años, ¡eres demasiado viejo!
@@ -281,7 +281,7 @@ Si embargo si lo que asignas a la variable edad es el valor \code{'10'} (observa
 
 \begin{listing}
 \begin{verbatim}
->>> edad = 10
+>>> edad = '10'
 >>> if edad == 10:
 ...     print('tienes 10 años')
 ...
@@ -303,7 +303,7 @@ Si embargo si lo que asignas a la variable edad es el valor \code{'10'} (observa
 
 ¡Ves!  Parecen exactamente lo mismo.  Pero, como uno es una cadena y el otro es un número, son valores diferentes.  Por eso edad == 10 (edad igual a 10) nunca será True (verdadero) cuando la variable edad contiene un valor que es una cadena.
 \par
-Posiblemente la mejor manera de imaginártelo es considerar 10 libros y 10 ladrillos.  El número de elementos puede que sea el mismo, no puedes decir que 10 libros sean igual que 10 ladrillos, ¿o sí?  Afortunadamente en Python existen funciones mágicas que puede convertir cadenas en números y números en cadenas (aunque nunca convertirán ladrillos en libros). Por ejemplo, para convertir la cadena `10' en un número puedes utilizar la función \code{int}:
+Posiblemente la mejor manera de imaginártelo es considerar 10 libros y 10 ladrillos.  El número de elementos puede que sea el mismo, no puedes decir que 10 libros sean igual que 10 ladrillos, ¿o sí?  Afortunadamente en Python existen funciones mágicas que puede convertir cadenas en números y números en cadenas (aunque nunca convertirán ladrillos en libros). Por ejemplo, para convertir la cadena `10' en un número puedes utilizar la función \code{int}\footnote{`int' es la contracción de `integer' que significa `entero' en inglés y se refiere a los números enteros: 0, 1, 2,... y también -1, -2, -3, ...}:
 
 \begin{listing}
 \begin{verbatim}
@@ -313,7 +313,7 @@ Posiblemente la mejor manera de imaginártelo es considerar 10 libros y 10 ladri
 \end{listing}
 
 \noindent
-La variable edad\_convertida contiene el \textbf{número} 10, y no una cadena. Para convertir un número en una cadena, podrías utilizar la función \code{str}:
+La variable edad\_convertida contiene el \textbf{número} 10, y no una cadena. Para convertir un número en una cadena, podrías utilizar la función \code{str}\footnote{`str' es la contracción de `string' que significa `cadena' en inglés}:
 
 \begin{listing}
 \begin{verbatim}
