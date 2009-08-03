@@ -6,7 +6,6 @@
 \documentclass[12pt,leqno,a4paper,spanish]{book}
 \usepackage[dvips]{graphicx}
 \usepackage[usenames]{color}
-\usepackage[colorlinks,pdfauthor={Jason R Briggs},pdftitle={Snake Wrangling for Kids - Learning to Program with Python},pdfsubject={Programming for Kids},pdfkeywords={python,kids,programming}]{hyperref}
 \usepackage{longdiv}
 \usepackage{makeidx}
 \usepackage{versions}
@@ -15,6 +14,13 @@
 \usepackage{eso-pic}
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
+\usepackage[colorlinks,unicode]{hyperref}
+\hypersetup{
+    pdfauthor={Jos\'{e} Miguel Gonz\'{a}lez Aguilera},
+    pdftitle={Doma de Serpientes para Ni\~{n}os - Aprendiendo a Programar con Python},
+    pdfsubject={Programaci\'{o}n para ni\~{n}os},
+    pdfkeywords={python,ni\~{n}os,programaci\'{o}n}
+}
 
 \parindent 1cm
 \parskip 0.2cm
@@ -41,7 +47,7 @@
 \@MAC_INC@version{MAC}
 \@LINUX_INC@version{LINUX}
 
-\title{Snake Wrangling for Kids - Learning to Program with Python}
+\title{Doma de Serpientes para Niños - Aprendiendo a Programar con Python}
 \author{Jason R Briggs}
 
 \makeindex

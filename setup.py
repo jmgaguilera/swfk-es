@@ -29,8 +29,9 @@ dvipdf = find_executable('dvipdf')
 # Get the book version
 #
 s = open('frontmatter.tex').read()
-mat = re.compile(r'Versión\s*(.*)').search(s)
-version = mat.group(1)
+mat = re.compile(r'Versión\s*(.*)').findall(s)
+version = mat[1]
+versionPDF = version
 
 if not os.path.exists(target_dir):
     os.mkdir(target_dir)
@@ -104,21 +105,21 @@ class LatexCommand(Command):
             except:
                 pass
 
-            pdf = '%s/swfk-%s-%s%s.pdf' % (target_dir, platform, version, fname_suffix)
+            pdf = '%s/swfk-es-%s-%s%s.pdf' % (target_dir, platform, version, fname_suffix)
             spawn([dvipdf, '%s/swfk.dvi' % target_dir, pdf])
 
-            zf = ZipFile('%s/swfk-%s-%s%s.zip' % (target_dir, platform, version, fname_suffix), 'w')
+            zf = ZipFile('%s/swfk-es-%s-%s%s.zip' % (target_dir, platform, version, fname_suffix), 'w')
             zf.write(pdf)
             zf.close()
 
 
 setup(
-    name = 'SWFK',
-    version = '1.00',
-    description = 'Snake Wrangling For Kids',
+    name = 'SWFK-ES',
+    version = versionPDF,
+    description = 'Doma de Serpientes Para Niños',
 
-    author = 'Jason R Briggs',
-    author_email =  'jason@briggs.net.nz',
+    author = 'José Miguel González Aguilera',
+    author_email =  'jmgaguilera@gmail.com',
 
     cmdclass = { 'clean': CleanCommand, 'build' : LatexCommand }
 
