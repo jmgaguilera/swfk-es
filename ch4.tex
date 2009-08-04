@@ -22,6 +22,16 @@ if edad > 20:
 \end{listing}
 
 Un sentencia if se compone de un `if' seguido una 'condición' (explicaremos lo que es una condición en breve), seguido de dos puntos (:).  Las líneas siguientes deben formar un bloque---y si la respuesta a la condición es `sí' (En términos de programación decimos que si la respuesta a la condición es True\footnote{En inglés `True' significa `Verdadero'}) se ejecutarán las sentencias del bloque.
+
+En la figura~\ref{if1} se muestra el flujo de ejecución del ejemplo anterior. las líneas gruesas contínuas muestran lo que se ejecuta, las líneas discontínuas muestran caminos posibles que en este ejemplo no se ejecutan.  En este capítulo se mostrarán más diagramas como el de la figura para tratar de explicarte de forma gráfica, con caminos que son como calles, cómo se ejecutan los ejemplos. Presta mucha atención a este primer ejemplo y no avances hasta que lo entiendas bien.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{if1.eps}
+\end{center}
+\caption{Diagrama de ejecución de la sentencia if}\label{if1}
+\end{figure}
+
 \par
 Una condición\index{condiciones} es un cálculo de programación cuyo resultado es `Sí' (True) o `No' (False).  Hay ciertos símbolos (u operadores) que se utilizan para crear condiciones, como son:
 
@@ -72,7 +82,16 @@ Si teclearas el ejemplo anterior en la consola, ¿Qué sucedería?
 Nada.
 \par
 \noindent
-El valor de la variable \code{edad} no es mayor que 10, por eso el bloque interior a la sentencia if (la sentencia print) no se ejecutará. Y qué pasará con el siguiente ejemplo:
+El valor de la variable \code{edad} no es mayor que 10, por eso el bloque interior a la sentencia if (la sentencia print) no se ejecutará. Se puede observar lo que sudece en la figura~\ref{if2}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{if2.eps}
+\end{center}
+\caption{Otro flujo de ejecución de una sentencia if.}\label{if2}
+\end{figure}
+
+Y qué pasará con el siguiente ejemplo:
 
 \begin{listing}
 \begin{verbatim}
@@ -82,7 +101,16 @@ El valor de la variable \code{edad} no es mayor que 10, por eso el bloque interi
 \end{verbatim}
 \end{listing}
 
-Si pruebas este ejemplo en la consola, entonces deberías ver el mensaje `llegué aquí' impreso en la consola.  Lo mismo sucederá con el siguiente ejemplo:
+Si pruebas este ejemplo en la consola, entonces deberías ver el mensaje `llegué aquí' impreso en la consola. La figura~\ref{if3} muestra la ejecución.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{if3.eps}
+\end{center}
+\caption{Otro flujo de ejecución del ejemplo anterior.}\label{if3}
+\end{figure}
+
+Lo mismo sucederá con el siguiente ejemplo:
 
 \begin{listing}
 \begin{verbatim}
@@ -92,6 +120,15 @@ Si pruebas este ejemplo en la consola, entonces deberías ver el mensaje `llegu�
 llegué aquí
 \end{verbatim}
 \end{listing}
+
+Que se muestra en la figura~\ref{if4}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{if4.eps}
+\end{center}
+\caption{Otro flujo más.}\label{if4}
+\end{figure}
 
 \section{Haz esto$\ldots$ o ¡¡¡SI NO!!!}
 
@@ -108,7 +145,17 @@ Hola
 \end{verbatim}
 \end{listing}
 
-Teclea el ejemplo anterior y verás la palabra `Hola' en la consola.  Cambia el valor de la variable \code{edad} a otro número y verás que se imprime la palabra `Adiós':
+
+Teclea el ejemplo anterior y verás la palabra `Hola' en la consola. El diagrama de ejecución de este ejemplo es como se muestra en la figura~\ref{if5}. 
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{if5.eps}
+\end{center}
+\caption{Flujo de ejecución de una setencia if-else.}\label{if5}
+\end{figure}
+
+Cambia el valor de la variable \code{edad} a otro número y verás que se imprime la palabra `Adiós':
 
 \begin{listing}
 \begin{verbatim}
@@ -121,6 +168,15 @@ Teclea el ejemplo anterior y verás la palabra `Hola' en la consola.  Cambia el 
 Adiós
 \end{verbatim}
 \end{listing}
+
+Ahora la edad no es 12 por lo que la ejecución varía. El digrama de la figura~\ref{if6} muestra que la ejecución ahora es diferente al de la figura~\ref{if5}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{if6.eps}
+\end{center}
+\caption{Flujo de ejecución que sigue el camino del else.}\label{if6}
+\end{figure}
 
 \section{Haz esto$\ldots$ o haz esto$\ldots$ o haz esto$\ldots$ o ¡¡¡SI NO!!!}
 
@@ -146,6 +202,15 @@ Podemos extender aún más la sentencia if utilizando elif (contracción de else
 
 En el código anterior, la línea 2 pregunta si el valor de la variable edad es igual a 10.  Si no lo es, entonces salta a la línea 4 sin ejecutar la 3. En la línea 4 valida si el valor de la variable edad es igual a 11. De nuevo no lo es, por eso salta a la línea 6 sin ejecutar la 5.  Este caso, comprueba el valor y sí que es igual a 12.  Por eso Python ejecuta el bloque de la línea 7, y ejecuta esa sentencia print.  (Espero que te hayas dado cuenta de que hay 5 grupos en este código---líneas 3, 5, 7, 9 y 11).  Después, una vez ejecutado un bloque, no se pregunta por ninguna de las condiciones que están después y se salta al final de todos los if, después del else en la línea 12.
 
+¿Complicado? Un poco. Observa la figura~\ref{if7} para tratar de entenderlo un poco mejor.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{if7.eps}
+\end{center}
+\caption{Múltiples caminos posibles gracias al uso de elif.}\label{if7}
+\end{figure}
+
 \section{Combinando condiciones}\index{condiciones!combinando}
 Puedes combinar condiciones utilizando las palabras `and' y `or'\footnote{En inglés significan `Y' y `O'}. Así podemos comprimir el ejemplo anterior un poco, utilizando `or' para unir condiciones:
 
@@ -160,6 +225,15 @@ Puedes combinar condiciones utilizando las palabras `and' y `or'\footnote{En ing
 
 Si alguna de las condiciones de la línea 1 es verdadera (por ejemplo, si la variable edad vale 10 \textbf{o} vale 11 \textbf{o} vale 12 \textbf{o} vale 13), entonces se ejecuta el bloque de código de la línea 2, en otro caso Python continúa en la línea 4.  
 
+El diagrama de la figura~\ref{if8} muestra que el or es parecido al elif en la forma en la que se comprueba cada parte de la condición. Basta con que una de ellas sea cierta para que se ejecute el bloque que contiene el if. En caso de no ser ninguna cierta se ejecuta el bloque de sentencias del else.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{if8.eps}
+\end{center}
+\caption{Condiciones complejas usando \emph{or}.}\label{if8}
+\end{figure}
+
 Aún podemos mejorar un poquito más el ejemplo mediante el uso de la palabra `and' y los símbolos $>$= y $<$=.
 
 \begin{listing}
@@ -172,6 +246,15 @@ Aún podemos mejorar un poquito más el ejemplo mediante el uso de la palabra `a
 \end{listing}
 
 Seguramente te has figurado ya que si son verdaderas (True) \textbf{ambas} condiciones de la línea 1 entonces se ejecuta el bloque de código de la línea 2 (si la edad es mayor o igual que 10 \textbf{y} menor o igual que 13). Así que si la variable edad vale 12, se mostrará en la consola la frase `tienes 12 años': puesto que 12 es mayor o igual que 10 y menor o igual que 13.  
+
+El diagrama de la figura~\ref{if9} muestra que el uso del and hace que sea necesario cumplir todas las condiciones incluidas para que se pueda ejecutar el bloque de sentencias del if. En cuanto haya una condición que no se cumpla se ejecuta en su lugar el bloque de sentencias correspondiente al else.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{if9.eps}
+\end{center}
+\caption{Condiciones complejas usando \emph{and}.}\label{if9}
+\end{figure}
 
 \section{Vacío}\index{None}
 
