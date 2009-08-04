@@ -84,9 +84,6 @@ print('hola %s' % x)
 
 Así que la sentencia for, que nos permite hacer un bucle, nos ha ahorrado tener que teclear 8 líneas extra de código.  Esto es muy útil, puesto que un programador normal, cuando tiene que teclear, es más perezoso que un hipopótamo en un día de calor. Los buenos programadores odian tener que hacer las cosas más de una vez, por eso la sentencia for es una de las más útiles en cualquier lenguaje de programación.
 
-\fbox{\colorbox{PaleBlue}{\parbox{.75\linewidth} {
-\subsection*{¡¡¡AVISO!!!}
-
 Si has intentado teclear los ejemplos anteriores sobre la marcha, podría ser que Python te haya mostrado un extraño mensaje de error cuando introdujiste el código dentro del for-loop.  Si fue así se parecería a esto:
 
 \begin{listing}
@@ -136,6 +133,18 @@ levadura
 \end{listing}
 
 Gracias al bucle nos hemos ahorrado tener que teclear un montón de código.
+
+La figura~\ref{for} trata de explicar de forma gráfica el funcionamiento del bucle for. Python llega al bucle for y observa la lista. Lo primero que hace es iniciar un contador interno que nosotros no vemos nunca pero que a Python le vale para saber por dónde va ejecutando el bucle y cuándo tiene que terminar. Luego, antes de hacer ninguna sentencia del bloque interior lo siguiente que hace es comprobar que el contador no ha llegado al final de la lista. Esto lo hace incluso la primera vez. Ten en cuenta que la lista podría no tener ningún elemento (podría estar vacía). Si aún quedan elementos, el contador es menor que el número de elementos de la lista, entonces asigna a la variable que hemos dicho el elemento correspondiente de lista y ejecuta el bloque de la setencia for una vez. Finalizada la ejecución del bloque, incrementa en uno el contador y vuelve al comienzo a preguntar si el contador es menor que el número de elementos. Así se ejecuta, tantas veces como elementos haya en la lista. Cuando el contador ya no sea menor que los elementos de la lista el bucle for termina.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{for.eps}
+\end{center}
+\caption{Dando vueltas en un bucle for.}\label{for}
+\end{figure}
+
+\fbox{\colorbox{PaleBlue}{\parbox{.75\linewidth} {
+\subsection*{¡¡¡AVISO!!!}
 
 \section{¿Cuándo un bloque no es cuadrado?}\index{bloques de código}
 
@@ -508,6 +517,15 @@ Así que los pasos de un bucle while son fundamentalmente:
 \item ejecutar el bloque,
 \item volver al comienzo del bucle
 \end{itemize}}
+
+Si lo vemos, como en los ejemplos anteriores, con un diagrama, el bucle while funciona según se observa en la figura~\ref{while}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=72mm]{while.eps}
+\end{center}
+\caption{Dando vueltas en un bucle while.}\label{while}
+\end{figure}
 
 Es común que sea necesario crear bucles while que requieran más de una condición, por ejemplo un par de ellas:
 
