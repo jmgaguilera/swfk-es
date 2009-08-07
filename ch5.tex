@@ -479,6 +479,42 @@ Semana 15 = 375
 
 $\ldots$y así hasta la semana 52.
 
+\section{Saliendo de un bucle antes de tiempo}\index{palabras clave o reservadas!break}
+
+La palabra reservada \textbf{break} se utiliza para parar la ejecución del bucle. Puedes utilizar la sentencia break dentro de un bucle for o while como en el siguiente ejemplo:
+
+\begin{listing}
+\begin{verbatim}
+>>> edad = 10
+>>> for x in range(1, 100):
+...     print('contando %s' % x)
+...     if x == edad:
+...         print('fin de la cuenta')
+...         break
+\end{verbatim}
+\end{listing}
+
+Si la variable `edad' tuviera el valor 10, este código imprimiría:
+
+\begin{listing}
+\begin{verbatim}
+contando 1
+contando 2
+contando 3
+contando 4
+contando 5
+contando 6
+contando 7
+contando 8
+contando 9
+contando 10
+fin de la cuenta
+\end{verbatim}
+\end{listing}
+
+A pesar de que la cuenta del bucle for está prevista para 100 elementos. Existe una sentencia if que en cada paso del bucle for comprueba si la edad es igual a x. En el momento en que x coincide con edad (en este ejemplo es el número 10) se ejecuta el código de la sentencia if que es un print y un break. La sentencia break hace que se acabe el bucle for.
+
+
 \section{Mientras hablamos sobre bucles$\ldots$}\index{while - bucle}
 
 El bucle for no es la única clase de bucle que puede existir en Python. También existe el bucle while. Si en el bucle for se sabe exactamente el momento en que se finaliza, en el bucle while no se conoce necesariamente cuántas veces se ejecutará el mismo. Imagina una escalera de 20 escalones.  Sabes que puedes subirlos fácilmente.  Eso es un bucle for.
