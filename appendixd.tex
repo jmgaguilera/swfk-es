@@ -184,9 +184,9 @@ Son ¡3 euros!    No está mal, teniendo en cuenta que no hemos tenido que hacer
 \begin{verbatim}
 >>> ahorros = 100
 >>> for anyo in range(1, 11):
-...     interes = ahorro * 0.03
+...     interes = ahorros * 0.03
 ...     print('el interés ganado en el año %s es %s' % (anyo, interes))
-...     ahorro = ahorro + interes
+...     ahorros = ahorros + interes
 ... 
 el interés ganado en el año 1 es 3.0
 el interés ganado en el año 2 es 3.09
@@ -212,7 +212,7 @@ El código que hemos escrito podría ser un poco más útil si mostrase la canti
 ...     interes = ahorros * 0.03
 ...     print('el interés ganado para unos ahorros de %s en el año %s es %s' % 
 ...         (ahorros, anyo, interes))
-...     ahorro = ahorro + interes
+...     ahorros = ahorros + interes
 ... 
 el intereś ganado para unos ahorros de 100 en el año 1 es 3.0
 el intereś ganado para unos ahorros de 103.0 en el año 2 es 3.09

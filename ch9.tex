@@ -42,7 +42,7 @@ Este módulo se llama \code{Tkinter}\index{módulos!Tkinter} (es un nombre extra
 \end{verbatim}
 \end{listing}
 
-En la línea 2 importamos el contenido del módulo \code{Tk} para que podamos usarlos\footnote{La diferencia entre `import Tkinter' y `from Tkinter import *' es que con la primera sentencia se importa el módulo pero es necesario utilizar el nombre el módulo para usar las funciones y objetos que están dentro de él (Tkinter.Tk() o Tkinter.Button($\ldots$), y con la segunda sentencia se importa el módulo pero no es necesario usar el nombre del mismo para usarlas (Tk() o Button($\ldots$)}. En la segunda línea usamos una de las funciones más útiles del módulo, \code{Tk}, que crea una ventana de las que se dibujan en la pantalla a la que podemos añadir cosas.  Después de teclear la línea 2 verás que la ventana aparece instantáneamente en la pantalla. En la línea 3 creamos un objeto botón y lo asignamos a la variable \code{btn}.  El botón se crea mediante una función a la que se le pasa la ventana (el objeto creado anteriormente con Tk()) y una cadena que lleva el texto `Púlsame'.
+En la línea 1S importamos el contenido del módulo \code{Tk} para que podamos usarlos\footnote{La diferencia entre `import Tkinter' y `from Tkinter import *' es que con la primera sentencia se importa el módulo pero es necesario utilizar el nombre el módulo para usar las funciones y objetos que están dentro de él (Tkinter.Tk() o Tkinter.Button($\ldots$), y con la segunda sentencia se importa el módulo pero no es necesario usar el nombre del mismo para usarlas (Tk() o Button($\ldots$)}. En la segunda línea usamos una de las funciones más útiles del módulo, \code{Tk}, que crea una ventana de las que se dibujan en la pantalla a la que podemos añadir cosas.  Después de teclear la línea 2 verás que la ventana aparece instantáneamente en la pantalla. En la línea 3 creamos un objeto botón y lo asignamos a la variable \code{btn}.  El botón se crea mediante una función a la que se le pasa la ventana (el objeto creado anteriormente con Tk()) y una cadena que lleva el texto `Púlsame'.
 
 \par
 \fbox{\colorbox{PaleBlue}{\parbox{.75\linewidth} {
@@ -103,7 +103,7 @@ Los botones no son muy útiles cuando lo que quieres es dibujar en la pantalla--
 \end{verbatim}
 \end{listing}
 
-Como en el caso del botón, al escribir la línea 2 se muestra una ventana en pantalla. La empaquetar (`pack') el lienzo en la línea cuatro se incrementará su tamaño para que quepa el lienzo (de 500x500) en la ventana.
+Como en el caso del botón, al escribir la línea 2 se muestra una ventana en pantalla. Al empaquetar (`pack') el lienzo en la línea cuatro se incrementará su tamaño para que quepa el lienzo (de 500x500) en la ventana.
 
 Ahora podemos dibujar una línea en el lienzo utilizando las coordenadas de los píxeles.  Las coordenadas indican la posición de los píxeles en un lienzo.  En un lienzo del módulo Tk, las coordenadas indican la distancia del los píxeles en relación con la esquina superior izquierda del mismo. En otras palabras, el pixel 0,0 está situado en la esquina superior izquierda del lienzo.  
 
